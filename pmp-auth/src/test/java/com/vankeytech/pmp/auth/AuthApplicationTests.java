@@ -18,12 +18,16 @@ public class AuthApplicationTests {
 
 	@Autowired
 	private UserService userService;
-	List<User> list;
+	private List<User> list;
 	/**
 	 * 单元测试前执行
 	 */
+	private User users=new User();
 	@Before
 	public void  before(){
+        users.setUserName("王五");
+        users.setUserId(1L);
+
 
 	}
 
@@ -40,6 +44,7 @@ public class AuthApplicationTests {
 
 	@Test
 	public void contextLoads() {
+        userService.updateByPrimaryKey(users);
 		list=userService.selectAll();
 
 	}
