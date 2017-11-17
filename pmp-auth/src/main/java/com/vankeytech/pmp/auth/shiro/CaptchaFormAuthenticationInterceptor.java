@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 带验证码的表单验证拦截器  
- * @author chenqiu
+ * @author xieliang
  *
  */
 public class CaptchaFormAuthenticationInterceptor extends FormAuthenticationFilter implements HandlerInterceptor {

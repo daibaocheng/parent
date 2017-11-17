@@ -15,10 +15,10 @@ import java.util.Map;
  * @author  xieliang
  */
 
-//@Configuration
+@Configuration
 public class ShiroConfig {
 
-    //@Bean
+    @Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
 
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
@@ -33,7 +33,7 @@ public class ShiroConfig {
         //<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
         filterChainDefinitionMap.put("/**", "authc");
         // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/login");
+        shiroFilterFactoryBean.setLoginUrl("/login.html");
         // 登录成功后要跳转的链接
         shiroFilterFactoryBean.setSuccessUrl("/index");
 
@@ -43,13 +43,12 @@ public class ShiroConfig {
         return shiroFilterFactoryBean;
     }
 
-
     /**
      * HashedCredentialsMatcher，这个类是为了对密码进行编码的，
      * 防止密码在数据库里明码保存，当然在登陆认证的时候，
      * 这个类也负责对form里输入的密码进行编码。
      */
-  //  @Bean(name = "hashedCredentialsMatcher")
+    @Bean(name = "hashedCredentialsMatcher")
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher credentialsMatcher = new HashedCredentialsMatcher();
         credentialsMatcher.setHashAlgorithmName("MD5");
@@ -61,7 +60,7 @@ public class ShiroConfig {
      * 配置realm
      * @return
      */
-  //  @Bean
+    @Bean
     public ShiroDbRealm myShiroRealm(){
         ShiroDbRealm myShiroRealm = new ShiroDbRealm();
         return myShiroRealm;
@@ -71,7 +70,7 @@ public class ShiroConfig {
      * 配置核心管理器
      * @return
      */
-  //  @Bean
+    @Bean
     public SecurityManager securityManager(){
         DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
         securityManager.setRealm(myShiroRealm());

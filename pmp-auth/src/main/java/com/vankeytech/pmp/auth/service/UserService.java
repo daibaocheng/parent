@@ -9,5 +9,4 @@ import com.vankeytech.pmp.auth.entity.User;
  */
 public interface UserService extends Service<User> {
 
-    void add(User user);
 }

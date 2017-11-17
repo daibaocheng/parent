@@ -7,14 +7,9 @@ import com.vankeytech.pmp.auth.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 @Service
-
 public class UserServiceImpl extends BaseService<User> implements UserService {
-    @Override
-    public void add(User user) {
-
-    }
-
     public UserServiceImpl(UserMapper userMapper) {
         super(userMapper);
     }
