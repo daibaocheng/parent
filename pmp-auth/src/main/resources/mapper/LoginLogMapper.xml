@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.auth.mapper.LoginLogMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.auth.entity.LoginLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="log_id" jdbcType="BIGINT" property="logId" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="login_operation_name" jdbcType="VARCHAR" property="loginOperationName" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+  </resultMap>
+</mapper>

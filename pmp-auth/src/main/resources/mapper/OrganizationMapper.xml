@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.auth.mapper.OrganizationMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.auth.entity.Organization">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="organization_id" jdbcType="BIGINT" property="organizationId" />
+    <result column="organization_name" jdbcType="VARCHAR" property="organizationName" />
+    <result column="organization_type" jdbcType="VARCHAR" property="organizationType" />
+    <result column="organization_describe" jdbcType="VARCHAR" property="organizationDescribe" />
+    <result column="organization_location" jdbcType="VARCHAR" property="organizationLocation" />
+    <result column="organization_address" jdbcType="VARCHAR" property="organizationAddress" />
+    <result column="organization_phone" jdbcType="VARCHAR" property="organizationPhone" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="pid" jdbcType="BIGINT" property="pid" />
+  </resultMap>
+</mapper>
