@@ -12,5 +12,7 @@
     <result column="permission_url" jdbcType="VARCHAR" property="permissionUrl" />
     <result column="permission_describe" jdbcType="VARCHAR" property="permissionDescribe" />
     <result column="menu_icon" jdbcType="VARCHAR" property="menuIcon" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
 </mapper>

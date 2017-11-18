@@ -3,7 +3,7 @@ package com.vankeytech.pmp.auth.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "pmp_operation_log")
+@Table(name = "auth_operation_log")
 public class OperationLog {
     /**
      * 操作日志的id编号
@@ -37,7 +37,7 @@ public class OperationLog {
     private String operationMethod;
 
     /**
-     * 操作结果 成功和失败
+     * 操作结果 成功或失败
      */
     @Column(name = "operation_result")
     private String operationResult;
@@ -47,6 +47,30 @@ public class OperationLog {
      */
     @Column(name = "area_name")
     private String areaName;
+
+    /**
+     * 车牌号
+     */
+    @Column(name = "plate_number")
+    private String plateNumber;
+
+    /**
+     * 所操作的模块
+     */
+    @Column(name = "module_name")
+    private String moduleName;
+
+    /**
+     * 操作属于哪个管理模块
+     */
+    @Column(name = "interface_name")
+    private String interfaceName;
+
+    /**
+     * 日志导出时间
+     */
+    @Column(name = "exported_at")
+    private Date exportedAt;
 
     /**
      * 获取操作日志的id编号
@@ -139,18 +163,18 @@ public class OperationLog {
     }
 
     /**
-     * 获取操作结果 成功和失败
+     * 获取操作结果 成功或失败
      *
-     * @return operation_result - 操作结果 成功和失败
+     * @return operation_result - 操作结果 成功或失败
      */
     public String getOperationResult() {
         return operationResult;
     }
 
     /**
-     * 设置操作结果 成功和失败
+     * 设置操作结果 成功或失败
      *
-     * @param operationResult 操作结果 成功和失败
+     * @param operationResult 操作结果 成功或失败
      */
     public void setOperationResult(String operationResult) {
         this.operationResult = operationResult;
@@ -172,5 +196,77 @@ public class OperationLog {
      */
     public void setAreaName(String areaName) {
         this.areaName = areaName;
+    }
+
+    /**
+     * 获取车牌号
+     *
+     * @return plate_number - 车牌号
+     */
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    /**
+     * 设置车牌号
+     *
+     * @param plateNumber 车牌号
+     */
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
+    /**
+     * 获取所操作的模块
+     *
+     * @return module_name - 所操作的模块
+     */
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    /**
+     * 设置所操作的模块
+     *
+     * @param moduleName 所操作的模块
+     */
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
+    }
+
+    /**
+     * 获取操作属于哪个管理模块
+     *
+     * @return interface_name - 操作属于哪个管理模块
+     */
+    public String getInterfaceName() {
+        return interfaceName;
+    }
+
+    /**
+     * 设置操作属于哪个管理模块
+     *
+     * @param interfaceName 操作属于哪个管理模块
+     */
+    public void setInterfaceName(String interfaceName) {
+        this.interfaceName = interfaceName;
+    }
+
+    /**
+     * 获取日志导出时间
+     *
+     * @return exported_at - 日志导出时间
+     */
+    public Date getExportedAt() {
+        return exportedAt;
+    }
+
+    /**
+     * 设置日志导出时间
+     *
+     * @param exportedAt 日志导出时间
+     */
+    public void setExportedAt(Date exportedAt) {
+        this.exportedAt = exportedAt;
     }
 }

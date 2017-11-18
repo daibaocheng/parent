@@ -3,7 +3,7 @@ package com.vankeytech.pmp.auth.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "pmp_organization")
+@Table(name = "auth_organization")
 public class Organization {
     /**
      * id
@@ -58,6 +58,12 @@ public class Organization {
      * 上级组织
      */
     private Long pid;
+
+    /**
+     * 更新部门信息时间
+     */
+    @Column(name = "updated_at")
+    private Date updatedAt;
 
     /**
      * 获取id
@@ -219,5 +225,23 @@ public class Organization {
      */
     public void setPid(Long pid) {
         this.pid = pid;
+    }
+
+    /**
+     * 获取更新部门信息时间
+     *
+     * @return updated_at - 更新部门信息时间
+     */
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    /**
+     * 设置更新部门信息时间
+     *
+     * @param updatedAt 更新部门信息时间
+     */
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

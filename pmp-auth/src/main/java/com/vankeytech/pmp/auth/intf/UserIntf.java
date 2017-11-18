@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  *
- * @author
+ * @author xieliang
  */
 public interface UserIntf {
     /**
@@ -57,25 +57,24 @@ public interface UserIntf {
 
     /**
      * 更新用户的所管理的小区
-     * @param ids
+     * @param user
      */
-    void updateEareId(Integer ids);
+    void updateAeaId(User user);
 
     /**
      * 条件查询 根据用户或者注册名查询
      *
-     * @param  name  用户名称或者注册名称
+     * @param  user  用户名称或者注册名称
      * @return  用户集合
      */
-    List<User> selecteByName(String  name);
+    List<User> selecteByName(User user);
 
     /**
      * 根据所在部门和 用户名或注册名查询
-     * @param departmentId  部门id
-     * @param name   用户名或注册名
+     * @param user
      * @return
      */
-    List<User> selectByCondition(String departmentId, String name);
+    List<User> selectByCondition(User user);
 
     /**
      * 为用户授予角色

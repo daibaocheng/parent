@@ -6,10 +6,12 @@
       WARNING - @mbg.generated
     -->
     <id column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="role_type" jdbcType="VARCHAR" property="roleType" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     <result column="role_describe" jdbcType="VARCHAR" property="roleDescribe" />
     <result column="role_status" jdbcType="INTEGER" property="roleStatus" />
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="pid" jdbcType="BIGINT" property="pid" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
 </mapper>

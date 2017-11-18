@@ -3,7 +3,7 @@ package com.vankeytech.pmp.auth.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "pmp_login_log")
+@Table(name = "auth_login_log")
 public class LoginLog {
     /**
      * 登录日志的id编号
@@ -35,6 +35,12 @@ public class LoginLog {
      */
     @Column(name = "user_id")
     private Long userId;
+
+    /**
+     * 导出时间
+     */
+    @Column(name = "exported_at")
+    private Date exportedAt;
 
     /**
      * 获取登录日志的id编号
@@ -124,5 +130,23 @@ public class LoginLog {
      */
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    /**
+     * 获取导出时间
+     *
+     * @return exported_at - 导出时间
+     */
+    public Date getExportedAt() {
+        return exportedAt;
+    }
+
+    /**
+     * 设置导出时间
+     *
+     * @param exportedAt 导出时间
+     */
+    public void setExportedAt(Date exportedAt) {
+        this.exportedAt = exportedAt;
     }
 }
