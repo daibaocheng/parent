@@ -5,7 +5,7 @@ dubbo:
   appname: pmp-ims-provider # dubbo应用名
   protocol:
     name: dubbo             # dubbo协议名，不用改
-    port: 20887             # dubbo对外提供接口的端口号
+    port: 20886             # dubbo对外提供接口的端口号
 
 # 开发环境
 ---
