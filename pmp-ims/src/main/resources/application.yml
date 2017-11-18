@@ -1,12 +1,13 @@
 spring:
   profiles:
-    active: dev
+    active: dev   # 默认运行环境
 dubbo:
-  appname: pmp-ims-provider
+  appname: pmp-ims-provider # dubbo应用名
   protocol:
-    name: dubbo
-    port: 20887
+    name: dubbo             # dubbo协议名，不用改
+    port: 20887             # dubbo对外提供接口的端口号
 
+# 开发环境
 ---
 spring:
   profiles: dev
@@ -16,6 +17,7 @@ dubbo:
     - N/A
     - N/A
 
+#测试环境
 ---
 spring:
   profiles: test
