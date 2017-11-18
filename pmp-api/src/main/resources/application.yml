@@ -1,2 +1,33 @@
 server:
   port: 8081
+
+spring:
+  profiles:
+    active: dev   # 默认运行环境
+dubbo:
+  appname: pmp-api-consumer # dubbo应用名
+  protocol:
+    name: dubbo             # dubbo协议名，不用改
+    port: 20886             # dubbo对外提供接口的端口号
+
+# 开发环境
+---
+spring:
+  profiles: dev
+dubbo:
+  debug: dubbo://localhost:20886
+  register: false
+  registry:
+    - N/A
+    - N/A
+
+#测试环境
+---
+spring:
+  profiles: test
+dubbo:
+  debug:
+  register: true
+  registry:
+    - zookeeper://192.168.0.100:2181
+    - zookeeper://192.168.0.101:2181
