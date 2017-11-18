@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: dev
+dubbo:
+  appname: pmp-ims-provider
+  protocol:
+    name: dubbo
+    port: 20887
+
+---
+spring:
+  profiles: dev
+dubbo:
+  register: false
+  registry:
+    - N/A
+    - N/A
+
+---
+spring:
+  profiles: test
+dubbo:
+  register: true
+  registry:
+    - zookeeper://192.168.0.100:2181
+    - zookeeper://192.168.0.101:2181

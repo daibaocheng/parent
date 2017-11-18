@@ -8,6 +8,13 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<properties>
+		<dubbo.ver>2.5.7</dubbo.ver>
+		<zookeeper.ver>3.4.11</zookeeper.ver>
+		<zkclient.ver>0.1</zkclient.ver>
+		<spring.ver>1.5.8.RELEASE</spring.ver>
+	</properties>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -25,12 +32,6 @@
 		<module>pmp-ims</module>
 		<module>pmp-pms</module>
 	</modules>
-
-	<properties>
-		<dubbo.ver>2.5.7</dubbo.ver>
-		<zookeeper.ver>3.4.11</zookeeper.ver>
-		<zkclient.ver>0.1</zkclient.ver>
-	</properties>
 
 	<dependencyManagement>
 		<dependencies>
