@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.auth.mapper.PermissionMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.auth.entity.Permission">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="permission_id" jdbcType="BIGINT" property="permissionId" />
+    <result column="permission_name" jdbcType="VARCHAR" property="permissionName" />
+    <result column="pid" jdbcType="BIGINT" property="pid" />
+    <result column="permission_level" jdbcType="INTEGER" property="permissionLevel" />
+    <result column="permission_url" jdbcType="VARCHAR" property="permissionUrl" />
+    <result column="permission_describe" jdbcType="VARCHAR" property="permissionDescribe" />
+    <result column="menu_icon" jdbcType="VARCHAR" property="menuIcon" />
+  </resultMap>
+</mapper>

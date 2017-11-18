@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.auth.mapper.RoleMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.auth.entity.Role">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="role_describe" jdbcType="VARCHAR" property="roleDescribe" />
+    <result column="role_status" jdbcType="INTEGER" property="roleStatus" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="pid" jdbcType="BIGINT" property="pid" />
+  </resultMap>
+</mapper>
