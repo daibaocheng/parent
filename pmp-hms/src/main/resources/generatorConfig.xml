@@ -44,7 +44,7 @@
         <table tableName="hms_user" domainObjectName="User">
             <generatedKey column="user_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <!--<table tableName="hms_user_building" domainObjectName="User" />-->
+        <table tableName="hms_user_building" domainObjectName="UserBuilding" />
         <table tableName="hms_user_type" domainObjectName="UserType">
             <generatedKey column="user_type_id" sqlStatement="Mysql" identity="true" />
         </table>
