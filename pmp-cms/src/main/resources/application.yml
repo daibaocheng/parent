@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.100:3306/pmp_cms?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: pmp_dev
+    password: pmp2017@DEV
+
+#    redis:
+#            host: 192.168.0.100
+#            port: 6379
+#            password: vankey#2017
+#            database: 8
+#            pool:
+#                max-active: 1000
+#                maxWait: 5000
+#                maxIdle: 20
+#                min-idle: 0
+#            timeout: 0
+
+mybatis:
+    mapperLocations: classpath:mapper/*.xml
+    typeAliasesPackage: com.vankeytech.pmp.cms.entity
