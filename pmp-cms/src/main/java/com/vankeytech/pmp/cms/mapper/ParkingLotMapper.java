@@ -43,5 +43,4 @@ public interface ParkingLotMapper extends Mapper<ParkingLot> {
      */
     List<ParkingLot> selectAllParkingLot();
 
-
 }
