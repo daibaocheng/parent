@@ -142,12 +142,7 @@
 						<version>3.4.3</version>
 					</dependency>
 				</dependencies>
-
 			</plugin>
-		</plugins>
-	</build>
-	<build>
-		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
