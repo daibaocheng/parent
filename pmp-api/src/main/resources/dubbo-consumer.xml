@@ -10,4 +10,5 @@
     <dubbo:registry id="zk1" address="zookeeper://192.168.0.100:2181" />
     <dubbo:registry id="zk2" address="zookeeper://192.168.0.101:2181" />
     <dubbo:reference id="demoService" check="false" interface="com.vankeytech.pmp.ims.service.DemoService" />
+    <dubbo:reference id="buildingIntf" check="false" interface="com.vankeytech.pmp.hms.intf.BuildingIntf" />
 </beans>

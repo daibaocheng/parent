@@ -10,6 +10,6 @@ import org.springframework.stereotype.Service;
 public class DemoServiceImpl implements DemoService {
     @Override
     public String test() {
-        return "Hello!";
+        return "Hello!123321";
     }
 }

@@ -11,4 +11,7 @@ import java.util.List;
 public interface BuildingIntf {
 
     public List<User> selectAll();
+    public void add();
+    public void update();
+    public void delete();
 }
