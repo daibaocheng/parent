@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.cms.mapper.ParkingLotMapper">
+    <resultMap id="BaseResultMap" type="com.vankeytech.pmp.cms.entity.ParkingLot">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="number_of_parking_space" jdbcType="INTEGER" property="numberOfParkingSpace"/>
+        <result column="longitude" jdbcType="VARCHAR" property="longitude"/>
+        <result column="latitude" jdbcType="VARCHAR" property="latitude"/>
+        <result column="community_id" jdbcType="INTEGER" property="communityId"/>
+    </resultMap>
+
+    <insert id="insertParkingLot" parameterType="com.vankeytech.pmp.cms.entity.ParkingLot">
+        INSERT INTO cms_parking_lot
+        VALUES (#{id}, #{name}, #{address}, #{numberOfParkingSpace}, #{longitude}, #{latitude}, #{communityId});
+    </insert>
+
+    <delete id="deleteParkingLotById" parameterType="java.lang.Integer">
+        DELETE FROM cms_parking_lot
+        WHERE id = #{id}
+    </delete>
+
+    <update id="updateParkingLot" parameterType="com.vankeytech.pmp.cms.entity.ParkingLot">
+        UPDATE cms_parking_lot
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+            <if test="number_of_parking_space != null">
+                number_of_parking_space = #{number_of_parking_space},
+            </if>
+            <if test="longitude != null and longitude != ''">
+                longitude = #{longitude},
+            </if>
+            <if test="latitude != null and latitude != ''">
+                latitude = #{latitude},
+            </if>
+            <if test="communityId != null">
+                communityId = #{communityId},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectParkingLotById" parameterType="java.lang.Integer" resultType="com.vankeytech.pmp.cms.entity.ParkingLot">
+        SELECT *
+        FROM cms_parking_lot
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectAllParkingLot" resultMap="BaseResultMap">
+        SELECT *
+        FROM cms_parking_lot
+    </select>
+
+</mapper>
