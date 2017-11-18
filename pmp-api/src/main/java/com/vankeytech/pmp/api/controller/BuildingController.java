@@ -24,4 +24,16 @@ public class BuildingController {
         System.out.println("users = " + users);
         return users.toString();
     }
+    @RequestMapping("/add")
+    public void add(){
+        buildingIntf.add();
+    }
+    @RequestMapping("/update")
+    public void update(){
+        buildingIntf.update();
+    }
+    @RequestMapping("/delete")
+    public void delete(){
+        buildingIntf.delete();
+    }
 }
