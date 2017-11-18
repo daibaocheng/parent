@@ -30,8 +30,8 @@
             <if test="address != null and address != ''">
                 address = #{address},
             </if>
-            <if test="number_of_parking_space != null">
-                number_of_parking_space = #{number_of_parking_space},
+            <if test="numberOfParkingSpace != null">
+                number_of_parking_space = #{numberOfParkingSpace},
             </if>
             <if test="longitude != null and longitude != ''">
                 longitude = #{longitude},
@@ -40,13 +40,13 @@
                 latitude = #{latitude},
             </if>
             <if test="communityId != null">
-                communityId = #{communityId},
+                community_id = #{communityId},
             </if>
         </set>
         WHERE id = #{id}
     </update>
 
-    <select id="selectParkingLotById" parameterType="java.lang.Integer" resultType="com.vankeytech.pmp.cms.entity.ParkingLot">
+    <select id="selectParkingLotById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         SELECT *
         FROM cms_parking_lot
         WHERE id = #{id}

@@ -32,9 +32,9 @@ public interface ParkingLotMapper extends Mapper<ParkingLot> {
      * 根据停车场ID查询该停车场
      *
      * @param id 停车场ID
-     * @return 停车场实体类
+     * @return 停车场实体类组成的LIST集合
      */
-    ParkingLot selectParkingLotById(Integer id);
+    List<ParkingLot> selectParkingLotById(Integer id);
 
     /**
      * 查询所有的停车场

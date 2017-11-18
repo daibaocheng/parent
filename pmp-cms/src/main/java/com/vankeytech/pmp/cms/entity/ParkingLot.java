@@ -167,4 +167,17 @@ public class ParkingLot {
     public void setCommunityId(Integer communityId) {
         this.communityId = communityId;
     }
+
+    @Override
+    public String toString() {
+        return "ParkingLot{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", numberOfParkingSpace=" + numberOfParkingSpace +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", communityId=" + communityId +
+                '}';
+    }
 }

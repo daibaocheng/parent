@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.0.100:3306/pmp_cms?useSSL=true&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.0.100:3306/pmp_cms?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
     username: pmp_dev
     password: pmp2017@DEV
 
