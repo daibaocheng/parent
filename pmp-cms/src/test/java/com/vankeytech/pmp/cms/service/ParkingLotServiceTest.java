@@ -33,14 +33,14 @@ public class ParkingLotServiceTest {
 
     @Test
     public void deleteParkingLotById() throws Exception {
-        parkingLotService.deleteParkingLotById(5);
+        parkingLotService.deleteParkingLotById(6);
     }
 
     @Test
     public void updateParkingLot() throws Exception {
         ParkingLot parkingLot = parkingLotService.selectParkingLotById(4);
         parkingLot.setCommunityId(1);
-        parkingLot.setName("万开高级停车场");
+        parkingLot.setName("万开停车场");
         parkingLotService.updateParkingLot(parkingLot);
     }
 
