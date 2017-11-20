@@ -6,9 +6,9 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <dubbo:application name="pmp-api-consumer" />
-    <dubbo:registry id="zk1" address="zookeeper://192.168.0.100:2181" />
-    <dubbo:registry id="zk2" address="zookeeper://192.168.0.101:2181" />
-    <dubbo:reference id="demoService" check="false" interface="com.vankeytech.pmp.ims.service.DemoService" />
-    <dubbo:reference id="buildingIntf" check="false" interface="com.vankeytech.pmp.hms.intf.BuildingIntf" />
+    <dubbo:application name="${dubbo.appname}" />
+    <dubbo:registry id="zk1" address="${dubbo.registry[0]}" register="${dubbo.register}" />
+    <dubbo:registry id="zk2" address="${dubbo.registry[1]}" register="${dubbo.register}" />
+    <dubbo:reference id="demoService" check="false" interface="com.vankeytech.pmp.ims.service.DemoService" url="${dubbo.debug}" />
+    <dubbo:reference id="buildingIntf" check="false" interface="com.vankeytech.pmp.hms.intf.BuildingIntf" url="${dubbo.debug}" />
 </beans>

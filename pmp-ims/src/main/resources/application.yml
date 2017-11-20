@@ -12,6 +12,7 @@ dubbo:
 spring:
   profiles: dev
 dubbo:
+  debug: dubbo://localhost:20886
   register: false
   registry:
     - N/A
@@ -22,6 +23,7 @@ dubbo:
 spring:
   profiles: test
 dubbo:
+  debug:
   register: true
   registry:
     - zookeeper://192.168.0.100:2181

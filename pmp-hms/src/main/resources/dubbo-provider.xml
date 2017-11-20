@@ -6,10 +6,10 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-   <!-- <bean id="buildingIntf" class="com.vankeytech.pmp.hms.intf.impl.BuildingIntfImpl"/>-->
-    <dubbo:application name="pmp-hms-provider" />
-    <dubbo:registry id="zk1" address="zookeeper://192.168.0.100:2181" />
-    <dubbo:registry id="zk2" address="zookeeper://192.168.0.101:2181" />
-    <dubbo:protocol name="dubbo" port="20881" />
-    <dubbo:service interface="com.vankeytech.pmp.hms.intf.BuildingIntf" ref="buildingIntfImpl" />
+    <dubbo:application name="${dubbo.appname}" />
+    <dubbo:registry id="zk1" address="${dubbo.registry[0]}" register="${dubbo.register}" />
+    <dubbo:registry id="zk2" address="${dubbo.registry[0]}" register="${dubbo.register}" />
+    <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" />
+    <dubbo:service interface="com.vankeytech.pmp.hms.intf.SelectUserIntf" ref="selectUserIntfImpl" />
+    <dubbo:service interface="com.vankeytech.pmp.hms.intf.BuildingIntf" ref="buildingServiceImpl" />
 </beans>
