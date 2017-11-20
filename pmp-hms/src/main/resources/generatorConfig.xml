@@ -29,26 +29,26 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
 
         <!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
-        <table tableName="hms_account" domainObjectName="Account">
+        <table tableName="hms_account" domainObjectName="HmsAccount">
             <generatedKey column="account_no" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_account_log" domainObjectName="AccountLog">
+        <table tableName="hms_account_log" domainObjectName="HmsAccountLog">
             <generatedKey column="account_log_no" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_building" domainObjectName="Building">
+        <table tableName="hms_building" domainObjectName="HmsBuilding">
             <generatedKey column="building_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_hous_authority" domainObjectName="HousAuthority">
+        <table tableName="hms_hous_authority" domainObjectName="HmsHousAuthority">
             <generatedKey column="hous_authority_no" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_user" domainObjectName="User">
+        <table tableName="hms_user" domainObjectName="HmsUser">
             <generatedKey column="user_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_user_building" domainObjectName="UserBuilding" />
+        <table tableName="hms_user_building" domainObjectName="HmsUserBuilding" />
         <table tableName="hms_user_type" domainObjectName="UserType">
             <generatedKey column="user_type_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_village" domainObjectName="Village">
+        <table tableName="hms_village" domainObjectName="HmsVillage">
             <generatedKey column="village_no" sqlStatement="Mysql" identity="true" />
         </table>
     </context>

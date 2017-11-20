@@ -1,7 +1,6 @@
 package com.vankeytech.pmp.hms.intf;
 
-import com.vankeytech.pmp.hms.entity.Building;
-import com.vankeytech.pmp.hms.entity.User;
+import com.vankeytech.pmp.hms.entity.HmsBuilding;
 
 import java.util.List;
 
@@ -11,5 +10,5 @@ import java.util.List;
  */
 public interface BuildingIntf {
 
-    List<Building> selectAll();
+    List<HmsBuilding> selectAll();
 }

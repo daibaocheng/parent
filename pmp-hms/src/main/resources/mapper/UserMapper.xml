@@ -28,7 +28,4 @@
     <result column="landlord" jdbcType="BIGINT" property="landlord" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
-  <select id="selectCount" resultMap="BaseResultMap" >
-    SELECT count(h.user_id) FROM hms_user h
-  </select>
 </mapper>

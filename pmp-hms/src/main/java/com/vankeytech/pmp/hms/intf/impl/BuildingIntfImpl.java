@@ -1,9 +1,9 @@
 package com.vankeytech.pmp.hms.intf.impl;
 
-import com.vankeytech.pmp.hms.entity.Building;
+import com.vankeytech.pmp.hms.entity.HmsBuilding;
+import com.vankeytech.pmp.hms.entity.HmsUserBuilding;
 import com.vankeytech.pmp.hms.intf.BuildingIntf;
 import com.vankeytech.pmp.hms.service.BuildingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -16,9 +16,9 @@ import java.util.List;
 public class BuildingIntfImpl implements BuildingIntf {
 
     @Resource
-    BuildingService buildingService;
+    private BuildingService buildingService;
     @Override
-    public List<Building> selectAll() {
+    public List<HmsBuilding> selectAll() {
         System.out.println("buildingService.selectAll() = " + buildingService.selectAll());
         return buildingService.selectAll();
     }
