@@ -26,6 +26,38 @@
     <result column="identity_card_photo_reverse" jdbcType="VARCHAR" property="identityCardPhotoReverse" />
     <result column="face_photo" jdbcType="VARCHAR" property="facePhoto" />
     <result column="landlord" jdbcType="BIGINT" property="landlord" />
+    <result column="display" jdbcType="BIGINT" property="display" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
+
+  <sql id="baseSql">
+    user.user_id,user.user_name,user.nick_name,user.account_no,user.sex,user.nationality,user.native_place,user.permanent_address,
+    user.identity_card,user.phone1,user.phone2,user.email,user.building_id,user.house_proprietary_certificate,user.company_name,user.post,
+    user.company_address,user.identity_card_photo_obverse,user.identity_card_photo_reverse,user.face_photo,user.landlord,user.display,user.remarks
+  </sql>
+
+  <!-- 批量插入数据 -->
+  <!--<insert id="insertUsers" parameterType="list">
+    INSERT INTO hms_user VALUES
+    <foreach collection="list" item="user" separator=",">
+      (#{user.userId},#{user.userName},#{user.nickName},#{user.accountNo},#{user.sex},#{user.nationality},#{user.nativePlace},#{user.permanentAddress},
+      #{user.identityCard},#{user.phone1},#{user.phone2},#{user.email},#{user.buildingId},#{user.houseProprietaryCertificate},#{user.companyName},#{user.post},
+      #{user.companyAddress},#{user.identityCardPhotoObverse},#{user.identityCardPhotoReverse},#{user.facePhoto},#{user.landlord},#{user.display},#{user.remarks})
+    </foreach>
+  </insert>-->
+
+  <!-- 批量删除数据 -->
+  <!--<delete id="deleteUsers" parameterType="list">
+    DELETE FROM hms_user
+    WHERE user_id IN
+    <foreach collection="list" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </delete>-->
+
+  <!-- 批量删除数据 -->
+  <update id="deleteByPrimaryKey" parameterType="list">
+    UPDATE FROM hms_user u SET USER.display=0
+    WHERE u.user_id=#{id}
+  </update>
 </mapper>

@@ -1,6 +1,6 @@
 package com.vankeytech.pmp.hms.intf.impl;
 
-import com.vankeytech.pmp.hms.entity.HmsUser;
+import com.vankeytech.pmp.hms.entity.User;
 import com.vankeytech.pmp.hms.intf.SelectUserIntf;
 import com.vankeytech.pmp.hms.service.UserService;
 import org.springframework.stereotype.Component;
@@ -19,24 +19,24 @@ public class SelectUserIntfImpl implements SelectUserIntf {
     private UserService userService;
 
     @Override
-    public List<HmsUser> selectAll() {
+    public List<User> selectAll() {
         return this.userService.selectAll();
     }
 
     @Override
-    public List<HmsUser> selectByCondition(Condition condition) {
+    public List<User> selectByCondition(Condition condition) {
         return this.userService.selectByCondition((tk.mybatis.mapper.entity.Condition) condition);
     }
 
     @Override
-    public List<HmsUser> selectByIds(String ids) {
+    public List<User> selectByIds(String ids) {
         return this.userService.selectByIds(ids);
     }
 
-//    @Override
-//    public Integer selectCount() {
-//        return this.userService.selectCount();
-//    }
+    @Override
+    public Integer selectCount(User user) {
+        return this.userService.selectCount(user);
+    }
 
     @Override
     public Integer selectCountByCondition(Condition condition) {

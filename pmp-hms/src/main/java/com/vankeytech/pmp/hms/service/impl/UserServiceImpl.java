@@ -1,19 +1,27 @@
 package com.vankeytech.pmp.hms.service.impl;
 
 import com.vankeytech.baseservice.impl.BaseService;
-import com.vankeytech.pmp.hms.entity.HmsUser;
-import com.vankeytech.pmp.hms.mapper.HmsUserMapper;
+import com.vankeytech.pmp.hms.entity.User;
+import com.vankeytech.pmp.hms.mapper.UserMapper;
 import com.vankeytech.pmp.hms.service.UserService;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author Administrator
  */
 @Service
-public class UserServiceImpl extends BaseService<HmsUser> implements UserService {
+public class UserServiceImpl extends BaseService<User> implements UserService {
 
-    public UserServiceImpl(HmsUserMapper hmsUserMapper) {
-        super(hmsUserMapper);
+    @Resource
+    UserMapper userMapper;
+    public UserServiceImpl(UserMapper userMapper) {
+        super(userMapper);
     }
 
+    @Override
+    public void deleteByPrimaryKey(Integer id) {
+        userMapper.deleteByPrimaryKey(id);
+    }
 }
