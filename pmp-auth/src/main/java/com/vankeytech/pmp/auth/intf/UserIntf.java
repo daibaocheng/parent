@@ -1,7 +1,10 @@
 package com.vankeytech.pmp.auth.intf;
 
 import com.github.pagehelper.PageInfo;
+import com.vankeytech.pmp.auth.entity.Permission;
+import com.vankeytech.pmp.auth.entity.Role;
 import com.vankeytech.pmp.auth.entity.User;
+import com.vankeytech.pmp.auth.entity.UserRole;
 
 import java.util.List;
 
@@ -10,17 +13,12 @@ import java.util.List;
  * @author xieliang
  */
 public interface UserIntf {
-    /**
-     * 查询所有用户
-     * @return
-     */
-     List<User> selectAll();
 
     /**
      * 修改用户密码
      * @return
      */
-    Integer updatePassword();
+    void updatePassword(User user);
 
     /**
      * 根据id删除用户
@@ -43,9 +41,9 @@ public interface UserIntf {
 
     /**
      * 更新用户状态 启用或禁用
-     * @param ids
+     * @param user
      */
-    void updateStatus(int ids);
+    void updateStatus(User user);
 
     /**
      * 分页查询
@@ -78,11 +76,20 @@ public interface UserIntf {
 
     /**
      * 为用户授予角色
-     * @param userID  用户id
-     * @param roleId  角色id
+     * @param userRole  用户权限中间表
      */
-    void authorizationUser(Integer userID, Integer roleId);
+    void authorizationUser(UserRole userRole);
 
+    /**
+     * 根据用户id查询用户的角色
+     * @param userId
+     */
+    List<Role> getUserRole(Integer userId);
 
+    /**
+     * 根据用户角色id 查询用户的权限
+     * @param roleIds
+     */
+    List<Permission> getPermisstion(List<Integer> roleIds);
 
 }

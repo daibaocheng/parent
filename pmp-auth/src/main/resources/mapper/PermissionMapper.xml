@@ -15,4 +15,15 @@
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
+
+  <select id="getPermisstionByRoleIds" parameterType="java.util.List" resultMap="BaseResultMap">
+      SELECT * FROM  auth_permission AS  ap
+               LEFT  JOIN  auth_role_permission arp
+               ON ap.permission_id=arp.permission_id
+               WHERE arp.role_id IN
+    <foreach collection="ids" item="roleId" open="(" close=")" separator=",">
+           #{roleId}
+    </foreach>
+  </select>
+
 </mapper>

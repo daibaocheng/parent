@@ -2,12 +2,17 @@ package com.vankeytech.pmp.auth.intf.impl;
 
 
 import com.github.pagehelper.PageInfo;
+import com.sun.xml.internal.bind.v2.model.runtime.RuntimeLeafInfo;
+import com.vankeytech.pmp.auth.entity.Permission;
+import com.vankeytech.pmp.auth.entity.Role;
 import com.vankeytech.pmp.auth.entity.User;
+import com.vankeytech.pmp.auth.entity.UserRole;
 import com.vankeytech.pmp.auth.intf.UserIntf;
 import com.vankeytech.pmp.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -22,17 +27,6 @@ public class UserIntfImpl  implements UserIntf {
     @Autowired
     private UserService userService;
 
-    /**
-     * 查询所有用户
-     *
-     * @return
-     */
-    @Override
-    public List<User> selectAll() {
-
-
-        return null;
-    }
 
     /**
      * 修改用户密码
@@ -40,8 +34,8 @@ public class UserIntfImpl  implements UserIntf {
      * @return
      */
     @Override
-    public Integer updatePassword() {
-        return null;
+    public void updatePassword(User user) {
+        userService.updatePassword(user);
     }
 
     /**
@@ -51,7 +45,7 @@ public class UserIntfImpl  implements UserIntf {
      */
     @Override
     public void deleteByIds(Integer ids) {
-
+        userService.deleteByuserId(ids);
     }
 
     /**
@@ -62,7 +56,7 @@ public class UserIntfImpl  implements UserIntf {
      */
     @Override
     public User login(String userName) {
-        return null;
+        return userService.login(userName);
     }
 
     /**
@@ -79,11 +73,11 @@ public class UserIntfImpl  implements UserIntf {
     /**
      * 更新用户状态 启用或禁用
      *
-     * @param ids
+     * @param user
      */
     @Override
-    public void updateStatus(int ids) {
-
+    public void updateStatus(User user) {
+        userService.updateStatus(user);
     }
 
     /**
@@ -122,7 +116,6 @@ public class UserIntfImpl  implements UserIntf {
 
     /**
      * 根据所在部门和 用户名或注册名查询
-     *
      * @param user 部门id
      * @return
      */
@@ -134,11 +127,33 @@ public class UserIntfImpl  implements UserIntf {
     /**
      * 为用户授予角色
      *
-     * @param userID 用户id
-     * @param roleId 角色id
+     * @param userRole 用户角色中间表
      */
     @Override
-    public void authorizationUser(Integer userID, Integer roleId) {
+    public void authorizationUser(UserRole userRole) {
 
+    }
+
+
+    /**
+     * 根据用户id查询用户的角色
+     *
+     * @param userId
+     */
+    @Override
+    public List<Role> getUserRole(Integer userId) {
+        List<Role> roleList=userService.getUserRoles(userId);
+        return roleList;
+    }
+
+    /**
+     * 根据用户角色id 查询用户的权限
+     *
+     * @param roleIds
+     */
+    @Override
+    public List<Permission>  getPermisstion(List<Integer> roleIds) {
+        List<Permission> permissionList=userService.getUserPermisstion(roleIds);
+        return permissionList;
     }
 }

@@ -10,8 +10,18 @@
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     <result column="role_describe" jdbcType="VARCHAR" property="roleDescribe" />
     <result column="role_status" jdbcType="INTEGER" property="roleStatus" />
-    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="created_at" jdbcType="TIMESTAMP" javaType="java.util.Date" property="createdAt" />
     <result column="pid" jdbcType="BIGINT" property="pid" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
+  <select id="getRoleByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+   SELECT <include refid="role_sql"/>
+   FROM auth_role AS r  LEFT JOIN auth_user_role ur ON r.role_id=ur.role_id WHERE ur.user_role_id=#{usersId}
+  </select>
+
+  <sql id="role_sql">
+    r.role_id AS role_id, r.created_at AS created_at, r.pid AS pid,
+    r.role_describe AS role_describe, r.role_name AS role_name,
+    r.role_status AS role_status, r.role_type AS role_type, r.updated_at AS updated_at
+  </sql>
 </mapper>

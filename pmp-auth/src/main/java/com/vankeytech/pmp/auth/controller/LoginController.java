@@ -36,6 +36,7 @@ public class LoginController {
 
     public void login(HttpServletRequest request){
         CaptchaUsernamePasswordToken token=(CaptchaUsernamePasswordToken)request.getAttribute("ff");
+
     }
 
 }
