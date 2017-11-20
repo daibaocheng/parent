@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.cms.mapper.CarMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.cms.entity.Car">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="license_plate_id" jdbcType="VARCHAR" property="licensePlateId" />
+    <result column="license_plate_type_id" jdbcType="INTEGER" property="licensePlateTypeId" />
+    <result column="license_plate_color_id" jdbcType="INTEGER" property="licensePlateColorId" />
+    <result column="color_id" jdbcType="VARCHAR" property="colorId" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+  </resultMap>
+
+  <insert id="insertCar" parameterType="com.vankeytech.pmp.cms.entity.Car">
+    INSERT INTO cms_car VALUES (#{id}, #{licensePlateId}, #{licensePlateTypeId}, #{licensePlateColorId}, #{colorId}, #{typeId}, #{uid})
+  </insert>
+
+  <delete id="deleteCarById" parameterType="java.lang.Integer">
+    DELETE FROM cms_car
+    WHERE id = #{id}
+  </delete>
+
+  <update id="updateCar" parameterType="com.vankeytech.pmp.cms.entity.Car">
+    UPDATE cms_car
+    <set>
+      <if test="licensePlateId != null and licensePlateId != ''">
+        license_plate_id = #{licensePlateId},
+      </if>
+      <if test="licensePlateTypeId != null">
+        license_plate_type_id = #{licensePlateTypeId},
+      </if>
+      <if test="licensePlateColorId != null">
+        license_plate_color_id = #{licensePlateColorId},
+      </if>
+      <if test="colorId != null and colorId != ''">
+        color_id = #{colorId},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId},
+      </if>
+      <if test="uid != null">
+        uid = #{uid},
+      </if>
+    </set>
+    WHERE id = #{id}
+  </update>
+
+  <select id="selectCarById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT *
+    FROM cms_car
+    WHERE id = #{id}
+  </select>
+
+  <select id="selectAllCar" resultMap="BaseResultMap">
+    SELECT *
+    FROM cms_car
+  </select>
+</mapper>

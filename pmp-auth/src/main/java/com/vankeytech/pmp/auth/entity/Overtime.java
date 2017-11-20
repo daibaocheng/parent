@@ -3,7 +3,7 @@ package com.vankeytech.pmp.auth.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "pmp_overtime")
+@Table(name = "auth_overtime")
 public class Overtime {
     /**
      * 值班表id

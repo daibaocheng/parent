@@ -2,7 +2,7 @@ package com.vankeytech.pmp.auth.entity;
 
 import javax.persistence.*;
 
-@Table(name = "pmp_user_role")
+@Table(name = "auth_user_role")
 public class UserRole {
     /**
      * id编号

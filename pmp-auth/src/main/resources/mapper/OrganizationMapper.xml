@@ -14,5 +14,6 @@
     <result column="organization_phone" jdbcType="VARCHAR" property="organizationPhone" />
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="pid" jdbcType="BIGINT" property="pid" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
 </mapper>
