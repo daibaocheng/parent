@@ -108,10 +108,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
 			<!--mybatis反向生成插件-->
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
@@ -178,7 +174,7 @@
 								</transformer>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.vankeytech.pmp.api.ApiApplication</mainClass>
+									<mainClass>com.vankeytech.pmp.auth.AuthApplication</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
@@ -186,6 +182,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+
 	</build>
 
 </project>

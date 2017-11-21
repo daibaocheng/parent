@@ -1,19 +1,19 @@
 package com.vankeytech.pmp.hms.intf;
 
-import com.vankeytech.pmp.hms.entity.HmsUser;
+import com.vankeytech.pmp.hms.entity.User;
 
 import java.util.List;
 import java.util.concurrent.locks.Condition;
 
 public interface SelectUserIntf {
 
-    List<HmsUser> selectAll() ;
+    List<User> selectAll() ;
 
-    List<HmsUser> selectByCondition(Condition condition) ;
+    List<User> selectByCondition(Condition condition) ;
 
-    List<HmsUser> selectByIds(String ids);
+    List<User> selectByIds(String ids);
 
-//    Integer selectCount();
+    Integer selectCount(User user);
 
     Integer selectCountByCondition(Condition condition) ;
 }

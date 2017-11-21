@@ -8,7 +8,6 @@
     <id column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="user_register_account" jdbcType="VARCHAR" property="userRegisterAccount" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
-    <result column="account_type" jdbcType="VARCHAR" property="accountType" />
     <result column="area_id" jdbcType="BIGINT" property="areaId" />
     <result column="user_status" jdbcType="INTEGER" property="userStatus" />
     <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
@@ -17,13 +16,38 @@
     <result column="deleted_id" jdbcType="INTEGER" property="deletedId" />
     <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
     <result column="user_emial" jdbcType="VARCHAR" property="userEmial" />
-    <result column="user_phone" jdbcType="CHAR" property="userPhone" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="portrait_url" jdbcType="VARCHAR" property="portraitUrl" />
+    <result column="department_id" jdbcType="BIGINT" property="departmentId" />
   </resultMap>
 
-<!--  <insert id="insert" parameterType="com.vankeytech.pmp.auth.entity.User" >
-    insert into pmp_user(user_register_account ,user_password, user_phone, user_name) VALUE(#{userRegisterAccount},#{userPassword},#{userPhone},#{userName})
-  </insert>-->
+  <update id="updateStatus" parameterType="com.vankeytech.pmp.auth.entity.User">
+    UPDATE  auth_user SET user_status=#{userStatus} WHERE  user_id=#{userId}
+  </update>
 
+  <update id="deleteByUserId" parameterType="java.lang.Integer">
+    UPDATE auth_user SET deleted_id=0 WHERE  user_id=#{userId};
+  </update>
+
+  <update id="updateArea" parameterType="com.vankeytech.pmp.auth.entity.User">
+    UPDATE auth_user SET area_id=#{areaId}  WHERE  user_id=#{userId} AND deleted_id=1
+  </update>
+
+  <update id="updatePassword" parameterType="com.vankeytech.pmp.auth.entity.User">
+    UPDATE auth_user SET user_password=#{userPassword} WHERE user_id=#{userId} AND deleted_id=1
+  </update>
+
+  <select id="selectByName" parameterType="com.vankeytech.pmp.auth.entity.User" resultMap="BaseResultMap" >
+    SELECT * FROM auth_user WHERE user_register_account=#{userRegisterAccount} OR nickname=#{nickname}
+  </select>
+
+  <select id="login"  parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT  * from auth_user WHERE  user_register_account=#{userRegisterName} AND deleted_id=1
+  </select>
+  
+  <select id="isRegister"  parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT  * from auth_user WHERE  user_register_account=#{reginsterName} AND deleted_id=1
+  </select>
 </mapper>

@@ -3,7 +3,7 @@ package com.vankeytech.pmp.auth.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "pmp_role")
+@Table(name = "auth_role")
 public class Role {
     /**
      * 角色id
@@ -11,6 +11,12 @@ public class Role {
     @Id
     @Column(name = "role_id")
     private Long roleId;
+
+    /**
+     * 角色类型
+     */
+    @Column(name = "role_type")
+    private String roleType;
 
     /**
      * 角色名称
@@ -42,6 +48,12 @@ public class Role {
     private Long pid;
 
     /**
+     * 修改的时间
+     */
+    @Column(name = "updated_at")
+    private Date updatedAt;
+
+    /**
      * 获取角色id
      *
      * @return role_id - 角色id
@@ -57,6 +69,24 @@ public class Role {
      */
     public void setRoleId(Long roleId) {
         this.roleId = roleId;
+    }
+
+    /**
+     * 获取角色类型
+     *
+     * @return role_type - 角色类型
+     */
+    public String getRoleType() {
+        return roleType;
+    }
+
+    /**
+     * 设置角色类型
+     *
+     * @param roleType 角色类型
+     */
+    public void setRoleType(String roleType) {
+        this.roleType = roleType;
     }
 
     /**
@@ -147,5 +177,23 @@ public class Role {
      */
     public void setPid(Long pid) {
         this.pid = pid;
+    }
+
+    /**
+     * 获取修改的时间
+     *
+     * @return updated_at - 修改的时间
+     */
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    /**
+     * 设置修改的时间
+     *
+     * @param updatedAt 修改的时间
+     */
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

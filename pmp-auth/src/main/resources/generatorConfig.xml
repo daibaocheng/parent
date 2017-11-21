@@ -39,33 +39,32 @@
         <!--配置生接口所在位置-->
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
 
-        <table tableName="pmp_login_log" domainObjectName="LoginLog">
+        <table tableName="auth_login_log" domainObjectName="LoginLog">
             <generatedKey column="id" sqlStatement="mysql" identity="true" />
         </table>
-        <table tableName="pmp_operation_log" domainObjectName="OperationLog">
+        <table tableName="auth_operation_log" domainObjectName="OperationLog">
             <generatedKey column="id" sqlStatement="mysql" identity="true" />
         </table>
-        <table tableName="pmp_organization" domainObjectName="Organization">
+        <table tableName="auth_organization" domainObjectName="Organization">
             <generatedKey column="id" sqlStatement="mysql" identity="true" />
         </table>
-        <table tableName="pmp_overtime" domainObjectName="Overtime">
+        <table tableName="auth_overtime" domainObjectName="Overtime">
             <generatedKey column="id" sqlStatement="mysql" identity="true" />
         </table>
-        <table tableName="pmp_permission" domainObjectName="Permission">
-            <generatedKey column="id" sqlStatement="mysql" identity="true" />
-        </table>
-
-        <table tableName="pmp_role" domainObjectName="Role">
-            <generatedKey column="id" sqlStatement="mysql" identity="true" />
-        </table>
-        <table tableName="pmp_user" domainObjectName="User">
-            <generatedKey column="id" sqlStatement="mysql" identity="true" />
-        </table>
-        <table tableName="pmp_user_role" domainObjectName="UserRole">
+        <table tableName="auth_permission" domainObjectName="Permission">
             <generatedKey column="id" sqlStatement="mysql" identity="true" />
         </table>
 
-        <table tableName="role_permission" domainObjectName="RolePermission">
+        <table tableName="auth_role" domainObjectName="Role">
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="auth_role_permission" domainObjectName="RolePermission">
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="auth_user" domainObjectName="User">
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="auth_user_role" domainObjectName="UserRole">
             <generatedKey column="id" sqlStatement="mysql" identity="true" />
         </table>
 
