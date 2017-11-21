@@ -22,22 +22,22 @@ public interface UserIntf {
 
     /**
      * 根据id删除用户
-     * @param ids
+     * @param user
      */
-     void deleteByIds(Integer ids);
+     void deleteByIds(User user);
 
     /**
      * 用户登录查询
      * @return
      */
-     User login(String userName);
+     User login(User user);
 
     /**
      * 根据id查询用户信息
-     * @param ids
+     * @param user
      * @return
      */
-     User load(int ids);
+     User loadById(User user);
 
     /**
      * 更新用户状态 启用或禁用
@@ -51,7 +51,7 @@ public interface UserIntf {
      * @param pageSize  每页数量
      * @return
      */
-    PageInfo pageUser(Integer page, Integer pageSize);
+    PageInfo pageUser(Integer page, Integer pageSize,User user);
 
     /**
      * 更新用户的所管理的小区
@@ -61,11 +61,10 @@ public interface UserIntf {
 
     /**
      * 条件查询 根据用户或者注册名查询
-     *
      * @param  user  用户名称或者注册名称
      * @return  用户集合
      */
-    List<User> selecteByName(User user);
+    List<User> selecteByNames(User user);
 
     /**
      * 根据所在部门和 用户名或注册名查询
@@ -91,5 +90,12 @@ public interface UserIntf {
      * @param roleIds
      */
     List<Permission> getPermisstion(List<Integer> roleIds);
+
+    /**
+     * 更新用户登录时间和用户登录的次数
+     * @param user
+     */
+    void updateLoinInfo(User user);
+
 
 }

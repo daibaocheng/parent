@@ -10,7 +10,4 @@
     <result column="role_id" jdbcType="BIGINT" property="roleId" />
   </resultMap>
 
-  <update id="authorizationUser" parameterType="com.vankeytech.pmp.auth.entity.UserRole">
-    UPDATE auth_user_role SET
-  </update>
 </mapper>

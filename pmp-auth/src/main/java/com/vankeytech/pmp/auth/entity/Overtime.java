@@ -9,7 +9,8 @@ public class Overtime {
      * 值班表id
      */
     @Id
-    private Long overtime;
+    @Column(name = "overtime_id")
+    private Long overtimeId;
 
     /**
      * 值班开始时间
@@ -34,17 +35,17 @@ public class Overtime {
      *
      * @return overtime - 值班表id
      */
-    public Long getOvertime() {
-        return overtime;
+    public Long getOvertimeId() {
+        return overtimeId;
     }
 
     /**
      * 设置值班表id
      *
-     * @param overtime 值班表id
+     * @param overtimeId 值班表id
      */
-    public void setOvertime(Long overtime) {
-        this.overtime = overtime;
+    public void setOvertimeId(Long overtimeId) {
+        this.overtimeId = overtimeId;
     }
 
     /**

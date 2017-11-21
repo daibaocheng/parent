@@ -23,31 +23,4 @@
     <result column="department_id" jdbcType="BIGINT" property="departmentId" />
   </resultMap>
 
-  <update id="updateStatus" parameterType="com.vankeytech.pmp.auth.entity.User">
-    UPDATE  auth_user SET user_status=#{userStatus} WHERE  user_id=#{userId}
-  </update>
-
-  <update id="deleteByUserId" parameterType="java.lang.Integer">
-    UPDATE auth_user SET deleted_id=0 WHERE  user_id=#{userId};
-  </update>
-
-  <update id="updateArea" parameterType="com.vankeytech.pmp.auth.entity.User">
-    UPDATE auth_user SET area_id=#{areaId}  WHERE  user_id=#{userId} AND deleted_id=1
-  </update>
-
-  <update id="updatePassword" parameterType="com.vankeytech.pmp.auth.entity.User">
-    UPDATE auth_user SET user_password=#{userPassword} WHERE user_id=#{userId} AND deleted_id=1
-  </update>
-
-  <select id="selectByName" parameterType="com.vankeytech.pmp.auth.entity.User" resultMap="BaseResultMap" >
-    SELECT * FROM auth_user WHERE user_register_account=#{userRegisterAccount} OR nickname=#{nickname}
-  </select>
-
-  <select id="login"  parameterType="java.lang.String" resultMap="BaseResultMap">
-    SELECT  * from auth_user WHERE  user_register_account=#{userRegisterName} AND deleted_id=1
-  </select>
-  
-  <select id="isRegister"  parameterType="java.lang.String" resultMap="BaseResultMap">
-    SELECT  * from auth_user WHERE  user_register_account=#{reginsterName} AND deleted_id=1
-  </select>
 </mapper>

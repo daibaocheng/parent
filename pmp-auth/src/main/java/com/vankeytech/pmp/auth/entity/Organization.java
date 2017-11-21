@@ -1,6 +1,7 @@
 package com.vankeytech.pmp.auth.entity;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 @Table(name = "auth_organization")
@@ -64,6 +65,19 @@ public class Organization {
      */
     @Column(name = "updated_at")
     private Date updatedAt;
+
+
+    @Transient
+    private List<Organization> organizationList;
+
+
+    public List<Organization> getOrganizationList() {
+        return organizationList;
+    }
+
+    public void setOrganizationList(List<Organization> organizationList) {
+        this.organizationList = organizationList;
+    }
 
     /**
      * 获取id

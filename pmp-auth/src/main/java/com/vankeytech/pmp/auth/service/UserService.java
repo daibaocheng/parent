@@ -15,11 +15,7 @@ import java.util.List;
  */
 public interface UserService extends Service<User> {
 
-    /**
-     * 根据用户id 更新用户的所属小区
-     * @param user
-     */
-    void updateArea(User user);
+
 
     /**
      * 根据用户名或者登陆名查询用户信息
@@ -29,11 +25,18 @@ public interface UserService extends Service<User> {
     List<User> selectByName(User user);
 
     /**
-     * 登录 根据登录名
-     * @param registerName
+     *
+     * @param user
      * @return
      */
-    User login(String registerName);
+    List<User> loadByCondition(User user);
+
+    /**
+     * 登录 根据登录名
+     * @param user
+     * @return
+     */
+    User login(User user);
 
     /**
      * 获取用户对应角色
@@ -49,17 +52,6 @@ public interface UserService extends Service<User> {
      */
     List<Permission> getUserPermisstion(List<Integer>  roleIds);
 
-    /**
-     * 更新密码
-     * @param user
-     */
-    void updatePassword(User user);
-
-    /**
-     * 根据id删除用户 软删
-     * @param userId
-     */
-    void deleteByuserId(Integer userId);
 
     /**
      * 为用户配角色
@@ -67,23 +59,17 @@ public interface UserService extends Service<User> {
      */
     void authorizationUser(UserRole userRole);
 
-    /**
-     * 更新用户的状态 启用还是禁用 1启用 0禁用
-     * @param user
-     */
-    void updateStatus(User user);
+
+
 
     /**
-     * 查询并分页
-     * @return
-     */
-    PageInfo<User> selectPage();
-
-    /**
-     * 条件查询并分页返回
+     * 分页查询
      * @param user
      * @return
      */
-    PageInfo<User> selectPageBycondition(User user);
+    PageInfo<User> selecePageByCondition(User user);
+
+
+
 
 }

@@ -2,6 +2,8 @@ package com.vankeytech.pmp.auth.intf;
 
 import com.vankeytech.pmp.auth.entity.Organization;
 
+import java.util.List;
+
 public interface OrganizationIntf {
 
     /**
@@ -12,16 +14,21 @@ public interface OrganizationIntf {
 
     /**
      * 更改部门名称
-     * @param name 部门名称
+     * @param organization 部门名称
      */
-    void updateName(String name);
+    void updateName(Organization organization);
 
     /**
      * 根据id删除组织结构
-     * @param organizationId
+     * @param organization
      */
-    void deleteOrganization(Integer organizationId);
+    void deleteOrganization(Organization organization);
 
+    /**
+     *
+     * @return
+     */
+    List<Organization> getOrganizationAll();
 
 
 }

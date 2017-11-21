@@ -5,4 +5,5 @@ import com.vankeytech.pmp.auth.entity.Overtime;
 
 public interface OvertimeService extends Service<Overtime> {
 
+
 }

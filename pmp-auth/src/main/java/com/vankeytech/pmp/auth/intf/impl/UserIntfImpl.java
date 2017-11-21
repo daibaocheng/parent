@@ -11,6 +11,7 @@ import com.vankeytech.pmp.auth.intf.UserIntf;
 import com.vankeytech.pmp.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Condition;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +28,6 @@ public class UserIntfImpl  implements UserIntf {
     @Autowired
     private UserService userService;
 
-
     /**
      * 修改用户密码
      *
@@ -35,39 +35,38 @@ public class UserIntfImpl  implements UserIntf {
      */
     @Override
     public void updatePassword(User user) {
-        userService.updatePassword(user);
+        userService.updateByPrimaryKeySelective(user);
     }
 
     /**
      * 根据id删除用户
      *
-     * @param ids
+     * @param user
      */
     @Override
-    public void deleteByIds(Integer ids) {
-        userService.deleteByuserId(ids);
+    public void deleteByIds(User user) {
+        userService.updateByPrimaryKeySelective(user);
     }
 
     /**
      * 用户登录查询
      *
-     * @param userName
+     * @param user
      * @return
      */
     @Override
-    public User login(String userName) {
-        return userService.login(userName);
+    public User login(User user) {
+        return userService.login(user);
     }
 
     /**
      * 根据id查询用户信息
-     *
-     * @param ids
+     * @param user
      * @return
      */
     @Override
-    public User load(int ids) {
-        return null;
+    public User loadById(User user) {
+        return userService.selectOne(user);
     }
 
     /**
@@ -77,19 +76,18 @@ public class UserIntfImpl  implements UserIntf {
      */
     @Override
     public void updateStatus(User user) {
-        userService.updateStatus(user);
+        userService.updateByPrimaryKeySelective(user);
     }
 
     /**
      * 分页查询
-     *
      * @param page     页数
      * @param pageSize 每页数量
      * @return
      */
     @Override
-    public PageInfo pageUser(Integer page, Integer pageSize) {
-        return null;
+    public PageInfo pageUser(Integer page, Integer pageSize,User user) {
+        return userService.selecePageByCondition(user);
     }
 
     /**
@@ -99,7 +97,7 @@ public class UserIntfImpl  implements UserIntf {
      */
     @Override
     public void updateAeaId(User user) {
-        userService.updateArea(user);
+        userService.updateByPrimaryKeySelective(user);
     }
 
     /**
@@ -109,7 +107,7 @@ public class UserIntfImpl  implements UserIntf {
      * @return 用户集合
      */
     @Override
-    public List<User> selecteByName(User user) {
+    public List<User> selecteByNames(User user) {
 
         return userService.selectByName(user);
     }
@@ -121,7 +119,8 @@ public class UserIntfImpl  implements UserIntf {
      */
     @Override
     public List<User> selectByCondition(User user) {
-        return null;
+
+        return userService.loadByCondition(user);
     }
 
     /**
@@ -131,7 +130,7 @@ public class UserIntfImpl  implements UserIntf {
      */
     @Override
     public void authorizationUser(UserRole userRole) {
-
+            userService.authorizationUser(userRole);
     }
 
 
@@ -155,5 +154,15 @@ public class UserIntfImpl  implements UserIntf {
     public List<Permission>  getPermisstion(List<Integer> roleIds) {
         List<Permission> permissionList=userService.getUserPermisstion(roleIds);
         return permissionList;
+    }
+
+    /**
+     * 更新用户登录时间和用户登录的次数
+     *
+     * @param user
+     */
+    @Override
+    public void updateLoinInfo(User user) {
+        userService.updateByPrimaryKeySelective(user);
     }
 }

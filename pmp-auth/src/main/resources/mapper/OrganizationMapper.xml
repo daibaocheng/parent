@@ -16,4 +16,67 @@
     <result column="pid" jdbcType="BIGINT" property="pid" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
+
+  <resultMap id="customResultMap" type="com.vankeytech.pmp.auth.entity.Organization">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ao1.organization_id" jdbcType="BIGINT" property="organizationId" />
+    <result column="a1organization_name" jdbcType="VARCHAR" property="organizationName" />
+    <result column="a1organization_type" jdbcType="VARCHAR" property="organizationType" />
+    <result column="a1organization_describe" jdbcType="VARCHAR" property="organizationDescribe" />
+    <result column="a1organization_location" jdbcType="VARCHAR" property="organizationLocation" />
+    <result column="a1organization_address" jdbcType="VARCHAR" property="organizationAddress" />
+    <result column="a1organization_phone" jdbcType="VARCHAR" property="organizationPhone" />
+    <result column="a1created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="a1pid" jdbcType="BIGINT" property="pid" />
+    <result column="a1updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+
+    <collection property="organizationList" javaType="java.util.List" ofType="com.vankeytech.pmp.auth.entity.Organization">
+      <id column="a2.organization_id" jdbcType="BIGINT" property="organizationId" />
+      <result column="a2.organization_name" jdbcType="VARCHAR" property="organizationName" />
+      <result column="a2.organization_type" jdbcType="VARCHAR" property="organizationType" />
+      <result column="a2.organization_describe" jdbcType="VARCHAR" property="organizationDescribe" />
+      <result column="a2.organization_location" jdbcType="VARCHAR" property="organizationLocation" />
+      <result column="a2.organization_address" jdbcType="VARCHAR" property="organizationAddress" />
+      <result column="a2.organization_phone" jdbcType="VARCHAR" property="organizationPhone" />
+      <result column="a2.created_at" jdbcType="TIMESTAMP" property="createdAt" />
+      <result column="a2.pid" jdbcType="BIGINT" property="pid" />
+      <result column="a2.updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+      
+      <collection property="organizationList" javaType="java.util.List" ofType="com.vankeytech.pmp.auth.entity.Organization">
+        <id column="a3.organization_id" jdbcType="BIGINT" property="organizationId" />
+        <result column="a3.organization_name" jdbcType="VARCHAR" property="organizationName" />
+        <result column="a3.organization_type" jdbcType="VARCHAR" property="organizationType" />
+        <result column="a3.organization_describe" jdbcType="VARCHAR" property="organizationDescribe" />
+        <result column="a3.organization_location" jdbcType="VARCHAR" property="organizationLocation" />
+        <result column="a3.organization_address" jdbcType="VARCHAR" property="organizationAddress" />
+        <result column="a3.organization_phone" jdbcType="VARCHAR" property="organizationPhone" />
+        <result column="a3.created_at" jdbcType="TIMESTAMP" property="createdAt" />
+        <result column="a3.pid" jdbcType="BIGINT" property="pid" />
+        <result column="a3.updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+      </collection>
+    </collection>
+  </resultMap>
+
+  <select id="getAll"  resultMap="customResultMap"  >
+        SELECT ao1.`created_at` AS a1created_at ,ao1.`organization_address` AS a1organization_address,
+        ao1.`organization_describe` as a1organization_describe,ao1.`organization_id` as a1organization_id,
+        ao1.`organization_location` as a1organization_location,ao1.`organization_name` as organization_name,
+        ao1.`organization_phone` as organization_phone,ao1.`organization_type` as organization_type,
+        ao1.`pid` as a1pid,ao1.`updated_at` as a1updated_at,
+               ao2.`created_at` as a2created_at,ao2.`organization_address` as a2organization_address,
+               ao2.`organization_describe` as a2organization_describe,ao2.`organization_id` as a2organization_id,
+               ao2.`organization_location` as a2organization_location,ao2.`organization_name` a2organization_name,
+               ao2.`organization_phone` as a2organization_phone,ao2.`organization_type` as a2organization_type ,
+               ao2.`pid` as a2pid,ao2.`updated_at` as a2updated_at,
+               ao3.`created_at` as a3created_at ,ao3.`organization_address` as a3organization_address,
+               ao3.`organization_describe` as a3organization_describe,ao3.`organization_id` as a3organization_id,
+               ao3.`organization_location` as a3organization_location ,ao3.`organization_name` as a3organization_name,
+               ao3.`organization_phone` as a3organization_phone,ao3.`organization_type` as a3organization_type,ao3.`pid`
+                as a3pid,ao3.`updated_at` as a3updated_at
+        FROM auth_organization ao1 LEFT JOIN auth_organization ao2 ON ao1.`organization_id`=ao2.`pid` LEFT JOIN auth_organization AS ao3 ON ao2.`organization_id`=ao3.`pid`
+
+  </select>
+
 </mapper>
