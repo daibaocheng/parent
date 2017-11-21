@@ -2,13 +2,17 @@ package com.vankeytech.pmp.pms.controller;
 
 import com.vankeytech.pmp.pms.entity.JsonResult;
 import com.vankeytech.pmp.pms.entity.PmsInformAnnouncement;
-import com.vankeytech.pmp.pms.intf.PmsInformAnnouncementIntf;
+import com.vankeytech.pmp.pms.service.PmsInformAnnouncementService;
 import com.vankeytech.pmp.pms.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import tk.mybatis.mapper.entity.Condition;
+
+import javax.annotation.Resource;
 import java.util.Map;
+
 
 /**
  * 通知管理
@@ -17,8 +21,8 @@ import java.util.Map;
 @RequestMapping(value = "/pmsInformAnnouncement")
 public class PmsInformAnnouncementController {
 
-    @Autowired
-    private PmsInformAnnouncementIntf pmsInformAnnouncementIntf;
+    @Resource
+    private PmsInformAnnouncementService pmsInformAnnouncementService;
 
 
 
@@ -28,8 +32,7 @@ public class PmsInformAnnouncementController {
      */
     @GetMapping("/selectAll")
     public JsonResult getPmsInformAnnouncementList(){
-        System.out.println("结果为"+pmsInformAnnouncementIntf.selectAll());
-        return ResponseUtil.success(pmsInformAnnouncementIntf.selectAll());
+        return ResponseUtil.success(pmsInformAnnouncementService.selectAll());
     }
 
     /**
@@ -40,7 +43,7 @@ public class PmsInformAnnouncementController {
     @GetMapping("/delete/{id}")
     @Transactional
     public JsonResult deletePmsInformAnnouncement(@PathVariable("id") String ids){
-        return ResponseUtil.success(pmsInformAnnouncementIntf.deleteByIds(ids));
+        return ResponseUtil.success(pmsInformAnnouncementService.deleteByIds(ids));
     }
 
     /**
@@ -52,7 +55,7 @@ public class PmsInformAnnouncementController {
     @Transactional
     public JsonResult addPmsInformAnnouncement(@Validated PmsInformAnnouncement pmsInformAnnouncement) {
 
-        return ResponseUtil.success(pmsInformAnnouncementIntf.insert(pmsInformAnnouncement));
+        return ResponseUtil.success(pmsInformAnnouncementService.insert(pmsInformAnnouncement));
     }
     /**
      * 详情
@@ -63,20 +66,20 @@ public class PmsInformAnnouncementController {
     @Transactional
     public JsonResult particularsPmsInformAnnouncement(@PathVariable("id") String ids) {
 
-        return ResponseUtil.success(pmsInformAnnouncementIntf.selectByIds(ids));
+        return ResponseUtil.success(pmsInformAnnouncementService.selectByIds(ids));
     }
     /**
      * 条件查询
      * @param pmsInformAnnouncement
      * @return
      */
-    @PostMapping("/details/{map}")
+    @GetMapping("/condition")
     @Transactional
     public JsonResult findConditionsPmsInformAnnouncement(@PathVariable("pmsInformAnnouncement") PmsInformAnnouncement pmsInformAnnouncement) {
 
-//        return ResponseUtil.success(pmsInformAnnouncement.);
-//        pmsInformAnnouncementIntf.selectByCondition();
-//        pmsInformAnnouncementIntf.
-        return null;
+
+        Condition  condition=new Condition(PmsInformAnnouncement.class);
+        condition.selectProperties("f","a");
+        return ResponseUtil.success(condition.toString());
     }
 }

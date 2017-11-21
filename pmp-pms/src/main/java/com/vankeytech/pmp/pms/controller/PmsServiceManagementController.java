@@ -2,12 +2,14 @@ package com.vankeytech.pmp.pms.controller;
 
 import com.vankeytech.pmp.pms.entity.JsonResult;
 import com.vankeytech.pmp.pms.entity.PmsServiceManagement;
-import com.vankeytech.pmp.pms.intf.PmsServiceManagementIntf;
+import com.vankeytech.pmp.pms.service.PmsServiceManagementService;
 import com.vankeytech.pmp.pms.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * 报修管理
@@ -15,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/pmsServiceManagement")
 public class PmsServiceManagementController {
-    @Autowired
-    private PmsServiceManagementIntf pmsServiceManagementIntf;
+    @Resource
+    private PmsServiceManagementService pmsServiceManagementService;
 
     /**
      * 全查
@@ -24,7 +26,7 @@ public class PmsServiceManagementController {
      */
     @GetMapping("/selectAll")
     public JsonResult getPmsInformAnnouncementList(){
-        return ResponseUtil.success(pmsServiceManagementIntf.selectAll());
+        return ResponseUtil.success(pmsServiceManagementService.selectAll());
     }
 
     /**
@@ -35,7 +37,7 @@ public class PmsServiceManagementController {
     @DeleteMapping("/delete/{id}")
     @Transactional
     public JsonResult deletePmsInformAnnouncement(@PathVariable("id") String ids){
-        return ResponseUtil.success(pmsServiceManagementIntf.deleteByIds(ids));
+        return ResponseUtil.success(pmsServiceManagementService.deleteByIds(ids));
     }
 
     /**
@@ -46,7 +48,7 @@ public class PmsServiceManagementController {
     @PostMapping("/insert")
     @Transactional
     public JsonResult addPmsInformAnnouncement(@Validated PmsServiceManagement pmsServiceManagement) {
-        return ResponseUtil.success(pmsServiceManagementIntf.insert(pmsServiceManagement));
+        return ResponseUtil.success(pmsServiceManagementService.insert(pmsServiceManagement));
     }
     /**
      * 详情
@@ -57,6 +59,6 @@ public class PmsServiceManagementController {
     @Transactional
     public JsonResult particularsPmsInformAnnouncement(@PathVariable("id") String ids) {
 
-        return ResponseUtil.success(pmsServiceManagementIntf.selectByIds(ids));
+        return ResponseUtil.success(pmsServiceManagementService.selectByIds(ids));
     }
 }

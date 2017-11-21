@@ -2,12 +2,14 @@ package com.vankeytech.pmp.pms.controller;
 
 import com.vankeytech.pmp.pms.entity.JsonResult;
 import com.vankeytech.pmp.pms.entity.PmsVisitors;
-import com.vankeytech.pmp.pms.intf.PmsVisitorsIntf;
+import com.vankeytech.pmp.pms.service.PmsVisitorsService;
 import com.vankeytech.pmp.pms.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * 访客管理
@@ -15,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/pmsVisitors")
 public class PmsVisitorsController {
-    @Autowired
-    private PmsVisitorsIntf pmsVisitorsIntf;
+    @Resource
+    private PmsVisitorsService pmsVisitorsService;
 
     /**
      * 全查
@@ -24,7 +26,7 @@ public class PmsVisitorsController {
      */
     @GetMapping("/selectAll")
     public JsonResult getPmsVisitorsPmsInformAnnouncementList(){
-        return ResponseUtil.success(pmsVisitorsIntf.selectAll());
+        return ResponseUtil.success(pmsVisitorsService.selectAll());
     }
 
     /**
@@ -35,7 +37,7 @@ public class PmsVisitorsController {
     @DeleteMapping("/delete/{id}")
     @Transactional
     public JsonResult deletePmsVisitors(@PathVariable("id") String ids){
-        return ResponseUtil.success(pmsVisitorsIntf.deleteByIds(ids));
+        return ResponseUtil.success(pmsVisitorsService.deleteByIds(ids));
     }
 
     /**
@@ -47,7 +49,7 @@ public class PmsVisitorsController {
     @Transactional
     public JsonResult insertPmsVisitors(@Validated PmsVisitors pmsVisitors) {
 
-        return ResponseUtil.success(pmsVisitorsIntf.insert(pmsVisitors));
+        return ResponseUtil.success(pmsVisitorsService.insert(pmsVisitors));
     }
     /**
      * 详情
@@ -58,6 +60,6 @@ public class PmsVisitorsController {
     @Transactional
     public JsonResult particularsPmsVisitors(@PathVariable("id") String ids) {
 
-        return ResponseUtil.success(pmsVisitorsIntf.selectByIds(ids));
+        return ResponseUtil.success(pmsVisitorsService.selectByIds(ids));
     }
 }

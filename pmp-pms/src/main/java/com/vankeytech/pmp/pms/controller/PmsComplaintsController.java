@@ -2,12 +2,14 @@ package com.vankeytech.pmp.pms.controller;
 
 import com.vankeytech.pmp.pms.entity.JsonResult;
 import com.vankeytech.pmp.pms.entity.PmsComplaints;
-import com.vankeytech.pmp.pms.intf.PmsComplaintsIntf;
+import com.vankeytech.pmp.pms.service.PmsComplaintsService;
 import com.vankeytech.pmp.pms.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * 投诉管理
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/pmsComplaints")
 public class PmsComplaintsController {
     @Autowired
-    private PmsComplaintsIntf pmsComplaintsIntf;
+    private PmsComplaintsService pmsComplaintsService;
 
     /**
      * 全查
@@ -24,7 +26,7 @@ public class PmsComplaintsController {
      */
     @GetMapping("/selectAll")
     public JsonResult getComplaintsList(){
-        return ResponseUtil.success(pmsComplaintsIntf.selectAll());
+        return ResponseUtil.success(pmsComplaintsService.selectAll());
     }
 
     /**
@@ -35,7 +37,7 @@ public class PmsComplaintsController {
     @DeleteMapping("/delete/{id}")
     @Transactional
     public JsonResult deleteComplaints(@PathVariable("id") String ids){
-        return ResponseUtil.success(pmsComplaintsIntf.deleteByIds(ids));
+        return ResponseUtil.success(pmsComplaintsService.deleteByIds(ids));
     }
 
     /**
@@ -47,7 +49,7 @@ public class PmsComplaintsController {
     @Transactional
     public JsonResult addComplaints(@Validated PmsComplaints pmsComplaints) {
 
-        return ResponseUtil.success(pmsComplaintsIntf.insert(pmsComplaints));
+        return ResponseUtil.success(pmsComplaintsService.insert(pmsComplaints));
     }
     /**
      * 详情
@@ -58,6 +60,7 @@ public class PmsComplaintsController {
     @Transactional
     public JsonResult particularsComplaints(@PathVariable("id") String ids) {
 
-        return ResponseUtil.success(pmsComplaintsIntf.selectByIds(ids));
+        return ResponseUtil.success(pmsComplaintsService.selectByIds(ids));
     }
+
 }
