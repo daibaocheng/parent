@@ -17,7 +17,6 @@
     <result column="phone1" jdbcType="VARCHAR" property="phone1" />
     <result column="phone2" jdbcType="VARCHAR" property="phone2" />
     <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="building_id" jdbcType="BIGINT" property="buildingId" />
     <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
     <result column="post" jdbcType="VARCHAR" property="post" />
@@ -30,34 +29,34 @@
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
 
-  <sql id="baseSql">
+  <!--&amp;amp;amp;lt;sql id="baseSql"&amp;amp;amp;gt;
     user.user_id,user.user_name,user.nick_name,user.account_no,user.sex,user.nationality,user.native_place,user.permanent_address,
     user.identity_card,user.phone1,user.phone2,user.email,user.building_id,user.house_proprietary_certificate,user.company_name,user.post,
     user.company_address,user.identity_card_photo_obverse,user.identity_card_photo_reverse,user.face_photo,user.landlord,user.display,user.remarks
-  </sql>
+  &amp;amp;amp;lt;/sql&amp;amp;amp;gt;-->
 
   <!-- 批量插入数据 -->
-  <!--<insert id="insertUsers" parameterType="list">
+  <insert id="myInsertUsers" parameterType="list">
     INSERT INTO hms_user VALUES
     <foreach collection="list" item="user" separator=",">
       (#{user.userId},#{user.userName},#{user.nickName},#{user.accountNo},#{user.sex},#{user.nationality},#{user.nativePlace},#{user.permanentAddress},
       #{user.identityCard},#{user.phone1},#{user.phone2},#{user.email},#{user.buildingId},#{user.houseProprietaryCertificate},#{user.companyName},#{user.post},
       #{user.companyAddress},#{user.identityCardPhotoObverse},#{user.identityCardPhotoReverse},#{user.facePhoto},#{user.landlord},#{user.display},#{user.remarks})
     </foreach>
-  </insert>-->
+  </insert>
 
   <!-- 批量删除数据 -->
-  <!--<delete id="deleteUsers" parameterType="list">
+  <!--&amp;amp;amp;amp;lt;delete id="deleteUsers" parameterType="list"&amp;amp;amp;amp;gt;
     DELETE FROM hms_user
     WHERE user_id IN
-    <foreach collection="list" open="(" close=")" separator=",">
+    &amp;amp;amp;amp;lt;foreach collection="list" open="(" close=")" separator=","&amp;amp;amp;amp;gt;
       #{id}
-    </foreach>
-  </delete>-->
+    &amp;amp;amp;amp;lt;/foreach&amp;amp;amp;amp;gt;
+  &amp;amp;amp;amp;lt;/delete&amp;amp;amp;amp;gt;-->
 
   <!-- 批量删除数据 -->
-  <update id="deleteByPrimaryKey" parameterType="list">
-    UPDATE FROM hms_user u SET USER.display=0
+  <!--<update id="deleteByIds" parameterType="list">
+    UPDATE FROM hms_user u SET u.display=0
     WHERE u.user_id=#{id}
-  </update>
+  </update>-->
 </mapper>

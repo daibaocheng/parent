@@ -20,8 +20,4 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
         super(userMapper);
     }
 
-    @Override
-    public void deleteByPrimaryKey(Integer id) {
-        userMapper.deleteByPrimaryKey(id);
-    }
 }

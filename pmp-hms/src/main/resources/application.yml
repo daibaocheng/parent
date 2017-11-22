@@ -21,17 +21,17 @@ spring:
       pool-prepared-statements: true
       max-open-prepared-statements: 20
 dubbo:
-  appname: pmp-hms-provider # dubbo应用名
+  appname: pmp-ims-provider # dubbo应用名
   protocol:
     name: dubbo             # dubbo协议名，不用改
-    port: 20886             # dubbo对外提供接口的端口号
+    port: 20889             # dubbo对外提供接口的端口号
 
 # 开发环境
 ---
 spring:
   profiles: dev
 dubbo:
-  debug: dubbo://localhost:20886
+  debug: dubbo://localhost:20889
   register: false
   registry:
     - N/A
@@ -59,6 +59,14 @@ mapper:
   mappers: com.vankeytech.baseservice.mapper.BasicMapper
   not-empty: false
   identity: MYSQL
+
+
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
 
 #数据库可选连接
 ---

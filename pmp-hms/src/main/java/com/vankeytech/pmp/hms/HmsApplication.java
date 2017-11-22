@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-//@ImportResource(locations = "classpath:dubbo-provider.xml")
+@ImportResource(locations = "classpath:dubbo-provider.xml")
 //扫描dao层
 @MapperScan(basePackages = "com.vankeytech.pmp.hms.mapper")
 
