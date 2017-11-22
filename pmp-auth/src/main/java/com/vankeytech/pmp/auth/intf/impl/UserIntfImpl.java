@@ -2,7 +2,6 @@ package com.vankeytech.pmp.auth.intf.impl;
 
 
 import com.github.pagehelper.PageInfo;
-import com.sun.xml.internal.bind.v2.model.runtime.RuntimeLeafInfo;
 import com.vankeytech.pmp.auth.entity.Permission;
 import com.vankeytech.pmp.auth.entity.Role;
 import com.vankeytech.pmp.auth.entity.User;
@@ -11,9 +10,7 @@ import com.vankeytech.pmp.auth.intf.UserIntf;
 import com.vankeytech.pmp.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Condition;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,6 +24,17 @@ public class UserIntfImpl  implements UserIntf {
 
     @Autowired
     private UserService userService;
+
+
+    /**
+     * 添加员工信息
+     *
+     * @param user
+     */
+    @Override
+    public void addUser(User user) {
+        userService.insert(user);
+    }
 
     /**
      * 修改用户密码
@@ -87,7 +95,8 @@ public class UserIntfImpl  implements UserIntf {
      */
     @Override
     public PageInfo pageUser(Integer page, Integer pageSize,User user) {
-        return userService.selecePageByCondition(user);
+
+        return userService.selecePageByCondition(page,pageSize,user);
     }
 
     /**
@@ -100,28 +109,8 @@ public class UserIntfImpl  implements UserIntf {
         userService.updateByPrimaryKeySelective(user);
     }
 
-    /**
-     * 条件查询 根据用户或者注册名查询
-     *
-     * @param user 用户名称或者注册名称
-     * @return 用户集合
-     */
-    @Override
-    public List<User> selecteByNames(User user) {
 
-        return userService.selectByName(user);
-    }
 
-    /**
-     * 根据所在部门和 用户名或注册名查询
-     * @param user 部门id
-     * @return
-     */
-    @Override
-    public List<User> selectByCondition(User user) {
-
-        return userService.loadByCondition(user);
-    }
 
     /**
      * 为用户授予角色

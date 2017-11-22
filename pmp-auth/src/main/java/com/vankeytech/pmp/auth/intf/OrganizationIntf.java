@@ -4,6 +4,9 @@ import com.vankeytech.pmp.auth.entity.Organization;
 
 import java.util.List;
 
+/**
+ * @author  xieliang
+ */
 public interface OrganizationIntf {
 
     /**

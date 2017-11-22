@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.pms.mapper.PmsComplaintsMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.pms.entity.PmsComplaints">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="householders_id" jdbcType="INTEGER" property="householdersId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="complaint_content" jdbcType="VARCHAR" property="complaintContent" />
+    <result column="creation_time" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="creation_person" jdbcType="VARCHAR" property="creationPerson" />
+    <result column="acceptance_time" jdbcType="DATE" property="acceptanceTime" />
+    <result column="complaints_site" jdbcType="VARCHAR" property="complaintsSite" />
+    <result column="housing_id" jdbcType="INTEGER" property="housingId" />
+  </resultMap>
+  <!--修改投诉信息状态 -->
+  <update id="updateStatus" parameterType="java.lang.Integer" >
+    UPDATE pms_complaints pc SET pc.status=(pc.status+1)
+      WHERE pc.id=#{id}
+  </update>
+  <!--条件查询-->
+  <select id="selectPmsComplaintsCondition" resultMap="BaseResultMap" parameterType="java.util.Map">
+    SELECT * FROM pms_complaints
+    <where>
+      acceptance_time BETWEEN #{map.minDate} and #{map.maxDate}
+      <if test="map.status!=null">
+        AND status=#{map.status}
+      </if>
+      <if test="map.complaint_content!=null">
+        and complaint_content LIKE #{map.complaintContent}
+      </if>
+    </where>
+  </select>
+</mapper>

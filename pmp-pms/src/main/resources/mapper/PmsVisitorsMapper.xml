@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.pms.mapper.PmsVisitorsMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.pms.entity.PmsVisitors">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="visitors_name" jdbcType="VARCHAR" property="visitorsName" />
+    <result column="householders_id" jdbcType="INTEGER" property="householdersId" />
+    <result column="visiting_instructions" jdbcType="VARCHAR" property="visitingInstructions" />
+    <result column="visiting_time" jdbcType="TIMESTAMP" property="visitingTime" />
+    <result column="leave_time" jdbcType="TIMESTAMP" property="leaveTime" />
+    <result column="access_state" jdbcType="INTEGER" property="accessState" />
+  </resultMap>
+</mapper>

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
+
 
 /**
  * 投诉管理
@@ -53,7 +53,7 @@ public class PmsComplaintsController {
     }
     /**
      * 详情
-     * @param
+     * @param ids
      * @return
      */
     @GetMapping("/details/{id}")

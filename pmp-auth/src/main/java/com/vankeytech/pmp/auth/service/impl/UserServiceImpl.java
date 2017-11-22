@@ -13,6 +13,7 @@ import com.vankeytech.pmp.auth.mapper.RoleMapper;
 import com.vankeytech.pmp.auth.mapper.UserMapper;
 import com.vankeytech.pmp.auth.mapper.UserRoleMapper;
 import com.vankeytech.pmp.auth.service.UserService;
+import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Condition;
@@ -42,22 +43,6 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 
     @Autowired
     private UserRoleMapper userRoleMapper;
-
-    /**
-     * 根据用户名或者登陆名查询用户信息
-     * @param user 用户名或者登陆名
-     * @return 用户集合
-     */
-    @Override
-    public List<User> selectByName(User user) {
-        Condition condition = new Condition(User.class);
-        condition.and()
-                .andEqualTo("userRegisterAccount",user.getUserRegisterAccount())
-                .orEqualTo("nickname",user.getNickname());
-       List<User> list= this.selectByCondition(condition);
-        return list;
-    }
-
 
     /**
      * 登录 根据登录名
@@ -114,29 +99,23 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
     }
 
     /**
-     * 分页查询
+     * 分页查询 如果有对象放入user
      * @param user
      * @return
      */
     @Override
-    public PageInfo<User> selecePageByCondition(User user) {
-        List<User> userLit=userMapper.selectAll();
+    public PageInfo<User> selecePageByCondition(Integer page, Integer pageSize, User user) {
+        Condition condition = new Condition(user.getClass());
+        condition.and().andEqualTo("departmentId",user.getDepartmentId())
+                 .andEqualTo("userRegisterAccount",user.getUserRegisterAccount())
+                 .orEqualTo("nickname",user.getNickname());
+
+        List<User> userList = userMapper.selectByCondition(condition);
+
         PageHelper.startPage(0,9);
-        PageInfo<User> pageInfo=new PageInfo<User>(userLit);
+        PageInfo<User> pageInfo=new PageInfo<User>(userList);
         return pageInfo;
     }
 
-    /**
-     * @param user
-     * @return
-     */
-    @Override
-    public List<User> loadByCondition(User user) {
-        Condition condition = new Condition(user.getClass());
-        condition.and().andEqualTo("departmentId",user.getDepartmentId())
-                .andEqualTo("userRegisterAccount",user.getUserRegisterAccount())
-                .orEqualTo("nickname",user.getNickname());
-        List<User> userList = userMapper.selectByCondition(condition);
-        return userList;
-    }
+
 }

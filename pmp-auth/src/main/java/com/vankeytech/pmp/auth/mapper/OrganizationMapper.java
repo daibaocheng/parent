@@ -12,9 +12,4 @@ import java.util.List;
 @Repository
 public interface OrganizationMapper extends BasicMapper<Organization> {
 
-    /**
-     * 
-     * @return
-     */
-    List<Organization> getAll();
 }

@@ -3,6 +3,9 @@ package com.vankeytech.pmp.auth.entity;
 import java.util.Date;
 import javax.persistence.*;
 
+/**
+ * @author  xieliang
+ */
 @Table(name = "auth_operation_log")
 public class OperationLog {
     /**
@@ -71,6 +74,34 @@ public class OperationLog {
      */
     @Column(name = "exported_at")
     private Date exportedAt;
+
+    /**
+     * 用户范围查询的
+     */
+    @Transient
+    private String startTime;
+
+    /**
+     * 范围查询的结束时间
+     */
+    @Transient
+    private String endTime;
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 
     /**
      * 获取操作日志的id编号
