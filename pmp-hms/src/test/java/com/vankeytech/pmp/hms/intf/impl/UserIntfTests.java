@@ -48,10 +48,10 @@ public class UserIntfTests {
         List<User> users = new ArrayList<>();
         User user1 = new User();
         user1.setUserId(3);
-        user1.setUserName("333");
+//        user1.setUserName("333");
         User user2 = new User();
         user2.setUserId(4);
-        user1.setUserName("444");
+//        user1.setUserName("444");
         users.add(user1);
         users.add(user2);
         System.out.println(userIntf.insertUsers(users));
