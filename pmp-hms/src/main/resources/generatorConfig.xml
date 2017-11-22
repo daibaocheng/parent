@@ -41,11 +41,15 @@
         <table tableName="hms_account_log" domainObjectName="AccountLog">
             <generatedKey column="account_log_no" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_building" domainObjectName="Building" />
+        <table tableName="hms_building" domainObjectName="Building" >
+            <generatedKey column="building_id" sqlStatement="Mysql" identity="true" />
+        </table>
         <table tableName="hms_hous_authority" domainObjectName="HousAuthority">
             <generatedKey column="hous_authority_no" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_user" domainObjectName="User"/>
+        <table tableName="hms_user" domainObjectName="User">
+            <generatedKey column="user_id" sqlStatement="Mysql" identity="true" />
+        </table>
         <table tableName="hms_user_building" domainObjectName="UserBuilding">
             <generatedKey column="user_building_id" sqlStatement="Mysql" identity="true" />
         </table>

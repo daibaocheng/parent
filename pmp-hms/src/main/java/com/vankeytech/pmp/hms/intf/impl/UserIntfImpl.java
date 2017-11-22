@@ -1,5 +1,6 @@
 package com.vankeytech.pmp.hms.intf.impl;
 
+import com.vankeytech.pmp.hms.condition.SelectCondition;
 import com.vankeytech.pmp.hms.entity.User;
 import com.vankeytech.pmp.hms.intf.UserIntf;
 import com.vankeytech.pmp.hms.service.UserService;
@@ -7,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.concurrent.locks.Condition;
 
 /**
  * @author Administrator
@@ -19,18 +19,18 @@ public class UserIntfImpl implements UserIntf {
     private UserService userService;
 
     @Override
-    public List<User> selectAll() {
-        return userService.selectAll();
+    public List<User> selectAllUsers() {
+        return userService.selectAllUsers();
     }
 
     @Override
-    public List<User> selectByCondition(tk.mybatis.mapper.entity.Condition condition) {
-        return userService.selectByCondition(condition);
+    public List<User> selectByCondition(SelectCondition selectCondition) {
+        return userService.selectUserByCondition(selectCondition);
     }
 
     @Override
-    public List<User> selectByIds(String ids) {
-        return userService.selectByIds(ids);
+    public List<User> selectByIds(Integer[] ids) {
+        return userService.selectUserByIds(ids);
     }
 
     @Override
@@ -39,32 +39,32 @@ public class UserIntfImpl implements UserIntf {
     }
 
     @Override
-    public Integer selectCountByCondition(tk.mybatis.mapper.entity.Condition condition) {
-        return userService.selectCountByCondition(condition);
+    public Integer selectCountByCondition(SelectCondition selectcondition) {
+        return userService.selectUserCountByCondition(selectcondition);
     }
 
     @Override
-    public Integer insertUser(User user) {
-        return userService.insertSelective(user);
+    public void insertUser(User user) {
+        userService.insertUserOne(user);
     }
 
     @Override
-    public Integer insertUsers(List<User> users) {
-        return userService.insertList(users);
+    public void insertUsers(List<User> users) {
+        userService.insertUsers(users);
     }
 
     @Override
-    public Integer updateUser(User user) {
-        return userService.updateByPrimaryKeySelective(user);
+    public void updateUser(User user) {
+        userService.updateByPrimaryKeySelective(user);
     }
 
     @Override
-    public Integer deleteByPrimaryKey(Integer id) {
-        return userService.deleteByPrimaryKey(id);
+    public void deleteByPrimaryKey(Integer id) {
+        userService.deleteUserByPrimaryKey(id);
     }
 
     @Override
-    public Integer deleteByIds(String ids) {
-        return userService.deleteByIds(ids);
+    public void deleteByIds(Integer[] ids) {
+        userService.deleteUserByIds(ids);
     }
 }

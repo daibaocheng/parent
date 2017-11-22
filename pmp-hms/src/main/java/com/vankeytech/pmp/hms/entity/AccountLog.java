@@ -34,7 +34,8 @@ public class AccountLog {
     /**
      * 账号ID
      */
-    private Long account;
+    @Column(name = "account_no")
+    private Long accountNo;
 
     /**
      * 备注
@@ -116,19 +117,19 @@ public class AccountLog {
     /**
      * 获取账号ID
      *
-     * @return account - 账号ID
+     * @return account_no - 账号ID
      */
-    public Long getAccount() {
-        return account;
+    public Long getAccountNo() {
+        return accountNo;
     }
 
     /**
      * 设置账号ID
      *
-     * @param account 账号ID
+     * @param accountNo 账号ID
      */
-    public void setAccount(Long account) {
-        this.account = account;
+    public void setAccountNo(Long accountNo) {
+        this.accountNo = accountNo;
     }
 
     /**

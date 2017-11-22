@@ -9,7 +9,7 @@
     <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
     <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
     <result column="login_address_id" jdbcType="VARCHAR" property="loginAddressId" />
-    <result column="account" jdbcType="BIGINT" property="account" />
+    <result column="account_no" jdbcType="BIGINT" property="accountNo" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
 </mapper>

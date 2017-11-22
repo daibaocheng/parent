@@ -10,6 +10,7 @@ public class Building {
      */
     @Id
     @Column(name = "building_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long buildingId;
 
     /**
@@ -62,7 +63,7 @@ public class Building {
     /**
      * 房产拥有者
      */
-    private Long owner;
+    private Integer owner;
 
     /**
      * 启用状态（是否）
@@ -259,7 +260,7 @@ public class Building {
      *
      * @return owner - 房产拥有者
      */
-    public Long getOwner() {
+    public Integer getOwner() {
         return owner;
     }
 
@@ -268,7 +269,7 @@ public class Building {
      *
      * @param owner 房产拥有者
      */
-    public void setOwner(Long owner) {
+    public void setOwner(Integer owner) {
         this.owner = owner;
     }
 

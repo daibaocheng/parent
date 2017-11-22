@@ -14,7 +14,7 @@
     <result column="house_purpose" jdbcType="BIGINT" property="housePurpose" />
     <result column="rent" jdbcType="BIGINT" property="rent" />
     <result column="family_size" jdbcType="BIGINT" property="familySize" />
-    <result column="owner" jdbcType="BIGINT" property="owner" />
+    <result column="owner" jdbcType="INTEGER" property="owner" />
     <result column="use_status" jdbcType="BIGINT" property="useStatus" />
     <result column="authority_status" jdbcType="BIGINT" property="authorityStatus" />
     <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />

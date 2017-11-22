@@ -22,8 +22,8 @@ public class Village {
     /**
      * 小区地址（省市区）
      */
-    @Column(name = "village_address")
-    private String villageAddress;
+    @Column(name = "region_code")
+    private Long regionCode;
 
     /**
      * 物业管理公司
@@ -106,17 +106,17 @@ public class Village {
      *
      * @return village_address - 小区地址（省市区）
      */
-    public String getVillageAddress() {
-        return villageAddress;
+    public Long getRegionCode() {
+        return regionCode;
     }
 
     /**
      * 设置小区地址（省市区）
      *
-     * @param villageAddress 小区地址（省市区）
+     * @param regionCode 小区地址（省市区）
      */
-    public void setVillageAddress(String villageAddress) {
-        this.villageAddress = villageAddress;
+    public void setRegionId(Long regionCode) {
+        this.regionCode = regionCode;
     }
 
     /**

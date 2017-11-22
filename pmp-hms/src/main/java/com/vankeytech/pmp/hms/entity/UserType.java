@@ -17,7 +17,7 @@ public class UserType {
      * 住户编号
      */
     @Column(name = "user_id")
-    private Long userId;
+    private Integer userId;
 
     /**
      * 用户类型名(0业主、1租客、2亲属、3商家)
@@ -46,7 +46,7 @@ public class UserType {
     /**
      * 房东
      */
-    private Long landlord;
+    private Integer landlord;
 
     /**
      * 备注
@@ -76,7 +76,7 @@ public class UserType {
      *
      * @return user_id - 住户编号
      */
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
@@ -85,7 +85,7 @@ public class UserType {
      *
      * @param userId 住户编号
      */
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -166,7 +166,7 @@ public class UserType {
      *
      * @return landlord - 房东
      */
-    public Long getLandlord() {
+    public Integer getLandlord() {
         return landlord;
     }
 
@@ -175,7 +175,7 @@ public class UserType {
      *
      * @param landlord 房东
      */
-    public void setLandlord(Long landlord) {
+    public void setLandlord(Integer landlord) {
         this.landlord = landlord;
     }
 

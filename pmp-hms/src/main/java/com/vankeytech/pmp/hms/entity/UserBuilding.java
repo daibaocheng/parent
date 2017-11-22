@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Table(name = "hms_user_building")
 public class UserBuilding {
     /**
-     * user_building_id
+     * 用户房屋编号
      */
     @Id
     @Column(name = "user_building_id")
@@ -13,66 +13,66 @@ public class UserBuilding {
     private Long userBuildingId;
 
     /**
-     * user_id
+     * 用户编号
      */
     @Column(name = "user_id")
-    private Long userId;
+    private Integer userId;
 
     /**
-     * building_id
+     * 房屋编号
      */
     @Column(name = "building_id")
     private Long buildingId;
 
     /**
-     * 获取user_building_id
+     * 获取用户房屋编号
      *
-     * @return user_building_id - user_building_id
+     * @return user_building_id - 用户房屋编号
      */
     public Long getUserBuildingId() {
         return userBuildingId;
     }
 
     /**
-     * 设置user_building_id
+     * 设置用户房屋编号
      *
-     * @param userBuildingId user_building_id
+     * @param userBuildingId 用户房屋编号
      */
     public void setUserBuildingId(Long userBuildingId) {
         this.userBuildingId = userBuildingId;
     }
 
     /**
-     * 获取user_id
+     * 获取用户编号
      *
-     * @return user_id - user_id
+     * @return user_id - 用户编号
      */
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
     /**
-     * 设置user_id
+     * 设置用户编号
      *
-     * @param userId user_id
+     * @param userId 用户编号
      */
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
     /**
-     * 获取building_id
+     * 获取房屋编号
      *
-     * @return building_id - building_id
+     * @return building_id - 房屋编号
      */
     public Long getBuildingId() {
         return buildingId;
     }
 
     /**
-     * 设置building_id
+     * 设置房屋编号
      *
-     * @param buildingId building_id
+     * @param buildingId 房屋编号
      */
     public void setBuildingId(Long buildingId) {
         this.buildingId = buildingId;

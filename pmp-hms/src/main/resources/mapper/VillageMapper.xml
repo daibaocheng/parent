@@ -7,7 +7,7 @@
     -->
     <id column="village_no" jdbcType="BIGINT" property="villageNo" />
     <result column="village_name" jdbcType="VARCHAR" property="villageName" />
-    <result column="village_address" jdbcType="VARCHAR" property="villageAddress" />
+    <result column="region_code" jdbcType="BIGINT" property="regionCode" />
     <result column="property_management_company" jdbcType="VARCHAR" property="propertyManagementCompany" />
     <result column="Property_company_phone" jdbcType="VARCHAR" property="propertyCompanyPhone" />
     <result column="developers" jdbcType="VARCHAR" property="developers" />

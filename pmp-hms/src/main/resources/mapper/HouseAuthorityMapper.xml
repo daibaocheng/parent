@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.hms.mapper.HouseAuthorityMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.hms.entity.HouseAuthority">
+    <id column="hous_authority_no" jdbcType="BIGINT" property="housAuthorityNo" />
+    <result column="building_no" jdbcType="BIGINT" property="buildingNo" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
+    <result column="creat_time" jdbcType="DATE" property="creatTime" />
+    <result column="end_time" jdbcType="DATE" property="endTime" />
+    <result column="authority_status" jdbcType="BIGINT" property="authorityStatus" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>

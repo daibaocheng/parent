@@ -16,7 +16,8 @@ public class Account {
     /**
      * 住户编号
      */
-    private Long user;
+    @Column(name = "user_id")
+    private Integer userId;
 
     /**
      * 账号类型
@@ -68,19 +69,19 @@ public class Account {
     /**
      * 获取住户编号
      *
-     * @return user - 住户编号
+     * @return user_id - 住户编号
      */
-    public Long getUser() {
-        return user;
+    public Integer getUserId() {
+        return userId;
     }
 
     /**
      * 设置住户编号
      *
-     * @param user 住户编号
+     * @param userId 住户编号
      */
-    public void setUser(Long user) {
-        this.user = user;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     /**
@@ -171,5 +172,18 @@ public class Account {
      */
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountNo=" + accountNo +
+                ", userId=" + userId +
+                ", accountType='" + accountType + '\'' +
+                ", creatTime=" + creatTime +
+                ", loginCount=" + loginCount +
+                ", accountStatus=" + accountStatus +
+                ", remarks='" + remarks + '\'' +
+                '}';
     }
 }

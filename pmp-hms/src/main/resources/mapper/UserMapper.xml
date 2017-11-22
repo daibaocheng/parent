@@ -24,39 +24,127 @@
     <result column="identity_card_photo_obverse" jdbcType="VARCHAR" property="identityCardPhotoObverse" />
     <result column="identity_card_photo_reverse" jdbcType="VARCHAR" property="identityCardPhotoReverse" />
     <result column="face_photo" jdbcType="VARCHAR" property="facePhoto" />
-    <result column="landlord" jdbcType="BIGINT" property="landlord" />
     <result column="display" jdbcType="BIGINT" property="display" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
-
-  <!--&amp;amp;amp;lt;sql id="baseSql"&amp;amp;amp;gt;
-    user.user_id,user.user_name,user.nick_name,user.account_no,user.sex,user.nationality,user.native_place,user.permanent_address,
-    user.identity_card,user.phone1,user.phone2,user.email,user.building_id,user.house_proprietary_certificate,user.company_name,user.post,
-    user.company_address,user.identity_card_photo_obverse,user.identity_card_photo_reverse,user.face_photo,user.landlord,user.display,user.remarks
-  &amp;amp;amp;lt;/sql&amp;amp;amp;gt;-->
-
-  <!-- 批量插入数据 -->
-  <insert id="myInsertUsers" parameterType="list">
-    INSERT INTO hms_user VALUES
-    <foreach collection="list" item="user" separator=",">
-      (#{user.userId},#{user.userName},#{user.nickName},#{user.accountNo},#{user.sex},#{user.nationality},#{user.nativePlace},#{user.permanentAddress},
-      #{user.identityCard},#{user.phone1},#{user.phone2},#{user.email},#{user.buildingId},#{user.houseProprietaryCertificate},#{user.companyName},#{user.post},
-      #{user.companyAddress},#{user.identityCardPhotoObverse},#{user.identityCardPhotoReverse},#{user.facePhoto},#{user.landlord},#{user.display},#{user.remarks})
-    </foreach>
-  </insert>
-
-  <!-- 批量删除数据 -->
-  <!--&amp;amp;amp;amp;lt;delete id="deleteUsers" parameterType="list"&amp;amp;amp;amp;gt;
-    DELETE FROM hms_user
-    WHERE user_id IN
-    &amp;amp;amp;amp;lt;foreach collection="list" open="(" close=")" separator=","&amp;amp;amp;amp;gt;
+  <resultMap id="userResultMap" type="com.vankeytech.pmp.hms.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="account_no" jdbcType="BIGINT" property="accountNo" />
+    <result column="sex" jdbcType="BIGINT" property="sex" />
+    <result column="nationality" jdbcType="VARCHAR" property="nationality" />
+    <result column="native_place" jdbcType="VARCHAR" property="nativePlace" />
+    <result column="permanent_address" jdbcType="VARCHAR" property="permanentAddress" />
+    <result column="identity_card" jdbcType="VARCHAR" property="identityCard" />
+    <result column="phone1" jdbcType="VARCHAR" property="phone1" />
+    <result column="phone2" jdbcType="VARCHAR" property="phone2" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="post" jdbcType="VARCHAR" property="post" />
+    <result column="company_address" jdbcType="VARCHAR" property="companyAddress" />
+    <result column="identity_card_photo_obverse" jdbcType="VARCHAR" property="identityCardPhotoObverse" />
+    <result column="identity_card_photo_reverse" jdbcType="VARCHAR" property="identityCardPhotoReverse" />
+    <result column="face_photo" jdbcType="VARCHAR" property="facePhoto" />
+    <result column="display" jdbcType="BIGINT" property="display" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <collection property="accounts" javaType="java.util.List" ofType="com.vankeytech.pmp.hms.entity.Account">
+      <id column="account_no" jdbcType="BIGINT" property="accountNo" />
+      <result column="account_type" jdbcType="VARCHAR" property="accountType" />
+      <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+      <result column="login_count" jdbcType="BIGINT" property="loginCount" />
+      <result column="account_status" jdbcType="BIGINT" property="accountStatus" />
+      <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </collection>
+    <collection property="userTypes" javaType="java.util.List"  ofType="com.vankeytech.pmp.hms.entity.UserType">
+     <id column="user_type_id" jdbcType="BIGINT" property="userTypeId" />
+     <result column="user_type_no" jdbcType="BIGINT" property="userTypeNo" />
+     <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+     <result column="landlord" jdbcType="INTEGER" property="landlord" />
+     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </collection>
+    <collection property="buildings" javaType="java.util.List" ofType="com.vankeytech.pmp.hms.entity.Building">
+      <id column="building_id" jdbcType="BIGINT" property="buildingId" />
+      <result column="building_no" jdbcType="BIGINT" property="buildingNo" />
+      <result column="unit_no" jdbcType="BIGINT" property="unitNo" />
+      <result column="room_no" jdbcType="BIGINT" property="roomNo" />
+      <result column="house_type" jdbcType="BIGINT" property="houseType" />
+      <result column="floor_space" jdbcType="DOUBLE" property="floorSpace" />
+      <result column="house_purpose" jdbcType="BIGINT" property="housePurpose" />
+      <result column="rent" jdbcType="BIGINT" property="rent" />
+      <result column="family_size" jdbcType="BIGINT" property="familySize" />
+      <result column="use_status" jdbcType="BIGINT" property="useStatus" />
+      <result column="authority_status" jdbcType="BIGINT" property="authorityStatus" />
+      <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+      <result column="village" jdbcType="BIGINT" property="village" />
+      <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </collection>
+    <collection property="houseAuthoritys" javaType="java.util.List" ofType="com.vankeytech.pmp.hms.entity.HouseAuthority">
+      <id column="hous_authority_no" jdbcType="BIGINT" property="housAuthorityNo" />
+      <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
+      <result column="creat_time" jdbcType="DATE" property="creatTime" />
+      <result column="end_time" jdbcType="DATE" property="endTime" />
+      <result column="authority_status" jdbcType="BIGINT" property="authorityStatus" />
+      <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </collection>
+  </resultMap>
+  <sql id="selectBaseSql">
+    hu.user_id,hu.user_name,hu.nick_name,hu.account_no,hu.sex,hu.identity_card,hu.phone1,hu.phone2,hu.email,
+    hut.user_type_no,hut.creat_time,
+    hb.building_id,hb.building_no,hb.unit_no,hb.room_no,owner.user_name owner_name,
+    hha.authority_status
+  </sql>
+  <select id="selectAllUsers"  parameterType="com.vankeytech.pmp.hms.entity.User" resultMap="userResultMap" >
+    SELECT
+    <include refid="selectBaseSql"/>
+    FROM hms_user hu
+    LEFT JOIN hms_user_type hut on hu.user_id=hut.user_id
+    LEFT JOIN hms_user_building hub on hu.user_id=hub.user_id
+    LEFT JOIN hms_building hb on hb.building_id=hub.building_id
+	LEFT JOIN hms_user owner on hb.owner=owner.user_id
+	LEFT JOIN hms_house_authority hha on hha.user_id=hu.user_id
+    WHERE hu.display=1
+  </select>
+  <!--通过条件查询-->
+  <select id="selectUserByCondition"  parameterType="com.vankeytech.pmp.hms.entity.User" resultMap="userResultMap" >
+    SELECT
+    <include refid="selectBaseSql"/>
+    FROM hms_user hu
+    LEFT JOIN hms_user_type hut on hu.user_id=hut.user_id
+    LEFT JOIN hms_user_building hub on hu.user_id=hub.user_id
+    LEFT JOIN hms_building hb on hb.building_id=hub.building_id
+	LEFT JOIN hms_user owner on hb.owner=owner.user_id
+	LEFT JOIN hms_house_authority hha on hha.user_id=hu.user_id
+    WHERE hu.display=1
+    AND
+    (hb.building_no=#{buildingNo}
+    OR hb.unit_no=#{unitNo}
+    OR hb.room_no=#{roomNo}
+    OR hut.user_type_no=#{userTypeNo}
+    OR hha.authority_status=#{authorityStatus}
+    OR hu.phone1=#{phone1}
+    OR hu.identity_card=#{identityCard}
+    OR hu.user_name=#{userName})
+  </select>
+  <!--通过多个id查询-->
+  <select id="selectUserByIds"  parameterType="com.vankeytech.pmp.hms.entity.User" resultMap="userResultMap" >
+    SELECT
+    <include refid="selectBaseSql"/>
+    FROM hms_user hu
+    LEFT JOIN hms_user_type hut on hu.user_id=hut.user_id
+    LEFT JOIN hms_user_building hub on hu.user_id=hub.user_id
+    LEFT JOIN hms_building hb on hb.building_id=hub.building_id
+	LEFT JOIN hms_user owner on hb.owner=owner.user_id
+	LEFT JOIN hms_house_authority hha on hha.user_id=hu.user_id
+    WHERE hu.display=1
+    AND hu.user_id
+    IN
+    <foreach collection="array" item="id" open="(" close=")" separator=",">
       #{id}
-    &amp;amp;amp;amp;lt;/foreach&amp;amp;amp;amp;gt;
-  &amp;amp;amp;amp;lt;/delete&amp;amp;amp;amp;gt;-->
+    </foreach>
+  </select>
 
-  <!-- 批量删除数据 -->
-  <!--<update id="deleteByIds" parameterType="list">
-    UPDATE FROM hms_user u SET u.display=0
-    WHERE u.user_id=#{id}
-  </update>-->
 </mapper>

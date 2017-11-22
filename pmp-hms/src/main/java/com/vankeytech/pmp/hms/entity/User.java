@@ -1,6 +1,7 @@
 package com.vankeytech.pmp.hms.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "hms_user")
 public class User {
@@ -9,7 +10,53 @@ public class User {
      */
     @Id
     @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
+
+    @Transient
+    private List<Account> accounts;
+
+    @Transient
+    private List<UserType> userTypes;
+
+    @Transient
+    private List<Building> buildings;
+
+    @Transient
+    private List<HouseAuthority> houseAuthoritys;
+
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
+    public List<UserType> getUserTypes() {
+        return userTypes;
+    }
+
+    public void setUserTypes(List<UserType> userTypes) {
+        this.userTypes = userTypes;
+    }
+
+    public List<Building> getBuildings() {
+        return buildings;
+    }
+
+    public void setBuildings(List<Building> buildings) {
+        this.buildings = buildings;
+    }
+
+    public List<HouseAuthority> getHouseAuthoritys() {
+        return houseAuthoritys;
+    }
+
+    public void setHouseAuthoritys(List<HouseAuthority> houseAuthoritys) {
+        this.houseAuthoritys = houseAuthoritys;
+    }
 
     /**
      * 姓名
@@ -112,11 +159,6 @@ public class User {
      */
     @Column(name = "face_photo")
     private String facePhoto;
-
-    /**
-     * 房东
-     */
-    private Long landlord;
 
     /**
      * 是否显示（软删除：0删除、1未删除）
@@ -471,24 +513,6 @@ public class User {
     }
 
     /**
-     * 获取房东
-     *
-     * @return landlord - 房东
-     */
-    public Long getLandlord() {
-        return landlord;
-    }
-
-    /**
-     * 设置房东
-     *
-     * @param landlord 房东
-     */
-    public void setLandlord(Long landlord) {
-        this.landlord = landlord;
-    }
-
-    /**
      * 获取是否显示（软删除：0删除、1未删除）
      *
      * @return display - 是否显示（软删除：0删除、1未删除）
@@ -522,5 +546,33 @@ public class User {
      */
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", accounts=" + accounts +
+                ", userName='" + userName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", accountNo=" + accountNo +
+                ", sex=" + sex +
+                ", nationality='" + nationality + '\'' +
+                ", nativePlace='" + nativePlace + '\'' +
+                ", permanentAddress='" + permanentAddress + '\'' +
+                ", identityCard='" + identityCard + '\'' +
+                ", phone1='" + phone1 + '\'' +
+                ", phone2='" + phone2 + '\'' +
+                ", email='" + email + '\'' +
+                ", houseProprietaryCertificate='" + houseProprietaryCertificate + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", post='" + post + '\'' +
+                ", companyAddress='" + companyAddress + '\'' +
+                ", identityCardPhotoObverse='" + identityCardPhotoObverse + '\'' +
+                ", identityCardPhotoReverse='" + identityCardPhotoReverse + '\'' +
+                ", facePhoto='" + facePhoto + '\'' +
+                ", display=" + display +
+                ", remarks='" + remarks + '\'' +
+                '}';
     }
 }
