@@ -4,14 +4,15 @@ import com.vankeytech.pmp.pms.entity.JsonResult;
 import com.vankeytech.pmp.pms.entity.PmsInformAnnouncement;
 import com.vankeytech.pmp.pms.service.PmsInformAnnouncementService;
 import com.vankeytech.pmp.pms.util.ResponseUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import tk.mybatis.mapper.entity.Condition;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +27,7 @@ public class PmsInformAnnouncementController {
     @Resource
     private PmsInformAnnouncementService pmsInformAnnouncementService;
 
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
     /**
@@ -34,7 +36,6 @@ public class PmsInformAnnouncementController {
      */
     @GetMapping("/selectAll")
     public String getPmsInformAnnouncementList(Model model){
-//        return ResponseUtil.success(pmsInformAnnouncementService.selectAll());
         List<PmsInformAnnouncement> pmsList=pmsInformAnnouncementService.selectAll();
         model.addAttribute("pmsList",pmsList);
         return "test";
@@ -75,16 +76,28 @@ public class PmsInformAnnouncementController {
     }
     /**
      * 条件查询
-     * @param pmsInformAnnouncement
+     * @param
      * @return
      */
     @GetMapping("/condition")
     @Transactional
-    public JsonResult findConditionsPmsInformAnnouncement(@PathVariable("pmsInformAnnouncement") PmsInformAnnouncement pmsInformAnnouncement) {
+    public JsonResult findConditionsPmsInformAnnouncement() {
+        Map<String,Object> map=new HashMap<String,Object>();
+        map.put("content","你好");
+        map.put("type",0);
+        map.put("ispush",0);
+        map.put("state",0);
+        Date minDate=null;
+        Date maxDate=null;
+        try {
+            minDate=sdf.parse("2000-01-01 00:00:00");
+            maxDate=sdf.parse("3000-01-01 00:00:00");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        map.put("minDate",minDate);
+        map.put("maxDate",maxDate);
 
-
-        Condition  condition=new Condition(PmsInformAnnouncement.class);
-        condition.selectProperties("f","a");
-        return ResponseUtil.success(condition.toString());
+        return  ResponseUtil.success(pmsInformAnnouncementService.selectByconditions(map));
     }
 }

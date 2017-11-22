@@ -23,10 +23,6 @@ public class PmsComplaintsIntfImpl implements PmsComplaintsIntf {
         return pmsComplaintsService.selectAll();
     }
 
-    @Override
-    public List<PmsComplaints> selectByCondition(Condition condition) {
-        return null;
-    }
 
     @Override
     public List<PmsComplaints> selectByIds(String ids) {
@@ -38,10 +34,6 @@ public class PmsComplaintsIntfImpl implements PmsComplaintsIntf {
         return pmsComplaintsService.selectCount(pmsComplaints);
     }
 
-    @Override
-    public Integer selectCountByCondition(Condition condition) {
-        return null;
-    }
 
     @Override
     public Integer insertPmsComplaints(PmsComplaints pmsComplaints) {

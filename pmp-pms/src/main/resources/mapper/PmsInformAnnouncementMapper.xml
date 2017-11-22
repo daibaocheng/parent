@@ -17,4 +17,22 @@
     <result column="ispush" jdbcType="INTEGER" property="ispush" />
     <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
+  <!--条件查询-->
+  <select id="selectPmsInformAnnouncementCondition" resultMap="BaseResultMap" parameterType="java.util.Map">
+    SELECT * from pms_inform_announcement pia WHERE 1=1 AND
+      pia.creation_time BETWEEN #{map.minDate} and #{map.maxDate}
+      <if test="map.content!=null">
+        AND pia.content LIKE #{map.content}
+      </if>
+      <if test="map.state!=null">
+        AND pia.state=#{map.state}
+      </if>
+      <if test="map.ispush!=null">
+        AND pia.ispush=#{map.ispush}
+      </if>
+      <if test="map.type!=null">
+        AND  pia.type=#{map.type}
+      </if>
+
+  </select>
 </mapper>

@@ -24,10 +24,6 @@ public class PmsInformAnnouncementIntfImpl implements PmsInformAnnouncementIntf{
         return pmsInformAnnouncementService.selectAll();
     }
 
-    @Override
-    public List<PmsInformAnnouncement> selectByCondition(Condition condition) {
-        return null;
-    }
 
     @Override
     public List<PmsInformAnnouncement> selectByIds(String ids) {
@@ -39,10 +35,6 @@ public class PmsInformAnnouncementIntfImpl implements PmsInformAnnouncementIntf{
         return pmsInformAnnouncementService.selectCount(pmsInformAnnouncement);
     }
 
-    @Override
-    public Integer selectCountByCondition(Condition condition) {
-        return null;
-    }
 
     @Override
     public Integer insertPmsInformAnnouncement(PmsInformAnnouncement pmsInformAnnouncement) {
