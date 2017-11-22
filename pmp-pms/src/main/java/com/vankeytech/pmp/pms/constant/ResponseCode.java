@@ -1,7 +1,7 @@
 package com.vankeytech.pmp.pms.constant;
 
 /**
- * @author AlexWong
+ * @author daibaocheng
  */
 public class ResponseCode {
     private ResponseCode() {}

@@ -53,7 +53,7 @@ public class PmsVisitorsController {
     }
     /**
      * 详情
-     * @param
+     * @param ids
      * @return
      */
     @GetMapping("/details/{id}")

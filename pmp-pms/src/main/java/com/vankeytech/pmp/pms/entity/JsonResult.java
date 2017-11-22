@@ -2,6 +2,9 @@ package com.vankeytech.pmp.pms.entity;
 
 import java.io.Serializable;
 
+/**
+ * @author daibaocheng
+ */
 public class JsonResult implements Serializable {
     private int code;
     private String msg;

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.hms.mapper.AccountMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.hms.entity.Account">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="account_no" jdbcType="BIGINT" property="accountNo" />
+    <result column="user" jdbcType="BIGINT" property="user" />
+    <result column="account_type" jdbcType="VARCHAR" property="accountType" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="login_count" jdbcType="BIGINT" property="loginCount" />
+    <result column="account_status" jdbcType="BIGINT" property="accountStatus" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>
