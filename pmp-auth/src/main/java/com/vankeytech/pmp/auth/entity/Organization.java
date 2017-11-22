@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
+/**
+ * @author  xieliang
+ */
 @Table(name = "auth_organization")
 public class Organization {
     /**

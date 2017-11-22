@@ -15,6 +15,12 @@ import java.util.List;
 public interface UserIntf {
 
     /**
+     * 添加员工信息
+     * @param user
+     */
+    void addUser(User user);
+
+    /**
      * 修改用户密码
      * @return
      */
@@ -59,19 +65,6 @@ public interface UserIntf {
      */
     void updateAeaId(User user);
 
-    /**
-     * 条件查询 根据用户或者注册名查询
-     * @param  user  用户名称或者注册名称
-     * @return  用户集合
-     */
-    List<User> selecteByNames(User user);
-
-    /**
-     * 根据所在部门和 用户名或注册名查询
-     * @param user
-     * @return
-     */
-    List<User> selectByCondition(User user);
 
     /**
      * 为用户授予角色

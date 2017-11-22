@@ -2,6 +2,9 @@ package com.vankeytech.pmp.auth.entity;
 
 import javax.persistence.*;
 
+/**
+ * @author  xieliang
+ */
 @Table(name = "auth_role_permission")
 public class RolePermission {
     /**

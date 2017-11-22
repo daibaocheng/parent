@@ -3,6 +3,9 @@ package com.vankeytech.pmp.auth.entity;
 import java.util.Date;
 import javax.persistence.*;
 
+/**
+ * @author  xieliang
+ */
 @Table(name = "auth_overtime")
 public class Overtime {
     /**

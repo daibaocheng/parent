@@ -16,21 +16,6 @@ import java.util.List;
 public interface UserService extends Service<User> {
 
 
-
-    /**
-     * 根据用户名或者登陆名查询用户信息
-     * @param  user 用户名或者登陆名
-     * @return 用户集合
-     */
-    List<User> selectByName(User user);
-
-    /**
-     *
-     * @param user
-     * @return
-     */
-    List<User> loadByCondition(User user);
-
     /**
      * 登录 根据登录名
      * @param user
@@ -59,15 +44,14 @@ public interface UserService extends Service<User> {
      */
     void authorizationUser(UserRole userRole);
 
-
-
-
     /**
-     * 分页查询
+     * 分页查询 当没有条件是user对象设置为null
+     * @param page  当前页数
+     * @param pageSize 每页数量
      * @param user
      * @return
      */
-    PageInfo<User> selecePageByCondition(User user);
+    PageInfo<User> selecePageByCondition(Integer page, Integer pageSize, User user);
 
 
 
