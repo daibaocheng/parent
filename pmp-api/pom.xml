@@ -24,6 +24,7 @@
 	</properties>
 
 	<dependencies>
+		<!-- framework -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
@@ -53,13 +54,40 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- modules -->
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>ams</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>auth</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>cms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>gms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>hms</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.vankeytech.pmp</groupId>
 			<artifactId>ims</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.vankeytech.pmp</groupId>
-			<artifactId>hms</artifactId>
+			<artifactId>pms</artifactId>
+		</dependency>
+		<!-- Excel4J -->
+		<dependency>
+			<groupId>com.github.crab2died</groupId>
+			<artifactId>Excel4J</artifactId>
+			<version>2.1.1</version>
 		</dependency>
 	</dependencies>
 
