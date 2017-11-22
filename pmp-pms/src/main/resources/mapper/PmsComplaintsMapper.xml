@@ -16,4 +16,22 @@
     <result column="complaints_site" jdbcType="VARCHAR" property="complaintsSite" />
     <result column="housing_id" jdbcType="INTEGER" property="housingId" />
   </resultMap>
+  <!--修改投诉信息状态 -->
+  <update id="updateStatus" parameterType="java.lang.Integer" >
+    UPDATE pms_complaints pc SET pc.status=(pc.status+1)
+      WHERE pc.id=#{id}
+  </update>
+  <!--条件查询-->
+  <select id="selectPmsComplaintsCondition" resultMap="BaseResultMap" parameterType="java.util.Map">
+    SELECT * FROM pms_complaints
+    <where>
+      acceptance_time BETWEEN #{map.minDate} and #{map.maxDate}
+      <if test="map.status!=null">
+        AND status=#{map.status}
+      </if>
+      <if test="map.complaint_content!=null">
+        and complaint_content LIKE #{map.complaintContent}
+      </if>
+    </where>
+  </select>
 </mapper>

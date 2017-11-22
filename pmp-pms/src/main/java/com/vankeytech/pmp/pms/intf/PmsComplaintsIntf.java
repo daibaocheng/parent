@@ -17,13 +17,6 @@ public interface PmsComplaintsIntf{
     List<PmsComplaints> selectAll() ;
 
     /**
-     * 通过条件查询投诉信息（受理时间、处理状态、关键字）
-     * @param condition
-     * @return
-     */
-    List<PmsComplaints> selectByCondition(Condition condition) ;
-
-    /**
      * 通过id查询投诉信息
      * @param ids
      * @return
@@ -36,13 +29,6 @@ public interface PmsComplaintsIntf{
      * @return
      */
     Integer selectCount(PmsComplaints pmsComplaints);
-
-    /**
-     * 通过条件查询投诉条数
-     * @param condition
-     * @return
-     */
-    Integer selectCountByCondition(Condition condition) ;
 
     /**
      * 增加单条投诉
@@ -78,4 +64,5 @@ public interface PmsComplaintsIntf{
      * @return
      */
     Integer deleteByIds(String ids) ;
+
 }

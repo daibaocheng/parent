@@ -16,12 +16,6 @@ public interface PmsInformAnnouncementIntf {
      */
     List<PmsInformAnnouncement> selectAll() ;
 
-    /**
-     * 通过条件查询公告信息（创建时间、公告状态、是否推荐，公告类型，关键字）
-     * @param condition
-     * @return
-     */
-    List<PmsInformAnnouncement> selectByCondition(Condition condition) ;
 
     /**
      * 通过id查询公告信息
@@ -36,13 +30,6 @@ public interface PmsInformAnnouncementIntf {
      * @return
      */
     Integer selectCount(PmsInformAnnouncement pmsInformAnnouncement);
-
-    /**
-     * 通过条件查询公告条数
-     * @param condition
-     * @return
-     */
-    Integer selectCountByCondition(Condition condition) ;
 
     /**
      * 增加单条公告
