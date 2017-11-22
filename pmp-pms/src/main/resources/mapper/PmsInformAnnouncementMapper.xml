@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.pms.mapper.PmsInformAnnouncementMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.pms.entity.PmsInformAnnouncement">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="abstracts" jdbcType="VARCHAR" property="abstracts" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="founder" jdbcType="VARCHAR" property="founder" />
+    <result column="creation_time" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="ispush" jdbcType="INTEGER" property="ispush" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+</mapper>
