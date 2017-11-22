@@ -6,6 +6,9 @@ import com.vankeytech.pmp.pms.mapper.PmsServiceManagementMapper;
 import com.vankeytech.pmp.pms.service.PmsServiceManagementService;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author daibaocheng
+ */
 @Service
 public class PmsServiceManagementServiceImpl extends BaseService<PmsServiceManagement> implements PmsServiceManagementService {
     public PmsServiceManagementServiceImpl(PmsServiceManagementMapper pmsServiceManagementMapper) {

@@ -6,11 +6,13 @@ import com.vankeytech.pmp.pms.service.PmsInformAnnouncementService;
 import com.vankeytech.pmp.pms.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import tk.mybatis.mapper.entity.Condition;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 
@@ -31,8 +33,11 @@ public class PmsInformAnnouncementController {
      * @return
      */
     @GetMapping("/selectAll")
-    public JsonResult getPmsInformAnnouncementList(){
-        return ResponseUtil.success(pmsInformAnnouncementService.selectAll());
+    public String getPmsInformAnnouncementList(Model model){
+//        return ResponseUtil.success(pmsInformAnnouncementService.selectAll());
+        List<PmsInformAnnouncement> pmsList=pmsInformAnnouncementService.selectAll();
+        model.addAttribute("pmsList",pmsList);
+        return "test";
     }
 
     /**

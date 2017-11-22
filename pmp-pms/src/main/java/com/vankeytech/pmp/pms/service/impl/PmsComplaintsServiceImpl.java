@@ -6,6 +6,9 @@ import com.vankeytech.pmp.pms.mapper.PmsComplaintsMapper;
 import com.vankeytech.pmp.pms.service.PmsComplaintsService;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author daibaocheng
+ */
 @Service
 public class PmsComplaintsServiceImpl extends BaseService<PmsComplaints> implements PmsComplaintsService {
     public PmsComplaintsServiceImpl(PmsComplaintsMapper pmsComplaintsMapper) {
