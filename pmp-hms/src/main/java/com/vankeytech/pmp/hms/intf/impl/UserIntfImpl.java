@@ -24,8 +24,8 @@ public class UserIntfImpl implements UserIntf {
     }
 
     @Override
-    public List<User> selectByCondition(Condition condition) {
-        return userService.selectByCondition((tk.mybatis.mapper.entity.Condition) condition);
+    public List<User> selectByCondition(tk.mybatis.mapper.entity.Condition condition) {
+        return userService.selectByCondition(condition);
     }
 
     @Override
@@ -39,8 +39,8 @@ public class UserIntfImpl implements UserIntf {
     }
 
     @Override
-    public Integer selectCountByCondition(Condition condition) {
-        return userService.selectCountByCondition((tk.mybatis.mapper.entity.Condition) condition);
+    public Integer selectCountByCondition(tk.mybatis.mapper.entity.Condition condition) {
+        return userService.selectCountByCondition(condition);
     }
 
     @Override

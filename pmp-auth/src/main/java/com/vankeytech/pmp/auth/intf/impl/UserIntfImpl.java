@@ -2,7 +2,6 @@ package com.vankeytech.pmp.auth.intf.impl;
 
 
 import com.github.pagehelper.PageInfo;
-import com.sun.xml.internal.bind.v2.model.runtime.RuntimeLeafInfo;
 import com.vankeytech.pmp.auth.entity.Permission;
 import com.vankeytech.pmp.auth.entity.Role;
 import com.vankeytech.pmp.auth.entity.User;
@@ -11,9 +10,7 @@ import com.vankeytech.pmp.auth.intf.UserIntf;
 import com.vankeytech.pmp.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Condition;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**

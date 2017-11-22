@@ -1,9 +1,10 @@
 package com.vankeytech.pmp.hms.intf;
 
 import com.vankeytech.pmp.hms.entity.User;
+import tk.mybatis.mapper.entity.Condition;
 
 import java.util.List;
-import java.util.concurrent.locks.Condition;
+
 
 public interface UserIntf {
 
