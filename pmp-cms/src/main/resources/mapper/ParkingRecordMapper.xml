@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.cms.mapper.ParkingRecordMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.cms.entity.ParkingRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="car_id" jdbcType="INTEGER" property="carId" />
+    <result column="in_time" jdbcType="TIMESTAMP" property="inTime" />
+    <result column="out_time" jdbcType="TIMESTAMP" property="outTime" />
+    <result column="in_image" jdbcType="VARCHAR" property="inImage" />
+    <result column="out_image" jdbcType="VARCHAR" property="outImage" />
+    <result column="in_sentry_booth_id" jdbcType="INTEGER" property="inSentryBoothId" />
+    <result column="out_sentry_booth_id" jdbcType="INTEGER" property="outSentryBoothId" />
+  </resultMap>
+</mapper>

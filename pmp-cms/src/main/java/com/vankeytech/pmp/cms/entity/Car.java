@@ -46,6 +46,11 @@ public class Car {
     private Integer uid;
 
     /**
+     * 是否显示（0为隐藏，1为显示）
+     */
+    private Integer show;
+
+    /**
      * 获取车辆ID
      *
      * @return id - 车辆ID
@@ -171,6 +176,24 @@ public class Car {
         this.uid = uid;
     }
 
+    /**
+     * 获取是否显示（0为隐藏，1为显示）
+     *
+     * @return show - 是否显示（0为隐藏，1为显示）
+     */
+    public Integer getShow() {
+        return show;
+    }
+
+    /**
+     * 设置是否显示（0为隐藏，1为显示）
+     *
+     * @param show 是否显示（0为隐藏，1为显示）
+     */
+    public void setShow(Integer show) {
+        this.show = show;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -181,6 +204,7 @@ public class Car {
                 ", colorId='" + colorId + '\'' +
                 ", typeId=" + typeId +
                 ", uid=" + uid +
+                ", show=" + show +
                 '}';
     }
 }

@@ -1,11 +1,10 @@
-package com.vankeytech.pmp.cms.mapper;
+package com.vankeytech.pmp.cms.intf;
 
 import com.vankeytech.pmp.cms.entity.ParkingLot;
-import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-public interface ParkingLotMapper extends Mapper<ParkingLot> {
+public interface ParkingLotIntf {
 
     /**
      * 新增一个停车场

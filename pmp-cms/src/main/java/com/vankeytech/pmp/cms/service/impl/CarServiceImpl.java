@@ -16,6 +16,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void insertCar(Car car) {
+        car.setShow(1);
         carMapper.insertCar(car);
     }
 
@@ -25,20 +26,21 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public void hideCarById(Integer id) {
+        Car car = new Car();
+        car.setId(id);
+        car.setShow(0);
+        carMapper.updateCar(car);
+    }
+
+    @Override
     public void updateCar(Car car) {
         carMapper.updateCar(car);
     }
 
     @Override
     public Car selectCarById(Integer id) {
-        List<Car> carList = carMapper.selectCarById(id);
-        if (carList.size() == 0) {
-            return null;
-        } else if (carList.size() != 1) {
-            throw new RuntimeException();
-        } else {
-            return carList.get(0);
-        }
+        return carMapper.selectCarById(id);
     }
 
     @Override

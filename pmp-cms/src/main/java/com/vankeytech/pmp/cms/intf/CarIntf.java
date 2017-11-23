@@ -1,11 +1,10 @@
-package com.vankeytech.pmp.cms.mapper;
+package com.vankeytech.pmp.cms.intf;
 
 import com.vankeytech.pmp.cms.entity.Car;
-import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-public interface CarMapper extends Mapper<Car> {
+public interface CarIntf {
 
     /**
      * 新增一辆车
@@ -20,6 +19,13 @@ public interface CarMapper extends Mapper<Car> {
      * @param id 车辆ID
      */
     void deleteCarById(Integer id);
+
+    /**
+     * 根据车辆ID隐藏车辆信息
+     *
+     * @param id 车辆ID
+     */
+    void hideCarById(Integer id);
 
     /**
      * 修改车辆信息

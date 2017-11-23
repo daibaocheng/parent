@@ -9,10 +9,11 @@
     <result column="color_id" jdbcType="VARCHAR" property="colorId" />
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="show" jdbcType="INTEGER" property="show" />
   </resultMap>
 
   <insert id="insertCar" parameterType="com.vankeytech.pmp.cms.entity.Car">
-    INSERT INTO cms_car VALUES (#{id}, #{licensePlateId}, #{licensePlateTypeId}, #{licensePlateColorId}, #{colorId}, #{typeId}, #{uid})
+    INSERT INTO cms_car VALUES (#{id}, #{licensePlateId}, #{licensePlateTypeId}, #{licensePlateColorId}, #{colorId}, #{typeId}, #{uid}, #{show})
   </insert>
 
   <delete id="deleteCarById" parameterType="java.lang.Integer">
@@ -41,6 +42,9 @@
       <if test="uid != null">
         uid = #{uid},
       </if>
+      <if test="show != null">
+        `show` = #{show},
+      </if>
     </set>
     WHERE id = #{id}
   </update>
@@ -48,11 +52,12 @@
   <select id="selectCarById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT *
     FROM cms_car
-    WHERE id = #{id}
+    WHERE id = #{id} AND `show` = 1
   </select>
 
   <select id="selectAllCar" resultMap="BaseResultMap">
     SELECT *
     FROM cms_car
+    WHERE `show` = 1
   </select>
 </mapper>
