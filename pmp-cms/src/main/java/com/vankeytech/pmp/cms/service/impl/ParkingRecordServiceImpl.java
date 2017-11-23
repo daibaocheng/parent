@@ -3,10 +3,12 @@ package com.vankeytech.pmp.cms.service.impl;
 import com.vankeytech.pmp.cms.entity.ParkingRecord;
 import com.vankeytech.pmp.cms.mapper.ParkingRecordMapper;
 import com.vankeytech.pmp.cms.service.ParkingRecordService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Service
 public class ParkingRecordServiceImpl implements ParkingRecordService {
 
     @Resource

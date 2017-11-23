@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vankeytech.pmp.cms.mapper.ParkingRecordMapper">
-  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.cms.entity.ParkingRecord">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="car_id" jdbcType="INTEGER" property="carId" />
-    <result column="in_time" jdbcType="TIMESTAMP" property="inTime" />
-    <result column="out_time" jdbcType="TIMESTAMP" property="outTime" />
-    <result column="in_image" jdbcType="VARCHAR" property="inImage" />
-    <result column="out_image" jdbcType="VARCHAR" property="outImage" />
-    <result column="in_sentry_booth_id" jdbcType="INTEGER" property="inSentryBoothId" />
-    <result column="out_sentry_booth_id" jdbcType="INTEGER" property="outSentryBoothId" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.vankeytech.pmp.cms.entity.ParkingRecord">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="car_id" jdbcType="INTEGER" property="carId"/>
+        <result column="in_time" jdbcType="TIMESTAMP" property="inTime"/>
+        <result column="out_time" jdbcType="TIMESTAMP" property="outTime"/>
+        <result column="in_image" jdbcType="VARCHAR" property="inImage"/>
+        <result column="out_image" jdbcType="VARCHAR" property="outImage"/>
+        <result column="in_sentry_booth_id" jdbcType="INTEGER" property="inSentryBoothId"/>
+        <result column="out_sentry_booth_id" jdbcType="INTEGER" property="outSentryBoothId"/>
+    </resultMap>
+
+    <insert id="insertParkingRecord" parameterType="com.vankeytech.pmp.cms.entity.ParkingRecord">
+        INSERT INTO cms_parking_record
+        VALUES
+            (#{id}, #{carId}, #{inTime}, #{outTime}, #{inImage}, #{outImage}, #{inSentryBoothId}, #{outSentryBoothId})
+    </insert>
+
+    <delete id="deleteParkingRecordById" parameterType="java.lang.Integer">
+        DELETE FROM cms_parking_record
+        WHERE id = #{id}
+    </delete>
+
+    <update id="updateParkingRecord" parameterType="com.vankeytech.pmp.cms.entity.ParkingRecord">
+        UPDATE cms_parking_record
+        <set>
+            <if test="carId != null">
+                car_id = #{carId},
+            </if>
+            <if test="inTime != null">
+                in_time = #{inTime},
+            </if>
+            <if test="outTime != null">
+                out_time = #{outTime},
+            </if>
+            <if test="inImage != null and inImage != ''">
+                in_image = #{inImage},
+            </if>
+            <if test="outImage != null and outImage != ''">
+                out_image = #{outImage},
+            </if>
+            <if test="inSentryBoothId != null">
+                in_sentry_booth_id = #{inSentryBoothId},
+            </if>
+            <if test="outSentryBoothId != null">
+                out_sentry_booth_id = #{outSentryBoothId},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectParkingRecordById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT *
+        FROM cms_parking_record
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectAllParkingRecord" resultMap="BaseResultMap">
+        SELECT *
+        FROM cms_parking_record
+    </select>
+
 </mapper>

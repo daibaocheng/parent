@@ -3,6 +3,7 @@ package com.vankeytech.pmp.cms.service.impl;
 import com.vankeytech.pmp.cms.entity.ParkingGate;
 import com.vankeytech.pmp.cms.mapper.ParkingGateMapper;
 import com.vankeytech.pmp.cms.service.ParkingGateService;
+import com.vankeytech.pmp.cms.service.ParkingRecordService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -10,6 +11,9 @@ import java.util.List;
 
 @Service
 public class ParkingGateServiceImpl implements ParkingGateService {
+
+    @Resource
+    private ParkingRecordService parkingRecordService;
 
     @Resource
     private ParkingGateMapper parkingGateMapper;
