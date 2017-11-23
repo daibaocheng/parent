@@ -10,8 +10,6 @@ import javax.annotation.Resource;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CarServiceTest {
@@ -34,6 +32,11 @@ public class CarServiceTest {
     @Test
     public void deleteCarById() throws Exception {
         carService.deleteCarById(1);
+    }
+
+    @Test
+    public void hideCarById() throws Exception {
+        carService.hideCarById(2);
     }
 
     @Test

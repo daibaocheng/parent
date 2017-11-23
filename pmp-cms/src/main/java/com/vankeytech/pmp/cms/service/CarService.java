@@ -21,6 +21,13 @@ public interface CarService {
     void deleteCarById(Integer id);
 
     /**
+     * 根据车辆ID隐藏车辆信息
+     *
+     * @param id 车辆ID
+     */
+    void hideCarById(Integer id);
+
+    /**
      * 修改车辆信息
      *
      * @param car 车辆实体类

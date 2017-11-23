@@ -10,8 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan(basePackages = "com.vankeytech.pmp.cms.mapper")
 public class CmsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CmsApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CmsApplication.class, args);
+    }
 
 }

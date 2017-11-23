@@ -6,6 +6,7 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 public interface CarMapper extends Mapper<Car> {
+
     /**
      * 新增一辆车
      *
@@ -33,7 +34,7 @@ public interface CarMapper extends Mapper<Car> {
      * @param id 车辆ID
      * @return 车辆实体类
      */
-    List<Car> selectCarById(Integer id);
+    Car selectCarById(Integer id);
 
     /**
      * 查询所有车辆信息
@@ -41,4 +42,5 @@ public interface CarMapper extends Mapper<Car> {
      * @return 车辆实体类组成的LIST集合
      */
     List<Car> selectAllCar();
+
 }

@@ -9,11 +9,18 @@
 	<packaging>pom</packaging>
 
 	<properties>
+		<base-service.ver>1.1-RELEASE</base-service.ver>
+		<druid.ver>1.1.5</druid.ver>
 		<dubbo.ver>2.5.7</dubbo.ver>
+		<main.ver>1.0.0-SNAPSHOT</main.ver>
+		<mapperhelper.ver>3.4.3</mapperhelper.ver>
+		<mapperhelper-spring-boot.ver>1.1.4</mapperhelper-spring-boot.ver>
+		<mybatis-spring-boot.ver>1.3.1</mybatis-spring-boot.ver>
+		<mybatis-spring-boot.ver>1.3.1</mybatis-spring-boot.ver>
+		<pagehelper.ver>1.2.1</pagehelper.ver>
+		<spring.ver>1.5.8.RELEASE</spring.ver>
 		<zookeeper.ver>3.4.11</zookeeper.ver>
 		<zkclient.ver>0.1</zkclient.ver>
-		<spring.ver>1.5.8.RELEASE</spring.ver>
-		<main.ver>1.0.0-SNAPSHOT</main.ver>
 	</properties>
 
 	<parent>
@@ -28,6 +35,7 @@
 		<module>pmp-ams</module>
 		<module>pmp-auth</module>
 		<module>pmp-cms</module>
+		<module>pmp-common</module>
 		<module>pmp-gms</module>
 		<module>pmp-hms</module>
 		<module>pmp-ims</module>
@@ -49,6 +57,11 @@
 			<dependency>
 				<groupId>com.vankeytech.pmp</groupId>
 				<artifactId>cms</artifactId>
+				<version>${main.ver}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vankeytech.pmp</groupId>
+				<artifactId>common</artifactId>
 				<version>${main.ver}</version>
 			</dependency>
 			<dependency>

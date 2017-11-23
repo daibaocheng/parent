@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.cms.mapper.ParkingSpaceMapper">
+    <resultMap id="BaseResultMap" type="com.vankeytech.pmp.cms.entity.ParkingSpace">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="alias" jdbcType="VARCHAR" property="alias"/>
+        <result column="parking_lot_id" jdbcType="INTEGER" property="parkingLotId"/>
+        <result column="uid" jdbcType="INTEGER" property="uid"/>
+        <result column="expired_time" jdbcType="TIMESTAMP" property="expiredTime"/>
+    </resultMap>
+
+    <insert id="insertParkingSpace" parameterType="com.vankeytech.pmp.cms.entity.ParkingSpace">
+        INSERT INTO cms_parking_space (alias, parking_lot_id, expired_time, uid)
+        VALUES (#{alias}, #{parkingLotId}, #{expiredTime}, #{uid});
+    </insert>
+
+    <delete id="deleteParkingSpaceById" parameterType="java.lang.Integer">
+        DELETE FROM cms_parking_space
+        WHERE id = #{id}
+    </delete>
+
+    <update id="updateParkingSpace" parameterType="com.vankeytech.pmp.cms.entity.ParkingSpace">
+        UPDATE cms_parking_space
+        <set>
+            <if test="alias != null and alias != ''">
+                alias = #{alias},
+            </if>
+            <if test="parkingLotId != null">
+                parking_lot_id = #{parkingLotId},
+            </if>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="expiredTime != null">
+                expired_time = #{expiredTime},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectParkingSpaceById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT *
+        FROM cms_parking_space
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectAllParkingSpace" resultMap="BaseResultMap">
+        SELECT *
+        FROM cms_parking_space
+    </select>
+
+    <select id="selectParkingSpaceByParkingLotId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT *
+        FROM cms_parking_space
+        WHERE parking_lot_id = #{parkingLotId}
+    </select>
+
+</mapper>
