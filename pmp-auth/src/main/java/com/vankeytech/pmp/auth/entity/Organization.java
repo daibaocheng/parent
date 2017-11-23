@@ -1,14 +1,18 @@
 package com.vankeytech.pmp.auth.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.*;
 
 /**
  * @author  xieliang
  */
 @Table(name = "auth_organization")
-public class Organization {
+public class Organization implements Serializable {
     /**
      * id
      */

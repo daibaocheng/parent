@@ -1,11 +1,13 @@
 package com.vankeytech.pmp.auth.dto;
 
 
+import java.io.Serializable;
+
 /**
  * 数据传输层 用于显示层后应用层之间的数据传输
  * @author  xieliang
  */
-public class UserDTO {
+public class UserDTO implements Serializable {
 
     /**
      * 用户id

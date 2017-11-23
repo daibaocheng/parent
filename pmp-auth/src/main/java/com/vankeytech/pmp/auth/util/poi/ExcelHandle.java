@@ -1,24 +1,18 @@
 package com.vankeytech.pmp.auth.util.poi;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.lang.reflect.InvocationTargetException;
+import com.vankeytech.pmp.auth.entity.OperationLog;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.*;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.vankeytech.pmp.auth.entity.OperationLog;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.formula.functions.T;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 /**
@@ -342,14 +336,14 @@ public class ExcelHandle {
 
 
 	public static String getMethodValue(OperationLog operationLog, String field) throws  Exception{
-		String value=null;
+		Object value=null;
 		Class clz=operationLog.getClass();
 		String methodName="get"+captureName(field);
 
 			Method method= clz.getDeclaredMethod(methodName);
-			value=(String)method.invoke(operationLog);
+			value=method.invoke(operationLog);
 
-		return value;
+		return value.toString();
 	}
 
 
