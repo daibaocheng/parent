@@ -13,9 +13,9 @@
     </resultMap>
 
     <insert id="insertParkingRecord" parameterType="com.vankeytech.pmp.cms.entity.ParkingRecord">
-        INSERT INTO cms_parking_record
+        INSERT INTO cms_parking_record (car_id, in_time, out_time, in_image, out_image, in_sentry_booth_id, out_sentry_booth_id)
         VALUES
-            (#{id}, #{carId}, #{inTime}, #{outTime}, #{inImage}, #{outImage}, #{inSentryBoothId}, #{outSentryBoothId})
+            (#{carId}, #{inTime}, #{outTime}, #{inImage}, #{outImage}, #{inSentryBoothId}, #{outSentryBoothId})
     </insert>
 
     <delete id="deleteParkingRecordById" parameterType="java.lang.Integer">

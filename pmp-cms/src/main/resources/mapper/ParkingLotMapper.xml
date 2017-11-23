@@ -12,8 +12,8 @@
     </resultMap>
 
     <insert id="insertParkingLot" parameterType="com.vankeytech.pmp.cms.entity.ParkingLot">
-        INSERT INTO cms_parking_lot
-        VALUES (#{id}, #{name}, #{address}, #{numberOfParkingSpace}, #{longitude}, #{latitude}, #{communityId});
+        INSERT INTO cms_parking_lot (name, address, number_of_parking_space, longitude, latitude, community_id)
+        VALUES (#{name}, #{address}, #{numberOfParkingSpace}, #{longitude}, #{latitude}, #{communityId});
     </insert>
 
     <delete id="deleteParkingLotById" parameterType="java.lang.Integer">
