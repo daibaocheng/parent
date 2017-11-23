@@ -32,14 +32,14 @@ public interface ParkingGateService {
      *
      * @param id 停车场门闸机ID
      */
-    void hideParkingGate(Integer id);
+    void hideParkingGateById(Integer id);
 
     /**
      * 根据停车场门闸机ID删除门闸机
      *
      * @param id 停车场门闸机ID
      */
-    void deleteParkingGate(Integer id);
+    void deleteParkingGateById(Integer id);
 
     /**
      * 修改停车场门闸机信息

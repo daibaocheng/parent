@@ -4,6 +4,7 @@ import com.vankeytech.pmp.cms.entity.ParkingRecord;
 import com.vankeytech.pmp.cms.mapper.ParkingRecordMapper;
 import com.vankeytech.pmp.cms.service.ParkingRecordService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -15,16 +16,19 @@ public class ParkingRecordServiceImpl implements ParkingRecordService {
     private ParkingRecordMapper parkingRecordMapper;
 
     @Override
+    @Transactional
     public void insertParkingRecord(ParkingRecord parkingRecord) {
         parkingRecordMapper.insertParkingRecord(parkingRecord);
     }
 
     @Override
+    @Transactional
     public void deleteParkingRecordById(Integer id) {
         parkingRecordMapper.deleteParkingRecordById(id);
     }
 
     @Override
+    @Transactional
     public void updateParkingRecord(ParkingRecord parkingRecord) {
         parkingRecordMapper.updateParkingRecord(parkingRecord);
     }

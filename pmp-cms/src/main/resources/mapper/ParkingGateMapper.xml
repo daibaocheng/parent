@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vankeytech.pmp.cms.mapper.ParkingGateMapper">
-  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.cms.entity.ParkingGate">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="sentry_booth_id" jdbcType="INTEGER" property="sentryBoothId" />
-    <result column="direction" jdbcType="INTEGER" property="direction" />
-    <result column="hide" jdbcType="INTEGER" property="hide" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.vankeytech.pmp.cms.entity.ParkingGate">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="sentry_booth_id" jdbcType="INTEGER" property="sentryBoothId"/>
+        <result column="direction" jdbcType="INTEGER" property="direction"/>
+        <result column="hide" jdbcType="INTEGER" property="hide"/>
+    </resultMap>
+
+    <insert id="insertParkingGate" parameterType="com.vankeytech.pmp.cms.entity.ParkingGate">
+        INSERT INTO cms_parking_gate
+        VALUES (#{id}, #{sentryBoothId}, #{direction}, #{hide})
+    </insert>
+
+    <delete id="deleteParkingGateById" parameterType="java.lang.Integer">
+        DELETE FROM cms_parking_gate
+        WHERE id = #{id} AND hide = 1
+    </delete>
+
+    <update id="updateParkingGate" parameterType="com.vankeytech.pmp.cms.entity.ParkingGate">
+        UPDATE cms_parking_gate
+        <set>
+            <if test="sentryBoothId != null">
+                sentry_booth_id = #{sentryBoothId},
+            </if>
+            <if test="direction != null">
+                direction = #{direction},
+            </if>
+            <if test="hide != null">
+                hide = #{hide},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectParkingGateById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT *
+        FROM cms_parking_gate
+        WHERE id = #{id} AND hide = 0
+    </select>
+
+    <select id="selectAllParkingGate" resultMap="BaseResultMap">
+        SELECT *
+        FROM cms_parking_gate
+        WHERE hide = 0
+    </select>
+
+    <select id="selectParkingGateByCommunityId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+
+    </select>
 
 </mapper>

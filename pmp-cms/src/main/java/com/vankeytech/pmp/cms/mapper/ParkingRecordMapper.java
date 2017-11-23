@@ -42,4 +42,5 @@ public interface ParkingRecordMapper extends Mapper<ParkingRecord> {
      * @return 停车记录实体类组成的LIST集合
      */
     List<ParkingRecord> selectAllParkingRecord();
+
 }

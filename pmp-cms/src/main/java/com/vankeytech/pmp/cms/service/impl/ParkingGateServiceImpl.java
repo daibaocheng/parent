@@ -5,6 +5,7 @@ import com.vankeytech.pmp.cms.mapper.ParkingGateMapper;
 import com.vankeytech.pmp.cms.service.ParkingGateService;
 import com.vankeytech.pmp.cms.service.ParkingRecordService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -29,37 +30,45 @@ public class ParkingGateServiceImpl implements ParkingGateService {
     }
 
     @Override
+    @Transactional
     public void insertParkingGate(ParkingGate parkingGate) {
-
+        parkingGate.setHide(0);
+        parkingGateMapper.insertParkingGate(parkingGate);
     }
 
     @Override
-    public void hideParkingGate(Integer id) {
-
+    @Transactional
+    public void hideParkingGateById(Integer id) {
+        ParkingGate parkingGate = new ParkingGate();
+        parkingGate.setId(id);
+        parkingGate.setHide(1);
+        parkingGateMapper.updateParkingGate(parkingGate);
     }
 
     @Override
-    public void deleteParkingGate(Integer id) {
-
+    @Transactional
+    public void deleteParkingGateById(Integer id) {
+        parkingGateMapper.deleteParkingGateById(id);
     }
 
     @Override
+    @Transactional
     public void updateParkingGate(ParkingGate parkingGate) {
-
+        parkingGateMapper.updateParkingGate(parkingGate);
     }
 
     @Override
     public ParkingGate selectParkingGateById(Integer id) {
-        return null;
+        return parkingGateMapper.selectParkingGateById(id);
     }
 
     @Override
     public List<ParkingGate> selectAllParkingGate() {
-        return null;
+        return parkingGateMapper.selectAllParkingGate();
     }
 
     @Override
     public List<ParkingGate> selectParkingGateByCommunityId(Integer communityId) {
-        return null;
+        return parkingGateMapper.selectParkingGateByCommunityId(communityId);
     }
 }

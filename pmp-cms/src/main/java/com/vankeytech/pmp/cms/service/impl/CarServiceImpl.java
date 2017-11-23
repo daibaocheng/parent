@@ -4,6 +4,7 @@ import com.vankeytech.pmp.cms.entity.Car;
 import com.vankeytech.pmp.cms.mapper.CarMapper;
 import com.vankeytech.pmp.cms.service.CarService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -15,17 +16,20 @@ public class CarServiceImpl implements CarService {
     private CarMapper carMapper;
 
     @Override
+    @Transactional
     public void insertCar(Car car) {
         car.setHide(0);
         carMapper.insertCar(car);
     }
 
     @Override
+    @Transactional
     public void deleteCarById(Integer id) {
         carMapper.deleteCarById(id);
     }
 
     @Override
+    @Transactional
     public void hideCarById(Integer id) {
         Car car = new Car();
         car.setId(id);
@@ -34,6 +38,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    @Transactional
     public void updateCar(Car car) {
         carMapper.updateCar(car);
     }

@@ -30,13 +30,13 @@ public class ParkingGateIntfImpl implements ParkingGateIntf {
     }
 
     @Override
-    public void hideParkingGate(Integer id) {
-        parkingGateService.hideParkingGate(id);
+    public void hideParkingGateById(Integer id) {
+        parkingGateService.hideParkingGateById(id);
     }
 
     @Override
-    public void deleteParkingGate(Integer id) {
-        parkingGateService.deleteParkingGate(id);
+    public void deleteParkingGateById(Integer id) {
+        parkingGateService.deleteParkingGateById(id);
     }
 
     @Override

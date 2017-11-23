@@ -48,7 +48,7 @@
                 hide = #{hide},
             </if>
         </set>
-        WHERE id = #{id} AND hide = 0
+        WHERE id = #{id}
     </update>
 
     <select id="selectCarById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -62,4 +62,5 @@
         FROM cms_car
         WHERE hide = 0
     </select>
+
 </mapper>
