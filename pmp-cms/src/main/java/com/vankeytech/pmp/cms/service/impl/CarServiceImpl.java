@@ -16,7 +16,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void insertCar(Car car) {
-        car.setShow(1);
+        car.setHide(0);
         carMapper.insertCar(car);
     }
 
@@ -29,7 +29,7 @@ public class CarServiceImpl implements CarService {
     public void hideCarById(Integer id) {
         Car car = new Car();
         car.setId(id);
-        car.setShow(0);
+        car.setHide(1);
         carMapper.updateCar(car);
     }
 
