@@ -1,9 +1,10 @@
 package com.vankeytech.pmp.common.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-public class Region {
+public class Region implements Serializable {
     /**
      * 地区编码
      */

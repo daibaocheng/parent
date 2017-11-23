@@ -3,8 +3,8 @@ server:
 
 spring:
   profiles:
-    active: dev   # 默认运行环境
-dubbo:
+    active: dev
+dubbo:                      # 默认运行环境
   appname: pmp-api-consumer # dubbo应用名
   protocol:
     name: dubbo             # dubbo协议名，不用改
@@ -15,7 +15,7 @@ dubbo:
 spring:
   profiles: dev
 dubbo:
-  debug: dubbo://localhost:20886
+  debug: dubbo://localhost
   register: false
   registry:
     - N/A

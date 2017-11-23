@@ -35,6 +35,7 @@
 		<module>pmp-ams</module>
 		<module>pmp-auth</module>
 		<module>pmp-cms</module>
+		<module>pmp-common</module>
 		<module>pmp-gms</module>
 		<module>pmp-hms</module>
 		<module>pmp-ims</module>
@@ -56,6 +57,11 @@
 			<dependency>
 				<groupId>com.vankeytech.pmp</groupId>
 				<artifactId>cms</artifactId>
+				<version>${main.ver}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vankeytech.pmp</groupId>
+				<artifactId>common</artifactId>
 				<version>${main.ver}</version>
 			</dependency>
 			<dependency>

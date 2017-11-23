@@ -54,6 +54,17 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.2.2</version>
+		</dependency>
 		<!-- modules -->
 		<dependency>
 			<groupId>com.vankeytech.pmp</groupId>
@@ -66,6 +77,10 @@
 		<dependency>
 			<groupId>com.vankeytech.pmp</groupId>
 			<artifactId>cms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>common</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.vankeytech.pmp</groupId>
@@ -82,12 +97,6 @@
 		<dependency>
 			<groupId>com.vankeytech.pmp</groupId>
 			<artifactId>pms</artifactId>
-		</dependency>
-		<!-- Excel4J -->
-		<dependency>
-			<groupId>com.github.crab2died</groupId>
-			<artifactId>Excel4J</artifactId>
-			<version>2.1.1</version>
 		</dependency>
 	</dependencies>
 
