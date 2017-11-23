@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.common.mapper.RegionMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.common.entity.Region">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="region_code" jdbcType="VARCHAR" property="regionCode" />
+    <result column="region_name" jdbcType="VARCHAR" property="regionName" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <collection property="children" ofType="com.vankeytech.pmp.common.entity.Region">
+      <id column="c_region_code" jdbcType="VARCHAR" property="regionCode" />
+      <result column="c_region_name" jdbcType="VARCHAR" property="regionName" />
+      <result column="c_parent_id" jdbcType="VARCHAR" property="parentId" />
+    </collection>
+  </resultMap>
+
+  <select id="getRegions" parameterType="String" resultMap="BaseResultMap">
+    SELECT p.region_code, p.region_name, p.parent_id, c.region_code AS c_region_code,
+      c.region_name AS c_region_name, c.parent_id AS c_parent_id
+    FROM region p LEFT JOIN region c ON p.region_code = c.parent_id
+    WHERE p.parent_id = #{parentId}
+  </select>
+
+</mapper>

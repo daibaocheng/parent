@@ -1,0 +1,17 @@
+package com.vankeytech.pmp.common;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.io.IOException;
+
+@SpringBootApplication
+@MapperScan(basePackages = "com.vankeytech.pmp.common.mapper")
+public class CommonApplication {
+
+	public static void main(String[] args) throws IOException {
+		SpringApplication.run(CommonApplication.class, args);
+		System.in.read();
+	}
+}
