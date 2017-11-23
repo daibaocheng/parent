@@ -17,7 +17,7 @@ import javax.annotation.Resource;
  * 公共接口 - 地区数据接口
  * @author AlexWong
  */
-@Api(description = "公共接口 - 地区数据接口")
+@Api(value = "公共接口", description = "地区数据接口")
 @RestController
 @RequestMapping("/common")
 public class RegionController {
