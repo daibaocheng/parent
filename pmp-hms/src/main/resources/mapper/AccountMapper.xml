@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.hms.mapper.AccountMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.hms.entity.Account">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="account_no" jdbcType="BIGINT" property="accountNo" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="account_type" jdbcType="VARCHAR" property="accountType" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="login_count" jdbcType="BIGINT" property="loginCount" />
+    <result column="account_status" jdbcType="BIGINT" property="accountStatus" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  <resultMap id="accountResultMap" type="com.vankeytech.pmp.hms.entity.Account">
+    <id column="account_no" jdbcType="BIGINT" property="accountNo" />
+    <result column="account_type" jdbcType="VARCHAR" property="accountType" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="login_count" jdbcType="BIGINT" property="loginCount" />
+    <result column="account_status" jdbcType="BIGINT" property="accountStatus" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <association  property="user" column="user_id" javaType="com.vankeytech.pmp.hms.entity.User" >
+      <id column="user_id" jdbcType="INTEGER" property="userId" />
+      <result column="user_name" jdbcType="VARCHAR" property="userName" />
+      <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+      <result column="account_no" jdbcType="BIGINT" property="accountNo" />
+      <result column="sex" jdbcType="BIGINT" property="sex" />
+      <result column="nationality" jdbcType="VARCHAR" property="nationality" />
+      <result column="native_place" jdbcType="VARCHAR" property="nativePlace" />
+      <result column="permanent_address" jdbcType="VARCHAR" property="permanentAddress" />
+      <result column="identity_card" jdbcType="VARCHAR" property="identityCard" />
+      <result column="phone1" jdbcType="VARCHAR" property="phone1" />
+      <result column="phone2" jdbcType="VARCHAR" property="phone2" />
+      <result column="email" jdbcType="VARCHAR" property="email" />
+      <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
+      <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+      <result column="post" jdbcType="VARCHAR" property="post" />
+      <result column="company_address" jdbcType="VARCHAR" property="companyAddress" />
+      <result column="identity_card_photo_obverse" jdbcType="VARCHAR" property="identityCardPhotoObverse" />
+      <result column="identity_card_photo_reverse" jdbcType="VARCHAR" property="identityCardPhotoReverse" />
+      <result column="face_photo" jdbcType="VARCHAR" property="facePhoto" />
+      <result column="display" jdbcType="BIGINT" property="display" />
+      <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </association>
+  </resultMap>
+</mapper>

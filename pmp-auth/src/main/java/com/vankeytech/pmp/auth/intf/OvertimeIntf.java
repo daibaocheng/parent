@@ -2,6 +2,8 @@ package com.vankeytech.pmp.auth.intf;
 
 import com.vankeytech.pmp.auth.entity.Overtime;
 
+import java.util.List;
+
 /**
  * @author  xieliang
  */
@@ -21,9 +23,14 @@ public interface OvertimeIntf {
 
     /**
      * 删除值班人员信息
-     * @param overtimeId
+     * @param overtime
      */
-    void  delectOvertime(Integer overtimeId);
+    void  delectOvertime(Overtime overtime);
 
+    /**
+     * 获取所有值班表信息
+     * @return
+     */
+    List<Overtime> getOvertimeAll();
 
 }

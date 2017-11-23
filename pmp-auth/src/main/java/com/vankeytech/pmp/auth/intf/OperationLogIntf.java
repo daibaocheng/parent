@@ -1,8 +1,8 @@
 package com.vankeytech.pmp.auth.intf;
 
 import com.github.pagehelper.PageInfo;
+import com.vankeytech.pmp.auth.entity.OperationLog;
 
-import java.util.List;
 
 /**
  * @author  xieliang
@@ -10,15 +10,9 @@ import java.util.List;
 public interface OperationLogIntf {
     /**
      * 添加操作日志
-     * @param oerationLogIntf
+     * @param oerationLog
      */
-    void insertLog(OperationLogIntf oerationLogIntf);
-
-    /**
-     *查询全部操作日志
-     * @return
-     */
-    List<OperationLogIntf> selectAll();
+    void insertLog(OperationLog oerationLog);
 
     /**
      * 分页查询
@@ -26,7 +20,7 @@ public interface OperationLogIntf {
      * @param pageSize  每页数量
      * @return
      */
-    PageInfo<OperationLogIntf> pageSelect(Integer page, Integer pageSize);
+    PageInfo<OperationLog> pageSelect(Integer page, Integer pageSize, OperationLog operationLog);
 
 
 }

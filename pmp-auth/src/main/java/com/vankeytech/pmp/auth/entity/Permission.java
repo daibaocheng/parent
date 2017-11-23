@@ -1,8 +1,12 @@
 package com.vankeytech.pmp.auth.entity;
 
+import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "pmp_permission")
+/**
+ * @author  xieliang
+ */
+@Table(name = "auth_permission")
 public class Permission {
     /**
      * 权限表id
@@ -45,6 +49,18 @@ public class Permission {
      */
     @Column(name = "menu_icon")
     private String menuIcon;
+
+    /**
+     * 创建权限时间
+     */
+    @Column(name = "created_at")
+    private Date createdAt;
+
+    /**
+     * 更新权限时间
+     */
+    @Column(name = "updated_at")
+    private Date updatedAt;
 
     /**
      * 获取权限表id
@@ -170,5 +186,41 @@ public class Permission {
      */
     public void setMenuIcon(String menuIcon) {
         this.menuIcon = menuIcon;
+    }
+
+    /**
+     * 获取创建权限时间
+     *
+     * @return created_at - 创建权限时间
+     */
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    /**
+     * 设置创建权限时间
+     *
+     * @param createdAt 创建权限时间
+     */
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    /**
+     * 获取更新权限时间
+     *
+     * @return updated_at - 更新权限时间
+     */
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    /**
+     * 设置更新权限时间
+     *
+     * @param updatedAt 更新权限时间
+     */
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

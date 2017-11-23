@@ -1,9 +1,13 @@
 package com.vankeytech.pmp.auth.entity;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
-@Table(name = "pmp_organization")
+/**
+ * @author  xieliang
+ */
+@Table(name = "auth_organization")
 public class Organization {
     /**
      * id
@@ -58,6 +62,25 @@ public class Organization {
      * 上级组织
      */
     private Long pid;
+
+    /**
+     * 更新部门信息时间
+     */
+    @Column(name = "updated_at")
+    private Date updatedAt;
+
+
+    @Transient
+    private List<Organization> organizationList;
+
+
+    public List<Organization> getOrganizationList() {
+        return organizationList;
+    }
+
+    public void setOrganizationList(List<Organization> organizationList) {
+        this.organizationList = organizationList;
+    }
 
     /**
      * 获取id
@@ -219,5 +242,23 @@ public class Organization {
      */
     public void setPid(Long pid) {
         this.pid = pid;
+    }
+
+    /**
+     * 获取更新部门信息时间
+     *
+     * @return updated_at - 更新部门信息时间
+     */
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    /**
+     * 设置更新部门信息时间
+     *
+     * @param updatedAt 更新部门信息时间
+     */
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

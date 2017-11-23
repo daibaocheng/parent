@@ -17,7 +17,6 @@
     <result column="phone1" jdbcType="VARCHAR" property="phone1" />
     <result column="phone2" jdbcType="VARCHAR" property="phone2" />
     <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="building_id" jdbcType="BIGINT" property="buildingId" />
     <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
     <result column="post" jdbcType="VARCHAR" property="post" />
@@ -25,7 +24,127 @@
     <result column="identity_card_photo_obverse" jdbcType="VARCHAR" property="identityCardPhotoObverse" />
     <result column="identity_card_photo_reverse" jdbcType="VARCHAR" property="identityCardPhotoReverse" />
     <result column="face_photo" jdbcType="VARCHAR" property="facePhoto" />
-    <result column="landlord" jdbcType="BIGINT" property="landlord" />
+    <result column="display" jdbcType="BIGINT" property="display" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
+  <resultMap id="userResultMap" type="com.vankeytech.pmp.hms.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="account_no" jdbcType="BIGINT" property="accountNo" />
+    <result column="sex" jdbcType="BIGINT" property="sex" />
+    <result column="nationality" jdbcType="VARCHAR" property="nationality" />
+    <result column="native_place" jdbcType="VARCHAR" property="nativePlace" />
+    <result column="permanent_address" jdbcType="VARCHAR" property="permanentAddress" />
+    <result column="identity_card" jdbcType="VARCHAR" property="identityCard" />
+    <result column="phone1" jdbcType="VARCHAR" property="phone1" />
+    <result column="phone2" jdbcType="VARCHAR" property="phone2" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="post" jdbcType="VARCHAR" property="post" />
+    <result column="company_address" jdbcType="VARCHAR" property="companyAddress" />
+    <result column="identity_card_photo_obverse" jdbcType="VARCHAR" property="identityCardPhotoObverse" />
+    <result column="identity_card_photo_reverse" jdbcType="VARCHAR" property="identityCardPhotoReverse" />
+    <result column="face_photo" jdbcType="VARCHAR" property="facePhoto" />
+    <result column="display" jdbcType="BIGINT" property="display" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <collection property="accounts" javaType="java.util.List" ofType="com.vankeytech.pmp.hms.entity.Account">
+      <id column="account_no" jdbcType="BIGINT" property="accountNo" />
+      <result column="account_type" jdbcType="VARCHAR" property="accountType" />
+      <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+      <result column="login_count" jdbcType="BIGINT" property="loginCount" />
+      <result column="account_status" jdbcType="BIGINT" property="accountStatus" />
+      <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </collection>
+    <collection property="userTypes" javaType="java.util.List"  ofType="com.vankeytech.pmp.hms.entity.UserType">
+     <id column="user_type_id" jdbcType="BIGINT" property="userTypeId" />
+     <result column="user_type_no" jdbcType="BIGINT" property="userTypeNo" />
+     <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+     <result column="landlord" jdbcType="INTEGER" property="landlord" />
+     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </collection>
+    <collection property="buildings" javaType="java.util.List" ofType="com.vankeytech.pmp.hms.entity.Building">
+      <id column="building_id" jdbcType="BIGINT" property="buildingId" />
+      <result column="building_no" jdbcType="BIGINT" property="buildingNo" />
+      <result column="unit_no" jdbcType="BIGINT" property="unitNo" />
+      <result column="room_no" jdbcType="BIGINT" property="roomNo" />
+      <result column="house_type" jdbcType="BIGINT" property="houseType" />
+      <result column="floor_space" jdbcType="DOUBLE" property="floorSpace" />
+      <result column="house_purpose" jdbcType="BIGINT" property="housePurpose" />
+      <result column="rent" jdbcType="BIGINT" property="rent" />
+      <result column="family_size" jdbcType="BIGINT" property="familySize" />
+      <result column="use_status" jdbcType="BIGINT" property="useStatus" />
+      <result column="authority_status" jdbcType="BIGINT" property="authorityStatus" />
+      <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+      <result column="village" jdbcType="BIGINT" property="village" />
+      <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </collection>
+    <collection property="houseAuthoritys" javaType="java.util.List" ofType="com.vankeytech.pmp.hms.entity.HouseAuthority">
+      <id column="hous_authority_no" jdbcType="BIGINT" property="housAuthorityNo" />
+      <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
+      <result column="creat_time" jdbcType="DATE" property="creatTime" />
+      <result column="end_time" jdbcType="DATE" property="endTime" />
+      <result column="authority_status" jdbcType="BIGINT" property="authorityStatus" />
+      <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </collection>
+  </resultMap>
+  <sql id="selectBaseSql">
+    hu.user_id,hu.user_name,hu.nick_name,hu.account_no,hu.sex,hu.identity_card,hu.phone1,hu.phone2,hu.email,
+    hut.user_type_no,hut.creat_time,
+    hb.building_id,hb.building_no,hb.unit_no,hb.room_no,owner.user_name owner_name,
+    hha.authority_status
+  </sql>
+  <select id="selectAllUsers"  parameterType="com.vankeytech.pmp.hms.entity.User" resultMap="userResultMap" >
+    SELECT
+    <include refid="selectBaseSql"/>
+    FROM hms_user hu
+    LEFT JOIN hms_user_type hut on hu.user_id=hut.user_id
+    LEFT JOIN hms_user_building hub on hu.user_id=hub.user_id
+    LEFT JOIN hms_building hb on hb.building_id=hub.building_id
+	LEFT JOIN hms_user owner on hb.owner=owner.user_id
+	LEFT JOIN hms_house_authority hha on hha.user_id=hu.user_id
+    WHERE hu.display=1
+  </select>
+  <!--通过条件查询-->
+  <select id="selectUserByCondition"  parameterType="com.vankeytech.pmp.hms.entity.User" resultMap="userResultMap" >
+    SELECT
+    <include refid="selectBaseSql"/>
+    FROM hms_user hu
+    LEFT JOIN hms_user_type hut on hu.user_id=hut.user_id
+    LEFT JOIN hms_user_building hub on hu.user_id=hub.user_id
+    LEFT JOIN hms_building hb on hb.building_id=hub.building_id
+	LEFT JOIN hms_user owner on hb.owner=owner.user_id
+	LEFT JOIN hms_house_authority hha on hha.user_id=hu.user_id
+    WHERE hu.display=1
+    AND
+    (hb.building_no=#{buildingNo}
+    OR hb.unit_no=#{unitNo}
+    OR hb.room_no=#{roomNo}
+    OR hut.user_type_no=#{userTypeNo}
+    OR hha.authority_status=#{authorityStatus}
+    OR hu.phone1=#{phone1}
+    OR hu.identity_card=#{identityCard}
+    OR hu.user_name=#{userName})
+  </select>
+  <!--通过多个id查询-->
+  <select id="selectUserByIds"  parameterType="com.vankeytech.pmp.hms.entity.User" resultMap="userResultMap" >
+    SELECT
+    <include refid="selectBaseSql"/>
+    FROM hms_user hu
+    LEFT JOIN hms_user_type hut on hu.user_id=hut.user_id
+    LEFT JOIN hms_user_building hub on hu.user_id=hub.user_id
+    LEFT JOIN hms_building hb on hb.building_id=hub.building_id
+	LEFT JOIN hms_user owner on hb.owner=owner.user_id
+	LEFT JOIN hms_house_authority hha on hha.user_id=hu.user_id
+    WHERE hu.display=1
+    AND hu.user_id
+    IN
+    <foreach collection="array" item="id" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </select>
+
 </mapper>

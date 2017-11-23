@@ -38,7 +38,6 @@ public class ShiroDbRealm extends AuthorizingRealm {
     }  
 
 
-
     /**
      * 认证回调函数,登录时调用.
      */

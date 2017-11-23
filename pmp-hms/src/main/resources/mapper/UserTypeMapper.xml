@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.hms.mapper.UserTypeMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.hms.entity.UserType">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="user_type_id" jdbcType="BIGINT" property="userTypeId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_type_no" jdbcType="BIGINT" property="userTypeNo" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="landlord" jdbcType="INTEGER" property="landlord" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>

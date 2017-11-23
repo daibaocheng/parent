@@ -1,10 +1,9 @@
-
 server:
   port: 8002
 
 spring:
   profiles:
-    active: dev
+    active: dev   # 默认运行环境
   datasource:
     name: pmp_auth
     url : jdbc:mysql://192.168.0.100:3306/pmp_auth?useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
@@ -25,6 +24,7 @@ spring:
     min-evictable-idle-time-millis: 60000
     pool-prepared-statements: true
     max-open-prepared-statements: 20
+
 #mybatis
 mybatis:
   type-aliases-package: com.vankeytech.pmp.auth.entity
@@ -37,6 +37,7 @@ mapper:
   not-empty: false
   identity: MYSQL
 
+
 #pagehelper
 pagehelper:
   helperDialect: mysql
@@ -44,3 +45,33 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
 
+dubbo:
+  appname: pmp-ims-provider # dubbo应用名
+  protocol:
+    name: dubbo             # dubbo协议名，不用改
+    port: 20886             # dubbo对外提供接口的端口号
+logging:
+  level:
+    com.vankeytech.pmp.auth.mapper: debug
+
+# 开发环境
+---
+spring:
+  profiles: dev
+dubbo:
+  debug: dubbo://localhost:20886
+  register: false
+  registry:
+    - N/A
+    - N/A
+
+#测试环境
+---
+spring:
+  profiles: test
+dubbo:
+  debug:
+  register: true
+  registry:
+    - zookeeper://192.168.0.100:2181
+    - zookeeper://192.168.0.101:2181

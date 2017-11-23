@@ -12,6 +12,12 @@
             <property name="mappers" value="com.vankeytech.baseservice.mapper.BasicMapper"/>
         </plugin>
 
+        <!-- optional，旨在创建class时，对注释进行控制 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
         <!--jdbc数据库连接-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://192.168.0.100:3306/pmp_hms"
@@ -29,26 +35,28 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
 
         <!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
-        <table tableName="hms_account" domainObjectName="HmsAccount">
+        <table tableName="hms_account" domainObjectName="Account">
             <generatedKey column="account_no" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_account_log" domainObjectName="HmsAccountLog">
+        <table tableName="hms_account_log" domainObjectName="AccountLog">
             <generatedKey column="account_log_no" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_building" domainObjectName="HmsBuilding">
+        <table tableName="hms_building" domainObjectName="Building" >
             <generatedKey column="building_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_hous_authority" domainObjectName="HmsHousAuthority">
+        <table tableName="hms_hous_authority" domainObjectName="HousAuthority">
             <generatedKey column="hous_authority_no" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_user" domainObjectName="HmsUser">
+        <table tableName="hms_user" domainObjectName="User">
             <generatedKey column="user_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_user_building" domainObjectName="HmsUserBuilding" />
+        <table tableName="hms_user_building" domainObjectName="UserBuilding">
+            <generatedKey column="user_building_id" sqlStatement="Mysql" identity="true" />
+        </table>
         <table tableName="hms_user_type" domainObjectName="UserType">
             <generatedKey column="user_type_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="hms_village" domainObjectName="HmsVillage">
+        <table tableName="hms_village" domainObjectName="Village">
             <generatedKey column="village_no" sqlStatement="Mysql" identity="true" />
         </table>
     </context>

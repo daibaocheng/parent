@@ -10,5 +10,6 @@
     <result column="login_operation_name" jdbcType="VARCHAR" property="loginOperationName" />
     <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="exported_at" jdbcType="TIMESTAMP" property="exportedAt" />
   </resultMap>
 </mapper>

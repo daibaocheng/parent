@@ -20,9 +20,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<start-class>com.vankeytech.pmp.api.ApiApplication</start-class>
 	</properties>
 
 	<dependencies>
+		<!-- framework -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
@@ -52,15 +54,40 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- modules -->
 		<dependency>
 			<groupId>com.vankeytech.pmp</groupId>
-			<artifactId>ims</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<artifactId>ams</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>auth</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>cms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>gms</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.vankeytech.pmp</groupId>
 			<artifactId>hms</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>ims</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>pms</artifactId>
+		</dependency>
+		<!-- Excel4J -->
+		<dependency>
+			<groupId>com.github.crab2died</groupId>
+			<artifactId>Excel4J</artifactId>
+			<version>2.1.1</version>
 		</dependency>
 	</dependencies>
 
@@ -69,52 +96,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<dependencies>
-					<dependency>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-maven-plugin</artifactId>
-						<version>${spring.ver}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
-					<createDependencyReducedPom>false</createDependencyReducedPom>
-					<filters>
-						<filter>
-							<artifact>*:*</artifact>
-							<excludes>
-								<exclude>META-INF/*.SF</exclude>
-								<exclude>META-INF/*.DSA</exclude>
-								<exclude>META-INF/*.RSA</exclude>
-							</excludes>
-						</filter>
-					</filters>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-						<configuration>
-							<transformers>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-									<resource>META-INF/spring.handlers</resource>
-								</transformer>
-								<transformer implementation="org.springframework.boot.maven.PropertiesMergingResourceTransformer">
-									<resource>META-INF/spring.factories</resource>
-								</transformer>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-									<resource>META-INF/spring.schemas</resource>
-								</transformer>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.vankeytech.pmp.api.ApiApplication</mainClass>
-								</transformer>
-							</transformers>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

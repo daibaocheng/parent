@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.hms.mapper.VillageMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.hms.entity.Village">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="village_no" jdbcType="BIGINT" property="villageNo" />
+    <result column="village_name" jdbcType="VARCHAR" property="villageName" />
+    <result column="region_code" jdbcType="BIGINT" property="regionCode" />
+    <result column="property_management_company" jdbcType="VARCHAR" property="propertyManagementCompany" />
+    <result column="Property_company_phone" jdbcType="VARCHAR" property="propertyCompanyPhone" />
+    <result column="developers" jdbcType="VARCHAR" property="developers" />
+    <result column="construction_time" jdbcType="TIMESTAMP" property="constructionTime" />
+    <result column="community_leader" jdbcType="VARCHAR" property="communityLeader" />
+    <result column="developer_phone" jdbcType="VARCHAR" property="developerPhone" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>

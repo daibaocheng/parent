@@ -3,7 +3,10 @@ package com.vankeytech.pmp.auth.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "pmp_user")
+/**
+ * @author  xieliang
+ */
+@Table(name = "auth_user")
 public class User {
     /**
      * 用户编号
@@ -22,12 +25,6 @@ public class User {
      * 用户名
      */
     private String nickname;
-
-    /**
-     * 账号类型
-     */
-    @Column(name = "account_type")
-    private String accountType;
 
     /**
      * 所在小区id
@@ -96,6 +93,18 @@ public class User {
     private Date updatedAt;
 
     /**
+     * 用户头像存放地址
+     */
+    @Column(name = "portrait_url")
+    private String portraitUrl;
+
+    /**
+     * 用户所属部门id
+     */
+    @Column(name = "department_id")
+    private Long departmentId;
+
+    /**
      * 获取用户编号
      *
      * @return user_id - 用户编号
@@ -147,24 +156,6 @@ public class User {
      */
     public void setNickname(String nickname) {
         this.nickname = nickname;
-    }
-
-    /**
-     * 获取账号类型
-     *
-     * @return account_type - 账号类型
-     */
-    public String getAccountType() {
-        return accountType;
-    }
-
-    /**
-     * 设置账号类型
-     *
-     * @param accountType 账号类型
-     */
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
     }
 
     /**
@@ -364,4 +355,41 @@ public class User {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    /**
+     * 获取用户头像存放地址
+     *
+     * @return portrait_url - 用户头像存放地址
+     */
+    public String getPortraitUrl() {
+        return portraitUrl;
+    }
+
+    /**
+     * 设置用户头像存放地址
+     *
+     * @param portraitUrl 用户头像存放地址
+     */
+    public void setPortraitUrl(String portraitUrl) {
+        this.portraitUrl = portraitUrl;
+    }
+
+    /**
+     * 获取用户所属部门id
+     *
+     * @return department_id - 用户所属部门id
+     */
+    public Long getDepartmentId() {
+        return departmentId;
+    }
+
+    /**
+     * 设置用户所属部门id
+     *
+     * @param departmentId 用户所属部门id
+     */
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
+    }
+
 }

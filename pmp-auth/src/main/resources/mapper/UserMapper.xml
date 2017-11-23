@@ -8,7 +8,6 @@
     <id column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="user_register_account" jdbcType="VARCHAR" property="userRegisterAccount" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
-    <result column="account_type" jdbcType="VARCHAR" property="accountType" />
     <result column="area_id" jdbcType="BIGINT" property="areaId" />
     <result column="user_status" jdbcType="INTEGER" property="userStatus" />
     <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
@@ -17,13 +16,11 @@
     <result column="deleted_id" jdbcType="INTEGER" property="deletedId" />
     <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
     <result column="user_emial" jdbcType="VARCHAR" property="userEmial" />
-    <result column="user_phone" jdbcType="CHAR" property="userPhone" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="portrait_url" jdbcType="VARCHAR" property="portraitUrl" />
+    <result column="department_id" jdbcType="BIGINT" property="departmentId" />
   </resultMap>
-
-<!--  <insert id="insert" parameterType="com.vankeytech.pmp.auth.entity.User" >
-    insert into pmp_user(user_register_account ,user_password, user_phone, user_name) VALUE(#{userRegisterAccount},#{userPassword},#{userPhone},#{userName})
-  </insert>-->
 
 </mapper>

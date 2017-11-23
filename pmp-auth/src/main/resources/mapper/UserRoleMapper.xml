@@ -9,4 +9,5 @@
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="role_id" jdbcType="BIGINT" property="roleId" />
   </resultMap>
+
 </mapper>

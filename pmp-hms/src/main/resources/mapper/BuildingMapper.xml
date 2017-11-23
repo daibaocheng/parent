@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.hms.mapper.BuildingMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.hms.entity.Building">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="building_id" jdbcType="BIGINT" property="buildingId" />
+    <result column="building_no" jdbcType="BIGINT" property="buildingNo" />
+    <result column="unit_no" jdbcType="BIGINT" property="unitNo" />
+    <result column="room_no" jdbcType="BIGINT" property="roomNo" />
+    <result column="house_type" jdbcType="BIGINT" property="houseType" />
+    <result column="floor_space" jdbcType="DOUBLE" property="floorSpace" />
+    <result column="house_purpose" jdbcType="BIGINT" property="housePurpose" />
+    <result column="rent" jdbcType="BIGINT" property="rent" />
+    <result column="family_size" jdbcType="BIGINT" property="familySize" />
+    <result column="owner" jdbcType="INTEGER" property="owner" />
+    <result column="use_status" jdbcType="BIGINT" property="useStatus" />
+    <result column="authority_status" jdbcType="BIGINT" property="authorityStatus" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="village" jdbcType="BIGINT" property="village" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>
