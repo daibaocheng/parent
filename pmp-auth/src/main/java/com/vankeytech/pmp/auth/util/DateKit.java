@@ -11,6 +11,14 @@ import java.util.GregorianCalendar;
  *
  */
 public class DateKit {
+
+
+    private final static String FRMAT1="yy/MM/dd HH:mm:ss";
+    private final static String FORMAT2="";
+
+    private static String DEFAULTFORMAT="";
+
+
 	/**
      * 把日期字符串格式化成日期类型
      * @param dateStr
@@ -72,7 +80,14 @@ public class DateKit {
     public static String getCurrentDate(String format) {
         return new SimpleDateFormat(format).format(new Date());
     }
-    
+
+    /**
+     * 返回默认的时间 默认时间格式
+     * @return
+     */
+    public static String getCurrentDateDefault(){
+        return new SimpleDateFormat(DEFAULTFORMAT).format(new Date());
+    }
     /**
      * 获取时间戳
      * @return
@@ -198,7 +213,7 @@ public class DateKit {
     
     /**
      * 取得某天所在周的第一天
-     * @param year
+     * @param date
      * @return
      */
     public static Date getFirstDayOfWeek(Date date) {
@@ -416,8 +431,8 @@ public class DateKit {
     
     /**
      * 天数差
-     * @param date1
-     * @param date2
+     * @param before
+     * @param after
      * @return
      */
     public static int diffDay(Date before, Date after) {
@@ -495,9 +510,11 @@ public class DateKit {
      */  
     public static Date randomDate(String beginDate, String endDate) {  
         try {  
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");  
-            Date start = format.parse(beginDate);// 构造开始日期  
-            Date end = format.parse(endDate);// 构造结束日期  
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            // 构造开始日期
+            Date start = format.parse(beginDate);
+            // 构造结束日期
+            Date end = format.parse(endDate);
             // getTime()表示返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。  
             if (start.getTime() >= end.getTime()) {  
                 return null;  

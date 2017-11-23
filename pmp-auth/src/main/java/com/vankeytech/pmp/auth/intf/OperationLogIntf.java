@@ -22,5 +22,9 @@ public interface OperationLogIntf {
      */
     PageInfo<OperationLog> pageSelect(Integer page, Integer pageSize, OperationLog operationLog);
 
+    /**
+     * 文件下载
+     */
+    void downloadLogFile();
 
 }

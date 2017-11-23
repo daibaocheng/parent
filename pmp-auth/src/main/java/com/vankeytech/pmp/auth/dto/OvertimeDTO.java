@@ -1,10 +1,12 @@
 package com.vankeytech.pmp.auth.dto;
 
 
+import java.io.Serializable;
+
 /**
  * @author  xieliang
  */
-public class OvertimeDTO {
+public class OvertimeDTO implements Serializable {
 
     /**
      * 值班表id

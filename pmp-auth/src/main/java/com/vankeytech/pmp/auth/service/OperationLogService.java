@@ -22,4 +22,9 @@ public interface OperationLogService extends Service<OperationLog> {
      * @return
      */
      PageInfo<OperationLog> selectPage(Integer page, Integer pageSize, OperationLog operationLog);
+
+    /**
+     * 导出日志
+     */
+    void exportLogExcel();
 }

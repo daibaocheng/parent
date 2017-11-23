@@ -26,8 +26,14 @@ public class OperationLogIntfImpl implements OperationLogIntf {
 
     @Override
     public PageInfo<OperationLog> pageSelect(Integer page, Integer pageSize,OperationLog operationLog) {
-
-
         return operationLogService.selectPage(page,pageSize,operationLog);
+    }
+
+    /**
+     * 文件下载
+     */
+    @Override
+    public void downloadLogFile() {
+        operationLogService.exportLogExcel();
     }
 }
