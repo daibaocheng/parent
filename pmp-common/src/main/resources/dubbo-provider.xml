@@ -8,6 +8,7 @@
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <dubbo:application name="${dubbo.appname}" />
     <dubbo:registry id="zk1" address="${dubbo.registry[0]}" register="${dubbo.register}" />
-    <dubbo:registry id="zk2" address="${dubbo.registry[1]}" register="${dubbo.register}" />
-    <dubbo:reference id="commonIntf" check="false" interface="com.vankeytech.pmp.common.intf.CommonIntf" url="${dubbo.debug}:20884" />
+    <dubbo:registry id="zk2" address="${dubbo.registry[0]}" register="${dubbo.register}" />
+    <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" />
+    <dubbo:service interface="com.vankeytech.pmp.common.intf.CommonIntf" ref="commonIntfImpl"/>
 </beans>
