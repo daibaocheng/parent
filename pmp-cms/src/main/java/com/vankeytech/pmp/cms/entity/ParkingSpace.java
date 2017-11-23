@@ -1,10 +1,11 @@
 package com.vankeytech.pmp.cms.entity;
 
-import java.util.Date;
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 @Table(name = "cms_parking_space")
-public class ParkingSpace {
+public class ParkingSpace implements Serializable {
     /**
      * 车位ID
      */

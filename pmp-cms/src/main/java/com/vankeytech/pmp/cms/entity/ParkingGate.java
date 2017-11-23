@@ -1,9 +1,10 @@
 package com.vankeytech.pmp.cms.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Table(name = "cms_parking_gate")
-public class ParkingGate {
+public class ParkingGate implements Serializable {
     /**
      * 停车场门闸机ID
      */
