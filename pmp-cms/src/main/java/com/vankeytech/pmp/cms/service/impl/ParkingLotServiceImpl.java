@@ -39,14 +39,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     @Override
     public ParkingLot selectParkingLotById(Integer id) {
-        List<ParkingLot> parkingLotList = parkingLotMapper.selectParkingLotById(id);
-        if (parkingLotList.size() == 0) {
-            return null;
-        } else if (parkingLotList.size() != 1) {
-            throw new RuntimeException();
-        } else {
-            return parkingLotList.get(0);
-        }
+        return parkingLotMapper.selectParkingLotById(id);
     }
 
     @Override
