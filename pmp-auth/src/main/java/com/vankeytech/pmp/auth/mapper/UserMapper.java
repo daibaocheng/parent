@@ -14,7 +14,4 @@ import java.util.List;
 public interface UserMapper extends BasicMapper<User> {
 
 
-
-
-
 }

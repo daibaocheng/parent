@@ -1,9 +1,11 @@
 package com.vankeytech.pmp.auth.dto;
 
+import java.io.Serializable;
+
 /**
  * @author  xieliang
  */
-public class OperationLogDTO {
+public class OperationLogDTO implements Serializable {
 
     /**
      * 操作人的登录名

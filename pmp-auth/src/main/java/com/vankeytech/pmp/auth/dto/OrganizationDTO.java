@@ -1,11 +1,13 @@
 package com.vankeytech.pmp.auth.dto;
 
 
+import java.io.Serializable;
+
 /**
  * 部门组织DTO
  * @author  xielaing
  */
-public class OrganizationDTO {
+public class OrganizationDTO implements Serializable {
 
     /**
      * id

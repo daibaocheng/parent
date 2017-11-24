@@ -25,8 +25,8 @@ public class OperationInfoTest {
     @Test
     public void insertLog(){
         OperationLog operationLog = new OperationLog();
-        operationLog.setAreaName("化小小区");
-        operationLog.setInterfaceName("日志管理");
+        operationLog.setAreaName("纽约小区");
+        operationLog.setInterfaceName("组织管理");
         operationLog.setLogMssage("我就这么操作的");
         operationLog.setModuleName("系统管理");
         operationLog.setOerationName("wangwu");
@@ -35,6 +35,7 @@ public class OperationInfoTest {
         operationLog.setOperationResult("成功");
         operationLog.setPlateNumber("0123154");
         operationLogIntf.insertLog(operationLog);
+        System.out.println(operationLog.getOperationLogId()+"-------------------------------");
 
     }
 

@@ -1,13 +1,16 @@
 package com.vankeytech.pmp.auth.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
 
 /**
  * @author  xieliang
  */
 @Table(name = "auth_overtime")
-public class Overtime {
+public class Overtime implements Serializable {
     /**
      * 值班表id
      */

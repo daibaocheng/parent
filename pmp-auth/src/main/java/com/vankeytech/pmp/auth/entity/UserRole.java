@@ -1,12 +1,15 @@
 package com.vankeytech.pmp.auth.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * @author  xieliang
  */
 @Table(name = "auth_user_role")
-public class UserRole {
+public class UserRole implements Serializable {
     /**
      * id编号
      */

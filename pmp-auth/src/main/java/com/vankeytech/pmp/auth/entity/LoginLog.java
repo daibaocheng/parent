@@ -1,13 +1,17 @@
 package com.vankeytech.pmp.auth.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
 
 /**
  * @author  xieliang
  */
 @Table(name = "auth_login_log")
-public class LoginLog {
+public class LoginLog implements Serializable {
+
     /**
      * 登录日志的id编号
      */

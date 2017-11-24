@@ -17,9 +17,7 @@ spring:
 dubbo:
   debug: dubbo://localhost
   register: false
-  registry:
-    - N/A
-    - N/A
+  registry: N/A
 
 #测试环境
 ---
@@ -28,6 +26,4 @@ spring:
 dubbo:
   debug:
   register: true
-  registry:
-    - zookeeper://192.168.0.100:2181
-    - zookeeper://192.168.0.101:2181
+  registry: 192.168.0.100:2181,192.168.0.101:2181
