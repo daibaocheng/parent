@@ -47,7 +47,11 @@
     </select>
 
     <select id="selectParkingGateByCommunityId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-
+        SELECT cpg.*
+        FROM cms_parking_gate cpg
+            INNER JOIN cms_sentry_booth csb ON cpg.sentry_booth_id = csb.id
+            INNER JOIN cms_parking_lot cpl ON csb.parking_lot_id = cpl.id
+        WHERE cpl.community_id = #{communityId} AND cpg.hide = 0
     </select>
 
 </mapper>
