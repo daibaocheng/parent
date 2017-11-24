@@ -4,12 +4,19 @@ package com.vankeytech.pmp.pms.intf;
 import com.vankeytech.pmp.pms.entity.PmsComplaints;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.locks.Condition;
 
 /**
  * @author daibaocheng
  */
 public interface PmsComplaintsIntf{
+    /**
+     * 条件查询
+     * @param map
+     * @return
+     */
+    List<PmsComplaints> selectByconditions(Map<String,Object> map);
     /**
      * 查询所有投诉信息
      * @return

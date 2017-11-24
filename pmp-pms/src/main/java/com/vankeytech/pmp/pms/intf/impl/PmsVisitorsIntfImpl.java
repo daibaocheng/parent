@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.locks.Condition;
 
 /**
@@ -21,6 +22,11 @@ public class PmsVisitorsIntfImpl implements PmsVisitorsIntf{
 
     @Resource
     private PmsVisitorsService pmsVisitorsService;
+
+    @Override
+    public List<PmsVisitors> selectByconditions(Map<String, Object> map) {
+        return pmsVisitorsService.selectByconditions(map);
+    }
 
     @Override
     public List<PmsVisitors> selectAll() {

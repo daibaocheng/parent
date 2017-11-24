@@ -25,9 +25,9 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
 
         <!--<table tableName="province" domainObjectName="Province" />-->
-        <!--<table tableName="pms_province" domainObjectName="PmsProvince">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-        <!--</table>-->
+        <table tableName="pms_commentaries" domainObjectName="PmsCommentaries">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
         <!--<table tableName="pms_city" domainObjectName="PmsCity">-->
             <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
         <!--</table>-->

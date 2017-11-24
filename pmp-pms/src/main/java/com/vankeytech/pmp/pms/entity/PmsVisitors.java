@@ -3,9 +3,6 @@ package com.vankeytech.pmp.pms.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-/**
- * @author daibaocheng
- */
 @Table(name = "pms_visitors")
 public class PmsVisitors {
     @Id

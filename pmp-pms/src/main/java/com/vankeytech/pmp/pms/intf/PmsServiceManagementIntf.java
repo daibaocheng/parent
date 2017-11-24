@@ -4,12 +4,19 @@ package com.vankeytech.pmp.pms.intf;
 import com.vankeytech.pmp.pms.entity.PmsServiceManagement;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.locks.Condition;
 
 /**
  * @author daibaocheng
  */
 public interface PmsServiceManagementIntf{
+    /**
+     * 条件查询
+     * @param map
+     * @return
+     */
+    List<PmsServiceManagement> selectByconditions(Map<String,Object> map);
     /**
      * 查询所有报修信息
      * @return

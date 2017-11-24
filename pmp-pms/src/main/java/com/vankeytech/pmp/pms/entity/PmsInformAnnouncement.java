@@ -3,9 +3,6 @@ package com.vankeytech.pmp.pms.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-/**
- * @author daibaocheng
- */
 @Table(name = "pms_inform_announcement")
 public class PmsInformAnnouncement {
     @Id
@@ -64,6 +61,12 @@ public class PmsInformAnnouncement {
      * 公告状态，已发布0，未发布1
      */
     private Integer state;
+
+    /**
+     * 图片地址
+     */
+    @Column(name = "picture_url")
+    private String pictureUrl;
 
     /**
      * @return id
@@ -257,5 +260,21 @@ public class PmsInformAnnouncement {
      */
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    /**
+     * 获取图片地址
+     * @return
+     */
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    /**
+     * 设置图片地址
+     * @param pictureUrl
+     */
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 }

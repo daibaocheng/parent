@@ -4,12 +4,19 @@ package com.vankeytech.pmp.pms.intf;
 import com.vankeytech.pmp.pms.entity.PmsVisitors;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.locks.Condition;
 
 /**
  * @author daibaocheng
  */
 public interface PmsVisitorsIntf{
+    /**
+     * 条件查询
+     * @param map
+     * @return
+     */
+    List<PmsVisitors> selectByconditions(Map<String,Object> map);
     /**
      * 查询所有访客信息
      * @return

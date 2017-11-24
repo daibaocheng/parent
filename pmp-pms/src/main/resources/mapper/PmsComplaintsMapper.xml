@@ -17,12 +17,12 @@
     <result column="housing_id" jdbcType="INTEGER" property="housingId" />
   </resultMap>
   <!--修改投诉信息状态 -->
-  <update id="updateStatus" parameterType="java.lang.Integer" >
+  <update id="updateStatus" parameterType="java.lang.Integer">
     UPDATE pms_complaints pc SET pc.status=(pc.status+1)
       WHERE pc.id=#{id}
   </update>
   <!--条件查询-->
-  <select id="selectPmsComplaintsCondition" resultMap="BaseResultMap" parameterType="java.util.Map">
+  <select id="selectPmsComplaintsCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
     SELECT * FROM pms_complaints
     <where>
       acceptance_time BETWEEN #{map.minDate} and #{map.maxDate}

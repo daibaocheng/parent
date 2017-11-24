@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.locks.Condition;
 
 /**
@@ -17,6 +18,11 @@ public class PmsComplaintsIntfImpl implements PmsComplaintsIntf {
 
     @Resource
     private PmsComplaintsService pmsComplaintsService;
+
+    @Override
+    public List<PmsComplaints> selectByconditions(Map<String, Object> map) {
+        return pmsComplaintsService.selectByconditions(map);
+    }
 
     @Override
     public List<PmsComplaints> selectAll() {

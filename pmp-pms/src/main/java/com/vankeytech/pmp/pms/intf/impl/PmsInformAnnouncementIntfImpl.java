@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.locks.Condition;
 
 /**
@@ -18,6 +19,11 @@ public class PmsInformAnnouncementIntfImpl implements PmsInformAnnouncementIntf{
 
     @Resource
     private PmsInformAnnouncementService pmsInformAnnouncementService;
+
+    @Override
+    public List<PmsInformAnnouncement> selectByconditions(Map<String, Object> map) {
+        return pmsInformAnnouncementService.selectByconditions(map);
+    }
 
     @Override
     public List<PmsInformAnnouncement> selectAll() {

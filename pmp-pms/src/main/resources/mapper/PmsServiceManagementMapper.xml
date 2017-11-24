@@ -14,9 +14,14 @@
     <result column="founder" jdbcType="VARCHAR" property="founder" />
     <result column="processing_state" jdbcType="INTEGER" property="processingState" />
     <result column="picture" jdbcType="VARCHAR" property="picture" />
+    <result column="maintenance_time" jdbcType="TIMESTAMP" property="maintenanceTime" />
+    <result column="maintenance_type" jdbcType="INTEGER" property="maintenanceType" />
+    <result column="maintenance_cost" jdbcType="DOUBLE" property="maintenanceCost" />
+    <result column="maintenance_instruction" jdbcType="VARCHAR" property="maintenanceInstruction" />
+    <result column="maintenance_man" jdbcType="VARCHAR" property="maintenanceMan" />
   </resultMap>
   <!--条件查询-->
-  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="java.util.Map">
+  <select id="selectByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
   SELECT * from pms_service_management psm WHERE 1=1 AND
   pia.creation_time BETWEEN #{map.minDate} and #{map.maxDate}
   <if test="map.content!=null">

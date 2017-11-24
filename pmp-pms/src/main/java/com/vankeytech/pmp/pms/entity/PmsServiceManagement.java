@@ -3,9 +3,6 @@ package com.vankeytech.pmp.pms.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-/**
- * @author daibaocheng
- */
 @Table(name = "pms_service_management")
 public class PmsServiceManagement {
     @Id
@@ -55,6 +52,36 @@ public class PmsServiceManagement {
      * 图片
      */
     private String picture;
+
+    /**
+     * 维修时间
+     */
+    @Column(name = "maintenance_time")
+    private Date maintenanceTime;
+
+    /**
+     * 维修类型
+     */
+    @Column(name = "maintenance_type")
+    private Integer maintenanceType;
+
+    /**
+     * 维修费用
+     */
+    @Column(name = "maintenance_cost")
+    private Double maintenanceCost;
+
+    /**
+     * 维修说明
+     */
+    @Column(name = "maintenance_instruction")
+    private String maintenanceInstruction;
+
+    /**
+     * 维修人
+     */
+    @Column(name = "maintenance_man")
+    private String maintenanceMan;
 
     /**
      * @return id
@@ -212,5 +239,95 @@ public class PmsServiceManagement {
      */
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    /**
+     * 获取维修时间
+     *
+     * @return maintenance_time - 维修时间
+     */
+    public Date getMaintenanceTime() {
+        return maintenanceTime;
+    }
+
+    /**
+     * 设置维修时间
+     *
+     * @param maintenanceTime 维修时间
+     */
+    public void setMaintenanceTime(Date maintenanceTime) {
+        this.maintenanceTime = maintenanceTime;
+    }
+
+    /**
+     * 获取维修类型
+     *
+     * @return maintenance_type - 维修类型
+     */
+    public Integer getMaintenanceType() {
+        return maintenanceType;
+    }
+
+    /**
+     * 设置维修类型
+     *
+     * @param maintenanceType 维修类型
+     */
+    public void setMaintenanceType(Integer maintenanceType) {
+        this.maintenanceType = maintenanceType;
+    }
+
+    /**
+     * 获取维修费用
+     *
+     * @return maintenance_cost - 维修费用
+     */
+    public Double getMaintenanceCost() {
+        return maintenanceCost;
+    }
+
+    /**
+     * 设置维修费用
+     *
+     * @param maintenanceCost 维修费用
+     */
+    public void setMaintenanceCost(Double maintenanceCost) {
+        this.maintenanceCost = maintenanceCost;
+    }
+
+    /**
+     * 获取维修说明
+     *
+     * @return maintenance_instruction - 维修说明
+     */
+    public String getMaintenanceInstruction() {
+        return maintenanceInstruction;
+    }
+
+    /**
+     * 设置维修说明
+     *
+     * @param maintenanceInstruction 维修说明
+     */
+    public void setMaintenanceInstruction(String maintenanceInstruction) {
+        this.maintenanceInstruction = maintenanceInstruction;
+    }
+
+    /**
+     * 获取维修人
+     *
+     * @return maintenance_man - 维修人
+     */
+    public String getMaintenanceMan() {
+        return maintenanceMan;
+    }
+
+    /**
+     * 设置维修人
+     *
+     * @param maintenanceMan 维修人
+     */
+    public void setMaintenanceMan(String maintenanceMan) {
+        this.maintenanceMan = maintenanceMan;
     }
 }

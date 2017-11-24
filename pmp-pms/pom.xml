@@ -32,6 +32,11 @@
 	</properties>
 
 	<dependencies>
+		<!--  调用common接口  -->
+		<dependency>
+			<groupId>com.vankeytech.pmp</groupId>
+			<artifactId>common</artifactId>
+		</dependency>
 		<!--数据库 -->
 		<dependency>
 			<groupId>mysql</groupId>
