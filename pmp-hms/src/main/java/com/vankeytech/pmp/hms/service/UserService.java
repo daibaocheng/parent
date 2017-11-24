@@ -1,7 +1,8 @@
 package com.vankeytech.pmp.hms.service;
 
+import com.github.pagehelper.PageInfo;
 import com.vankeytech.baseservice.intf.Service;
-import com.vankeytech.pmp.hms.condition.SelectCondition;
+import com.vankeytech.pmp.hms.condition.UserCondition;
 import com.vankeytech.pmp.hms.entity.User;
 
 import java.util.List;
@@ -13,11 +14,13 @@ public interface UserService extends Service<User> {
 
     List<User> selectAllUsers() ;
 
-    List<User> selectUserByCondition(SelectCondition selectCondition) ;
+    PageInfo<User> selectAllByPage(Integer currentPage, Integer pageSize) ;
+
+    PageInfo<User> selectUserByCondition(UserCondition userCondition,Integer currentPage, Integer pageSize) ;
 
     List<User> selectUserByIds(Integer[] ids);
 
-    Integer selectUserCountByCondition(SelectCondition selectCondition) ;
+    Integer selectUserCountByCondition(UserCondition userCondition) ;
 
     void insertUserOne(User user) ;
 

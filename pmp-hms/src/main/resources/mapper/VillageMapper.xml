@@ -5,9 +5,13 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="village_no" jdbcType="BIGINT" property="villageNo" />
+    <id column="village_id" jdbcType="BIGINT" property="villageId" />
+    <result column="village_no" jdbcType="VARCHAR" property="villageNo" />
     <result column="village_name" jdbcType="VARCHAR" property="villageName" />
-    <result column="region_code" jdbcType="BIGINT" property="regionCode" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="region_code" jdbcType="VARCHAR" property="regionCode" />
+    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+    <result column="latitude" jdbcType="DOUBLE" property="latitude" />
     <result column="property_management_company" jdbcType="VARCHAR" property="propertyManagementCompany" />
     <result column="Property_company_phone" jdbcType="VARCHAR" property="propertyCompanyPhone" />
     <result column="developers" jdbcType="VARCHAR" property="developers" />
@@ -16,4 +20,36 @@
     <result column="developer_phone" jdbcType="VARCHAR" property="developerPhone" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
+  <sql id="selectBaseSql">
+    hv.village_id,hv.village_no,hv.village_name,hv.address,hv.region_code,hv.longitude,hv.latitude
+  </sql>
+
+  <!--查询所有小区信息-->
+  <select id="selectAllVillages" resultMap="BaseResultMap">
+    select
+    <include refid="selectBaseSql" />
+    from hms_village hv
+  </select>
+
+  <!--通过条件查询小区信息-->
+  <select id="selectVillageByCondition" parameterType="com.vankeytech.pmp.hms.condition.VillageCondition" resultMap="BaseResultMap">
+    SELECT
+    <include refid="selectBaseSql" />
+    FROM hms_village hv
+    WHERE 1=1
+    <if test="regionCode != null ">
+      AND hv.region_code = #{regionCode}
+    </if>
+    <if test="VillageName != null ">
+      AND hv.village_name = #{VillageName}
+    </if>
+  </select>
+
+  <!--添加单个小区-->
+  <insert id="insertVillage" useGeneratedKeys="true" parameterType="com.vankeytech.pmp.hms.entity.Village">
+    INSERT INTO hms_village
+    (village_id,village_no,village_name,address,region_code,longitude,latitude)
+    VALUES
+    (#{villageId},#{villageNo},#{villageName},#{address},#{regionCode},#{longitude},#{latitude})
+  </insert>
 </mapper>
