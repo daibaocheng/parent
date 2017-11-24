@@ -1,5 +1,7 @@
 package com.vankeytech.pmp.cms.entity;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -97,5 +99,15 @@ public class ParkingGate implements Serializable {
      */
     public void setHide(Integer hide) {
         this.hide = hide;
+    }
+
+    @Override
+    public String toString() {
+        return "ParkingGate{" +
+                "id=" + id +
+                ", sentryBoothId=" + sentryBoothId +
+                ", direction=" + direction +
+                ", hide=" + hide +
+                '}';
     }
 }

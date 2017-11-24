@@ -36,7 +36,7 @@ public class Car implements Serializable {
     private String colorId;
 
     /**
-     * 停车类型ID
+     * 车辆类型ID
      */
     @Column(name = "type_id")
     private Integer typeId;
@@ -142,18 +142,18 @@ public class Car implements Serializable {
     }
 
     /**
-     * 获取停车类型ID
+     * 获取车辆类型ID
      *
-     * @return type_id - 停车类型ID
+     * @return type_id - 车辆类型ID
      */
     public Integer getTypeId() {
         return typeId;
     }
 
     /**
-     * 设置停车类型ID
+     * 设置车辆类型ID
      *
-     * @param typeId 停车类型ID
+     * @param typeId 车辆类型ID
      */
     public void setTypeId(Integer typeId) {
         this.typeId = typeId;

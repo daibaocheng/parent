@@ -9,9 +9,15 @@ public class Village {
      * 小区编号
      */
     @Id
-    @Column(name = "village_no")
+    @Column(name = "village_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long villageNo;
+    private Long villageId;
+
+    /**
+     * 小区ID
+     */
+    @Column(name = "village_no")
+    private String villageNo;
 
     /**
      * 小区名
@@ -20,10 +26,26 @@ public class Village {
     private String villageName;
 
     /**
+     * 小区详细地址
+     */
+    private String address;
+
+    /**
      * 小区地址（省市区）
      */
     @Column(name = "region_code")
-    private Long regionCode;
+    private String regionCode;
+
+    /**
+     * 经度
+     */
+    private Double longitude;
+
+    /**
+     * 纬度
+     */
+    @Column(name = "latitude")
+    private Double latitude;
 
     /**
      * 物业管理公司
@@ -68,18 +90,36 @@ public class Village {
     /**
      * 获取小区编号
      *
-     * @return village_no - 小区编号
+     * @return village_id - 小区编号
      */
-    public Long getVillageNo() {
-        return villageNo;
+    public Long getVillageId() {
+        return villageId;
     }
 
     /**
      * 设置小区编号
      *
-     * @param villageNo 小区编号
+     * @param villageId 小区编号
      */
-    public void setVillageNo(Long villageNo) {
+    public void setVillageId(Long villageId) {
+        this.villageId = villageId;
+    }
+
+    /**
+     * 获取小区ID
+     *
+     * @return village_no - 小区ID
+     */
+    public String getVillageNo() {
+        return villageNo;
+    }
+
+    /**
+     * 设置小区ID
+     *
+     * @param villageNo 小区ID
+     */
+    public void setVillageNo(String villageNo) {
         this.villageNo = villageNo;
     }
 
@@ -102,11 +142,29 @@ public class Village {
     }
 
     /**
+     * 获取小区详细地址
+     *
+     * @return address - 小区详细地址
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * 设置小区详细地址
+     *
+     * @param address 小区详细地址
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
      * 获取小区地址（省市区）
      *
-     * @return village_address - 小区地址（省市区）
+     * @return region_code - 小区地址（省市区）
      */
-    public Long getRegionCode() {
+    public String getRegionCode() {
         return regionCode;
     }
 
@@ -115,8 +173,44 @@ public class Village {
      *
      * @param regionCode 小区地址（省市区）
      */
-    public void setRegionId(Long regionCode) {
+    public void setRegionCode(String regionCode) {
         this.regionCode = regionCode;
+    }
+
+    /**
+     * 获取经度
+     *
+     * @return longitude - 经度
+     */
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    /**
+     * 设置经度
+     *
+     * @param longitude 经度
+     */
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    /**
+     * 获取纬度
+     *
+     * @return  latitude - 纬度
+     */
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    /**
+     * 设置纬度
+     *
+     * @param latitude 纬度
+     */
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
     /**
@@ -243,5 +337,25 @@ public class Village {
      */
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    @Override
+    public String toString() {
+        return "Village{" +
+                "villageId=" + villageId +
+                ", villageNo='" + villageNo + '\'' +
+                ", villageName='" + villageName + '\'' +
+                ", address='" + address + '\'' +
+                ", regionCode='" + regionCode + '\'' +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", propertyManagementCompany='" + propertyManagementCompany + '\'' +
+                ", propertyCompanyPhone='" + propertyCompanyPhone + '\'' +
+                ", developers='" + developers + '\'' +
+                ", constructionTime=" + constructionTime +
+                ", communityLeader='" + communityLeader + '\'' +
+                ", developerPhone='" + developerPhone + '\'' +
+                ", remarks='" + remarks + '\'' +
+                '}';
     }
 }

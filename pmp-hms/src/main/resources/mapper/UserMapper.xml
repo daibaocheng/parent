@@ -14,8 +14,7 @@
     <result column="native_place" jdbcType="VARCHAR" property="nativePlace" />
     <result column="permanent_address" jdbcType="VARCHAR" property="permanentAddress" />
     <result column="identity_card" jdbcType="VARCHAR" property="identityCard" />
-    <result column="phone1" jdbcType="VARCHAR" property="phone1" />
-    <result column="phone2" jdbcType="VARCHAR" property="phone2" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
@@ -37,8 +36,7 @@
     <result column="native_place" jdbcType="VARCHAR" property="nativePlace" />
     <result column="permanent_address" jdbcType="VARCHAR" property="permanentAddress" />
     <result column="identity_card" jdbcType="VARCHAR" property="identityCard" />
-    <result column="phone1" jdbcType="VARCHAR" property="phone1" />
-    <result column="phone2" jdbcType="VARCHAR" property="phone2" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="house_proprietary_certificate" jdbcType="VARCHAR" property="houseProprietaryCertificate" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
@@ -92,12 +90,14 @@
     </collection>
   </resultMap>
   <sql id="selectBaseSql">
-    hu.user_id,hu.user_name,hu.nick_name,hu.account_no,hu.sex,hu.identity_card,hu.phone1,hu.phone2,hu.email,
+    hu.user_id,hu.user_name,hu.nick_name,hu.account_no,hu.sex,hu.identity_card,hu.phone1,hu.email,
     hut.user_type_no,hut.creat_time,
     hb.building_id,hb.building_no,hb.unit_no,hb.room_no,owner.user_name owner_name,
     hha.authority_status
   </sql>
-  <select id="selectAllUsers"  parameterType="com.vankeytech.pmp.hms.entity.User" resultMap="userResultMap" >
+
+  <!--查询所有用户详细信息-->
+  <select id="selectAllUsers" resultMap="userResultMap" >
     SELECT
     <include refid="selectBaseSql"/>
     FROM hms_user hu
@@ -108,8 +108,9 @@
 	LEFT JOIN hms_house_authority hha on hha.user_id=hu.user_id
     WHERE hu.display=1
   </select>
-  <!--通过条件查询-->
-  <select id="selectUserByCondition"  parameterType="com.vankeytech.pmp.hms.entity.User" resultMap="userResultMap" >
+
+  <!--通过条件查询用户信息-->
+  <select id="selectUserByCondition" parameterType="com.vankeytech.pmp.hms.condition.UserCondition" resultMap="userResultMap" >
     SELECT
     <include refid="selectBaseSql"/>
     FROM hms_user hu
@@ -118,19 +119,72 @@
     LEFT JOIN hms_building hb on hb.building_id=hub.building_id
 	LEFT JOIN hms_user owner on hb.owner=owner.user_id
 	LEFT JOIN hms_house_authority hha on hha.user_id=hu.user_id
-    WHERE hu.display=1
-    AND
-    (hb.building_no=#{buildingNo}
-    OR hb.unit_no=#{unitNo}
-    OR hb.room_no=#{roomNo}
-    OR hut.user_type_no=#{userTypeNo}
-    OR hha.authority_status=#{authorityStatus}
-    OR hu.phone1=#{phone1}
-    OR hu.identity_card=#{identityCard}
-    OR hu.user_name=#{userName})
+    WHERE hu.display = 1
+    <if test="buildingNo != null and buildingNo != 0">
+      AND hb.building_no = #{buildingNo}
+    </if>
+    <if test="unitNo != null and unitNo != 0">
+      AND hb.unit_no = #{unitNo}
+    </if>
+    <if test="roomNo != null and roomNo != 0">
+      AND hb.room_no = #{roomNo}
+    </if>
+    <if test="userTypeNo != null and userTypeNo != 9">
+      AND hut.user_type_no = #{userTypeNo}
+    </if>
+    <if test="authorityStatus != null and authorityStatus != 9">
+      AND hha.authority_status = #{authorityStatus}
+    </if>
+    <if test="phone != null">
+      AND hu.phone = #{phone}
+    </if>
+    <if test="identityCard != null">
+      AND hu.identity_card = #{identityCard}
+    </if>
+    <if test="userName != null">
+      AND hu.user_name = #{userName}
+    </if>
   </select>
-  <!--通过多个id查询-->
-  <select id="selectUserByIds"  parameterType="com.vankeytech.pmp.hms.entity.User" resultMap="userResultMap" >
+
+  <!--通过条件查询用户数量-->
+  <select id="selectUserCountByCondition" parameterType="com.vankeytech.pmp.hms.condition.UserCondition" resultType="java.lang.Integer">
+    SELECT
+    count(hu.user_id)
+    FROM hms_user hu
+    LEFT JOIN hms_user_type hut on hu.user_id=hut.user_id
+    LEFT JOIN hms_user_building hub on hu.user_id=hub.user_id
+    LEFT JOIN hms_building hb on hb.building_id=hub.building_id
+	LEFT JOIN hms_user owner on hb.owner=owner.user_id
+	LEFT JOIN hms_house_authority hha on hha.user_id=hu.user_id
+    WHERE hu.display = 1
+    <if test="buildingNo != null and buildingNo != 0">
+      AND hb.building_no = #{buildingNo}
+    </if>
+    <if test="unitNo != null and unitNo != 0">
+      AND hb.unit_no = #{unitNo}
+    </if>
+    <if test="roomNo != null and roomNo != 0">
+      AND hb.room_no = #{roomNo}
+    </if>
+    <if test="userTypeNo != null and userTypeNo != 9">
+      AND hut.user_type_no = #{userTypeNo}
+    </if>
+    <if test="authorityStatus != null and authorityStatus != 9">
+      AND hha.authority_status = #{authorityStatus}
+    </if>
+    <if test="phone != null">
+      AND hu.phone = #{phone}
+    </if>
+    <if test="identityCard != null">
+      AND hu.identity_card = #{identityCard}
+    </if>
+    <if test="userName != null">
+      AND hu.user_name = #{userName}
+    </if>
+  </select>
+
+  <!--通过多个id查询用户详细信息-->
+  <select id="selectUserByIds" parameterType="Integer[]" resultMap="userResultMap" >
     SELECT
     <include refid="selectBaseSql"/>
     FROM hms_user hu
@@ -143,8 +197,47 @@
     AND hu.user_id
     IN
     <foreach collection="array" item="id" open="(" close=")" separator=",">
-      #{id}
+      #{id,jdbcType=INTEGER}
     </foreach>
   </select>
 
+  <!--插入单个用户-->
+  <insert id="insertUserOne" useGeneratedKeys="true" parameterType="com.vankeytech.pmp.hms.entity.User">
+    INSERT INTO hms_user hu
+    (hu.user_name,hu.account_no,hu.sex,hu.nationality,hu.native_place,hu.permanent_address,hu.identity_card,hu.phone,
+    hu.email,hu.identity_card_photo_obverse,hu.identity_card_photo_reverse,hu.identity_card_photo_reverse)
+    VALUES
+    (#{userName},#{accountNo},#{sex},#{nationality},#{nativePlace},#{permanentAddress},#{identityCard},#{phone},
+    #{email},#{identityCardPhotoObverse},#{identityCardPhotoReverse},#{identityCardPhotoReverse})
+  </insert>
+
+  <!--插入多个用户-->
+  <insert id="insertUsers" useGeneratedKeys="true" parameterType="com.vankeytech.pmp.hms.entity.User">
+    INSERT INTO hms_user hu
+    (hu.user_name,hu.account_no,hu.sex,hu.nationality,hu.native_place,hu.permanent_address,hu.identity_card,hu.phone,
+    hu.email,hu.identity_card_photo_obverse,hu.identity_card_photo_reverse,hu.identity_card_photo_reverse)
+    VALUES
+    <foreach collection="list" item="user" separator=",">
+      (#{userName},#{accountNo},#{sex},#{nationality},#{nativePlace},#{permanentAddress},#{identityCard},#{phone},
+      #{email},#{identityCardPhotoObverse},#{identityCardPhotoReverse},#{identityCardPhotoReverse})
+    </foreach>
+  </insert>
+
+  <!--通过主键删除单个用户-->
+  <update id="deleteUserByPrimaryKey" parameterType="java.lang.Integer" >
+  UPDATE hms_user hu
+  SET hu.display = 0
+  WHERE hu.user_id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--通过主键删除多个用户-->
+  <update id="deleteUserByIds" parameterType="Integer[]" >
+  UPDATE hms_user hu
+  SET hu.display = 0
+  WHERE hu.user_id
+  IN
+  <foreach collection="array" item="id" open="(" close=")" separator=",">
+    #{id,jdbcType=INTEGER}
+  </foreach>
+  </update>
 </mapper>

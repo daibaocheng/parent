@@ -1,6 +1,7 @@
 package com.vankeytech.pmp.hms.intf.impl;
 
-import com.vankeytech.pmp.hms.condition.SelectCondition;
+import com.github.pagehelper.PageInfo;
+import com.vankeytech.pmp.hms.condition.UserCondition;
 import com.vankeytech.pmp.hms.entity.User;
 import com.vankeytech.pmp.hms.intf.UserIntf;
 import com.vankeytech.pmp.hms.service.UserService;
@@ -24,8 +25,13 @@ public class UserIntfImpl implements UserIntf {
     }
 
     @Override
-    public List<User> selectByCondition(SelectCondition selectCondition) {
-        return userService.selectUserByCondition(selectCondition);
+    public PageInfo<User> selectAllByPage(Integer currentPage, Integer pageSize) {
+        return userService.selectAllByPage(currentPage,pageSize);
+    }
+
+    @Override
+    public PageInfo<User> selectByCondition(UserCondition userCondition,Integer currentPage, Integer pageSize) {
+        return userService.selectUserByCondition(userCondition,currentPage,pageSize);
     }
 
     @Override
@@ -39,7 +45,7 @@ public class UserIntfImpl implements UserIntf {
     }
 
     @Override
-    public Integer selectCountByCondition(SelectCondition selectcondition) {
+    public Integer selectCountByCondition(UserCondition selectcondition) {
         return userService.selectUserCountByCondition(selectcondition);
     }
 

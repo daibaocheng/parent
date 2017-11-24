@@ -1,4 +1,5 @@
 package com.vankeytech.pmp.hms.condition;
 
-public class SelectCondition {
+public class BuildingCondition {
+
 }
