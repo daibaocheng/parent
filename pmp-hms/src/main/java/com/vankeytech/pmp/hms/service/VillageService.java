@@ -1,12 +1,15 @@
-package com.vankeytech.pmp.hms.mapper;
+package com.vankeytech.pmp.hms.service;
 
-import com.vankeytech.baseservice.mapper.BasicMapper;
+import com.vankeytech.baseservice.intf.Service;
 import com.vankeytech.pmp.hms.condition.VillageCondition;
 import com.vankeytech.pmp.hms.entity.Village;
 
 import java.util.List;
 
-public interface VillageMapper extends BasicMapper<Village> {
+/**
+ * @author Administrator
+ */
+public interface VillageService extends Service<Village> {
 
     List<Village> selectAllVillages() ;
 

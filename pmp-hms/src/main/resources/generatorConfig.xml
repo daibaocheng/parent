@@ -35,7 +35,7 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
 
         <!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
-        <table tableName="hms_account" domainObjectName="Account">
+       <!-- <table tableName="hms_account" domainObjectName="Account">
             <generatedKey column="account_no" sqlStatement="Mysql" identity="true" />
         </table>
         <table tableName="hms_account_log" domainObjectName="AccountLog">
@@ -55,9 +55,9 @@
         </table>
         <table tableName="hms_user_type" domainObjectName="UserType">
             <generatedKey column="user_type_id" sqlStatement="Mysql" identity="true" />
-        </table>
+        </table>-->
         <table tableName="hms_village" domainObjectName="Village">
-            <generatedKey column="village_no" sqlStatement="Mysql" identity="true" />
+            <generatedKey column="village_id" sqlStatement="Mysql" identity="true" />
         </table>
     </context>
 </generatorConfiguration>

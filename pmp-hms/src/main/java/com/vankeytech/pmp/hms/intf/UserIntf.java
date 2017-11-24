@@ -1,8 +1,8 @@
 package com.vankeytech.pmp.hms.intf;
 
-import com.vankeytech.pmp.hms.condition.SelectCondition;
+import com.github.pagehelper.PageInfo;
+import com.vankeytech.pmp.hms.condition.UserCondition;
 import com.vankeytech.pmp.hms.entity.User;
-import tk.mybatis.mapper.entity.Condition;
 
 import java.util.List;
 
@@ -16,11 +16,18 @@ public interface UserIntf {
     List<User> selectAllUsers() ;
 
     /**
-     * 通过条件查询用户（用户id、用户名、手机号）
-     * @param selectCondition
+     * 查询所有用户 分页处理
      * @return
      */
-    List<User> selectByCondition(SelectCondition selectCondition) ;
+    PageInfo<User> selectAllByPage(Integer currentPage, Integer pageSize) ;
+
+    /**
+     * 通过条件查询用户（楼栋号、单元号、房间号、住户类型、认证状态、采集状态、手机号、身份证号、用户名）
+     * 并做了分页处理
+     * @param userCondition
+     * @return
+     */
+    PageInfo<User> selectByCondition(UserCondition userCondition,Integer currentPage, Integer pageSize) ;
 
     /**
      * 通过id查询用户
@@ -38,9 +45,9 @@ public interface UserIntf {
 
     /**
      * 通过条件查询用户人数
-     * @param selectCondition
+     * @param userCondition
      */
-    Integer selectCountByCondition(SelectCondition selectCondition) ;
+    Integer selectCountByCondition(UserCondition userCondition) ;
 
     /**
      * 增加单个用户
