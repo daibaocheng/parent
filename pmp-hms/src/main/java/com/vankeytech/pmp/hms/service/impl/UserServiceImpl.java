@@ -1,13 +1,16 @@
 package com.vankeytech.pmp.hms.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.vankeytech.baseservice.impl.BaseService;
-import com.vankeytech.pmp.hms.condition.SelectCondition;
+import com.vankeytech.pmp.hms.condition.UserCondition;
 import com.vankeytech.pmp.hms.entity.User;
 import com.vankeytech.pmp.hms.mapper.UserMapper;
 import com.vankeytech.pmp.hms.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.print.Doc;
 import java.util.List;
 
 /**
@@ -28,8 +31,19 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
     }
 
     @Override
-    public List<User> selectUserByCondition(SelectCondition selectCondition) {
-        return this.userMapper.selectByCondition(selectCondition);
+    public PageInfo<User> selectAllByPage(Integer currentPage,Integer pageSize) {
+        PageHelper.startPage(currentPage, pageSize);
+        List<User> users = userMapper.selectAllUsers();
+        PageInfo<User> pageInfo = new PageInfo<>(users);
+        return pageInfo;
+    }
+
+    @Override
+    public PageInfo<User> selectUserByCondition(UserCondition userCondition,Integer currentPage, Integer pageSize) {
+        PageHelper.startPage(currentPage, pageSize);
+        List<User> users = userMapper.selectUserByCondition(userCondition);
+        PageInfo<User> pageInfo = new PageInfo<>(users);
+        return pageInfo;
     }
 
     @Override
@@ -38,8 +52,8 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
     }
 
     @Override
-    public Integer selectUserCountByCondition(SelectCondition selectCondition) {
-        return this.userMapper.selectCountByCondition(selectCondition);
+    public Integer selectUserCountByCondition(UserCondition userCondition) {
+        return this.userMapper.selectUserCountByCondition(userCondition);
     }
 
     @Override

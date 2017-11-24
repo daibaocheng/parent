@@ -21,4 +21,5 @@
     <result column="village" jdbcType="BIGINT" property="village" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
   </resultMap>
+
 </mapper>

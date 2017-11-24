@@ -1,6 +1,6 @@
 package com.vankeytech.pmp.hms.intf.impl;
 
-import com.vankeytech.pmp.hms.intf.UserIntf;
+import com.vankeytech.pmp.hms.intf.BuildingIntf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,19 +10,14 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserIntfTests {
+public class BuildingIntfTest {
 
     @Resource
-    private UserIntf userIntf;
+    private BuildingIntf buildingIntf;
 
     @Test
-    public void selectAll() {
-        System.out.println(userIntf.selectAllUsers());
-    }
-    @Test
-    public void selectByIds() {
-        Integer[] ids = {1,2,3};
-        System.out.println(userIntf.selectByIds(ids));
+    public void test() {
+        System.out.println(buildingIntf.selectAll());
     }
 
 }

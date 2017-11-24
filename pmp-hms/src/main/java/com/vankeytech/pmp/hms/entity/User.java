@@ -105,14 +105,9 @@ public class User {
     private String identityCard;
 
     /**
-     * 手机号1
+     * 手机号
      */
-    private String phone1;
-
-    /**
-     * 手机号2
-     */
-    private String phone2;
+    private String phone;
 
     /**
      * 邮箱
@@ -333,39 +328,21 @@ public class User {
     }
 
     /**
-     * 获取手机号1
+     * 获取手机号
      *
      * @return phone1 - 手机号1
      */
-    public String getPhone1() {
-        return phone1;
+    public String getPhone() {
+        return phone;
     }
 
     /**
      * 设置手机号1
      *
-     * @param phone1 手机号1
+     * @param phone 手机号
      */
-    public void setPhone1(String phone1) {
-        this.phone1 = phone1;
-    }
-
-    /**
-     * 获取手机号2
-     *
-     * @return phone2 - 手机号2
-     */
-    public String getPhone2() {
-        return phone2;
-    }
-
-    /**
-     * 设置手机号2
-     *
-     * @param phone2 手机号2
-     */
-    public void setPhone2(String phone2) {
-        this.phone2 = phone2;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     /**
@@ -561,8 +538,7 @@ public class User {
                 ", nativePlace='" + nativePlace + '\'' +
                 ", permanentAddress='" + permanentAddress + '\'' +
                 ", identityCard='" + identityCard + '\'' +
-                ", phone1='" + phone1 + '\'' +
-                ", phone2='" + phone2 + '\'' +
+                ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", houseProprietaryCertificate='" + houseProprietaryCertificate + '\'' +
                 ", companyName='" + companyName + '\'' +
