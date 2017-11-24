@@ -56,11 +56,13 @@ logging:
 spring:
   profiles: dev
 dubbo:
-  debug: dubbo://localhost:20886
+  debug: dubbo://localhost
   register: false
-  registry:
-    - N/A
-    - N/A
+  registry: N/A
+
+logging:
+  level:
+    com.vankeytech.pmp.common.mapper: debug
 
 #测试环境
 ---
@@ -69,6 +71,4 @@ spring:
 dubbo:
   debug:
   register: true
-  registry:
-    - zookeeper://192.168.0.100:2181
-    - zookeeper://192.168.0.101:2181
+  registry: 192.168.0.100:2181,192.168.0.101:2181

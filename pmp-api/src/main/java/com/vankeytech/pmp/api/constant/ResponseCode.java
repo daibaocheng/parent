@@ -5,7 +5,8 @@ package com.vankeytech.pmp.api.constant;
  * @author AlexWong
  */
 public enum ResponseCode {
-    SUCCESS(200, "成功");
+    SUCCESS(200, "成功"),
+    PARAM_ERR(402, "参数错误");
 
     private int code;
     private String msg;
