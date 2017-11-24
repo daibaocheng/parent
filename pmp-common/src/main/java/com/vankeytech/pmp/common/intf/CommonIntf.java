@@ -11,4 +11,5 @@ import java.util.List;
 public interface CommonIntf {
     List<Region> getProvinces();
     List<Region> getCities(String parentId);
+    List<Region> getRegions(String ids);
 }

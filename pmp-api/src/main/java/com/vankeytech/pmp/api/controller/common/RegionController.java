@@ -1,5 +1,6 @@
 package com.vankeytech.pmp.api.controller.common;
 
+import com.vankeytech.pmp.api.param.CityIds;
 import com.vankeytech.pmp.api.pojo.JsonResult;
 import com.vankeytech.pmp.api.util.ResponseUtil;
 import com.vankeytech.pmp.common.intf.CommonIntf;
@@ -33,14 +34,16 @@ public class RegionController {
     }
 
     @ApiOperation(value = "获取城市信息")
-    @ApiImplicitParam(name = "parentId", value = "父级城市ID", required = true, dataType = "String", paramType = "query")
+    @ApiImplicitParam(name = "parentId", value = "父级城市ID", required = true, dataType = "string", paramType = "query")
     @GetMapping("/getCities")
     public JsonResult getCities(@RequestParam String parentId) {
         return ResponseUtil.success(commonIntf.getCities(parentId));
     }
 
+    @ApiOperation(value = "根据城市编码获取城市数据")
+    @ApiImplicitParam(name = "ids", value = "城市编码，多个编码用','隔开", required = true, dataType = "string", paramType = "query")
     @GetMapping("/getRegions")
-    public JsonResult getRegions(@Validated @Pattern(regexp = "^\\d[,\\d]*$") String ids) {
-        return ResponseUtil.success();
+    public JsonResult getRegions(@Validated CityIds ids) {
+        return ResponseUtil.success(commonIntf.getRegions(ids.getIds()));
     }
 }

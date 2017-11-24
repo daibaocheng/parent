@@ -23,4 +23,9 @@ public class CommonIntfImpl implements CommonIntf {
         return regionService.getCities(parentId);
     }
 
+    @Override
+    public List<Region> getRegions(String ids) {
+        return regionService.selectByIds(ids);
+    }
+
 }
