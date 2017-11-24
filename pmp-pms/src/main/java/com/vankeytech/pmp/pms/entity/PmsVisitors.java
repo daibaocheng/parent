@@ -1,10 +1,14 @@
 package com.vankeytech.pmp.pms.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
+/**
+ * @author daibaocheng
+ */
 @Table(name = "pms_visitors")
-public class PmsVisitors {
+public class PmsVisitors  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

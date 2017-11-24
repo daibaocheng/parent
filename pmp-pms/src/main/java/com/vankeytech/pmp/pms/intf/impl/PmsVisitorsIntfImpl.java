@@ -24,8 +24,8 @@ public class PmsVisitorsIntfImpl implements PmsVisitorsIntf{
     private PmsVisitorsService pmsVisitorsService;
 
     @Override
-    public List<PmsVisitors> selectByconditions(Map<String, Object> map) {
-        return pmsVisitorsService.selectByconditions(map);
+    public List<PmsVisitors> selectPmsVisitorsByCondition(Map<String, Object> map) {
+        return pmsVisitorsService.selectPmsVisitorsByconditions(map);
     }
 
     @Override

@@ -17,5 +17,5 @@ public interface PmsVisitorsMapper extends BasicMapper<PmsVisitors> {
      * @param map
      * @return
      */
-    List<PmsVisitors> selectByCondition(@Param("map")Map<String,Object> map);
+    List<PmsVisitors> selectPmsVisitorsByCondition(@Param("map")Map<String,Object> map);
 }

@@ -16,7 +16,7 @@ public interface PmsComplaintsIntf{
      * @param map
      * @return
      */
-    List<PmsComplaints> selectByconditions(Map<String,Object> map);
+    List<PmsComplaints> selectPmsComplaintsByCondition(Map<String,Object> map);
     /**
      * 查询所有投诉信息
      * @return

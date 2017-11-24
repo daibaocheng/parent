@@ -26,7 +26,17 @@ public class PmsServiceManagementServiceImpl extends BaseService<PmsServiceManag
     private PmsServiceManagementService pmsServiceManagementService;
 
     @Override
-    public List<PmsServiceManagement> selectByconditions(Map<String, Object> map) {
-        return pmsServiceManagementService.selectByconditions(map);
+    public List<PmsServiceManagement> selectPmsServiceManagementByconditions(Map<String, Object> map) {
+        return pmsServiceManagementService.selectPmsServiceManagementByconditions(map);
+    }
+
+    @Override
+    public Integer updateProcessingStateById(Integer id) {
+        return pmsServiceManagementService.updateProcessingStateById(id);
+    }
+
+    @Override
+    public Integer updateUnwrapById(Integer id) {
+        return pmsServiceManagementService.updateUnwrapById(id);
     }
 }

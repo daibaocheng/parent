@@ -21,8 +21,8 @@ public class PmsInformAnnouncementIntfImpl implements PmsInformAnnouncementIntf{
     private PmsInformAnnouncementService pmsInformAnnouncementService;
 
     @Override
-    public List<PmsInformAnnouncement> selectByconditions(Map<String, Object> map) {
-        return pmsInformAnnouncementService.selectByconditions(map);
+    public List<PmsInformAnnouncement> selectPmsInformAnnouncementByCondition(Map<String, Object> map) {
+        return pmsInformAnnouncementService.selectPmsInformAnnouncementByconditions(map);
     }
 
     @Override

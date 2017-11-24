@@ -26,7 +26,7 @@ public class PmsComplaintsServiceImpl extends BaseService<PmsComplaints> impleme
     private PmsComplaintsMapper pmsComplaintsMapper;
 
     @Override
-    public List<PmsComplaints> selectByconditions(Map<String, Object> map) {
-        return pmsComplaintsMapper.selectByCondition(map);
+    public List<PmsComplaints> selectPmsComplaintsByconditions(Map<String, Object> map) {
+        return pmsComplaintsMapper.selectPmsComplaintsByCondition(map);
     }
 }

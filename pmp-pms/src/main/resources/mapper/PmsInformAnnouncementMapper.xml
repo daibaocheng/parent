@@ -18,7 +18,7 @@
     <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
   <!--条件查询-->
-  <select id="selectPmsInformAnnouncementCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
+  <select id="selectPmsInformAnnouncementByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
     SELECT * from pms_inform_announcement pia WHERE 1=1 AND
       pia.creation_time BETWEEN #{map.minDate} and #{map.maxDate}
       <if test="map.content!=null">

@@ -1,10 +1,14 @@
 package com.vankeytech.pmp.pms.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
+/**
+ * @author daibaocheng
+ */
 @Table(name = "pms_service_management")
-public class PmsServiceManagement {
+public class PmsServiceManagement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -51,7 +55,8 @@ public class PmsServiceManagement {
     /**
      * 图片
      */
-    private String picture;
+    @Column(name = "picture_url")
+    private String pictureUrl;
 
     /**
      * 维修时间
@@ -82,6 +87,8 @@ public class PmsServiceManagement {
      */
     @Column(name = "maintenance_man")
     private String maintenanceMan;
+
+
 
     /**
      * @return id
@@ -228,17 +235,17 @@ public class PmsServiceManagement {
      *
      * @return picture - 图片
      */
-    public String getPicture() {
-        return picture;
+    public String getPictureUrl() {
+        return pictureUrl;
     }
 
     /**
      * 设置图片
      *
-     * @param picture 图片
+     * @param pictureUrl 图片
      */
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 
     /**

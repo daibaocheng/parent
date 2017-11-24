@@ -1,6 +1,6 @@
-package com.vankeytech.pmp.pms.service;
+package com.vankeytech.pmp.pms.mapper;
 
-import com.vankeytech.baseservice.intf.Service;
+import com.vankeytech.baseservice.mapper.BasicMapper;
 import com.vankeytech.pmp.pms.entity.PmsCommentaries;
 import org.apache.ibatis.annotations.Param;
 
@@ -10,19 +10,21 @@ import java.util.Map;
 /**
  * @author daibaocheng
  */
-public interface PmsCommentariesService extends Service<PmsCommentaries> {
+public interface PmsCommentariesMapper extends BasicMapper<PmsCommentaries> {
     /**
      * 条件查询
      * @param map
      * @return
      */
-    List<PmsCommentaries> selectPmsCommentariesByconditions(Map<String,Object> map);
+    List<PmsCommentaries> selectPmsCommentariesByconditions(@Param("map")Map<String,Object> map);
+
     /**
      * 关闭评论
      * @param id
      * @return
      */
-    Integer updateAccordingStateById(Integer id);
+    Integer updateAccordingStateById(@Param("id") Integer id);
+
     /**
      * 连表查询多个id
      * @param ids

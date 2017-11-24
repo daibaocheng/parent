@@ -16,7 +16,7 @@ public interface PmsInformAnnouncementIntf {
      * @param map
      * @return
      */
-    List<PmsInformAnnouncement> selectByconditions(Map<String,Object> map);
+    List<PmsInformAnnouncement> selectPmsInformAnnouncementByCondition(Map<String,Object> map);
     /**
      * 查询所有公告信息
      * @return

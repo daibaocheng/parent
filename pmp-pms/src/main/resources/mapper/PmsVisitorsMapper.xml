@@ -14,7 +14,7 @@
     <result column="access_state" jdbcType="INTEGER" property="accessState" />
   </resultMap>
   <!--条件查询-->
-  <select id="selectByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
+  <select id="selectPmsVisitorsByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
     SELECT * from pms_visitors pv WHERE 1=1 AND
     pv.visiting_time BETWEEN #{map.minDate} and #{map.maxDate}
     <if test="map.accessState!=null">

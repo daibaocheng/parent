@@ -17,5 +17,5 @@ public interface PmsInformAnnouncementMapper extends BasicMapper<PmsInformAnnoun
      * @param map
      * @return
      */
-    List<PmsInformAnnouncement> selectPmsInformAnnouncementCondition(@Param("map")Map<String,Object> map);
+    List<PmsInformAnnouncement> selectPmsInformAnnouncementByCondition(@Param("map")Map<String,Object> map);
 }

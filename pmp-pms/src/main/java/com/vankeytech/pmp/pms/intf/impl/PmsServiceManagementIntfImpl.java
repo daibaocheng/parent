@@ -20,8 +20,8 @@ public class PmsServiceManagementIntfImpl implements PmsServiceManagementIntf{
     private PmsServiceManagementService pmsServiceManagementService;
 
     @Override
-    public List<PmsServiceManagement> selectByconditions(Map<String, Object> map) {
-        return pmsServiceManagementService.selectByconditions(map);
+    public List<PmsServiceManagement> selectPmsServiceManagementByCondition(Map<String, Object> map) {
+        return pmsServiceManagementService.selectPmsServiceManagementByconditions(map);
     }
 
     @Override

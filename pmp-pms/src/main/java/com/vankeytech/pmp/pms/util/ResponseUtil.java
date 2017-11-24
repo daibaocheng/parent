@@ -2,7 +2,6 @@ package com.vankeytech.pmp.pms.util;
 
 
 import com.vankeytech.pmp.pms.constant.ResponseCode;
-import com.vankeytech.pmp.pms.entity.JsonResult;
 
 /**
  * @author AlexWong

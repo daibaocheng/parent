@@ -16,5 +16,5 @@ public interface PmsVisitorsService extends Service<PmsVisitors> {
      * @param map
      * @return
      */
-    List<PmsVisitors> selectByconditions(Map<String,Object> map);
+    List<PmsVisitors> selectPmsVisitorsByconditions(Map<String,Object> map);
 }

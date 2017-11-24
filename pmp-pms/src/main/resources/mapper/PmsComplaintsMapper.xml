@@ -22,7 +22,7 @@
       WHERE pc.id=#{id}
   </update>
   <!--条件查询-->
-  <select id="selectPmsComplaintsCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
+  <select id="selectPmsComplaintsByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
     SELECT * FROM pms_complaints
     <where>
       acceptance_time BETWEEN #{map.minDate} and #{map.maxDate}

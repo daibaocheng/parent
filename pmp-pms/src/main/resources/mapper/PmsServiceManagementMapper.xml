@@ -21,7 +21,7 @@
     <result column="maintenance_man" jdbcType="VARCHAR" property="maintenanceMan" />
   </resultMap>
   <!--条件查询-->
-  <select id="selectByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
+  <select id="selectPmsServiceManagementByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
   SELECT * from pms_service_management psm WHERE 1=1 AND
   pia.creation_time BETWEEN #{map.minDate} and #{map.maxDate}
   <if test="map.content!=null">
@@ -37,4 +37,16 @@
     AND  pia.type=#{map.type}
   </if>
   </select>
+  <!--接单，派单(修改处理状态) -->
+  <update id="updateProcessingStateById" parameterType="java.lang.Integer">
+    UPDATE pms_service_management psm SET psm.processing_state=(psm.processing_state+1)
+    WHERE pms.id=#{id}
+  </update>
+
+  <!--关闭(修改处理状态为5) -->
+  <update id="updateUnwrapById" parameterType="java.lang.Integer">
+    UPDATE pms_service_management psm SET psm.processing_state=5
+    WHERE pms.id=#{id}
+  </update>
+
 </mapper>

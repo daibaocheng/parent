@@ -14,5 +14,5 @@ public interface PmsComplaintsService extends Service<PmsComplaints> {
      * @param map
      * @return
      */
-    List<PmsComplaints> selectByconditions(Map<String,Object> map);
+    List<PmsComplaints> selectPmsComplaintsByconditions(Map<String,Object> map);
 }

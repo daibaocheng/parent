@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vankeytech.pmp.pms.mapper.PmsCommentariesMapper">
+  <resultMap id="BaseResultMap" type="com.vankeytech.pmp.pms.entity.PmsCommentaries">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="reception_name" jdbcType="VARCHAR" property="receptionName" />
+    <result column="according_state" jdbcType="INTEGER" property="accordingState" />
+    <result column="reply_state" jdbcType="INTEGER" property="replyState" />
+    <result column="ltem_type" jdbcType="INTEGER" property="ltemType" />
+    <result column="detailed_content" jdbcType="VARCHAR" property="detailedContent" />
+    <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
+  </resultMap>
+  <!--条件查询-->
+  <select id="selectPmsCommentariesByconditions" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT * from pms_commentaries pc WHERE 1=1 AND
+    pc.comment_time BETWEEN #{map.minDate} and #{map.maxDate}
+    <if test="map.accordingState!=null">
+      AND pc.according_state LIKE #{map.accordingState}
+    </if>
+    <if test="map.replyState!=null">
+      AND pc.reply_state=#{map.replyState}
+    </if>
+    <if test="map.ltemType!=null">
+      AND pc.ltem_type=#{map.ltemType}
+    </if>
+    <if test="map.detailedContent!=null">
+      AND  pc.detailed_content=#{map.detailedContent}
+    </if>
+  </select>
+  <!--批量删除-->
+  <delete id="deleteSomeByIds">
+    DELETE FROM pms_commentaries pc WHERE pc.id IN
+    <foreach collection="array" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </delete>
+  <!--批量新增-->
+  <insert id="insertSome" parameterType="java.util.List">
+    INSERT INTO pms_commentaries(user_id,reception_name,according_state,reply_state,ltem_type,detailed_content,comment_time) VALUES
+    <foreach collection="list" item="com" separator=",">
+      (#{com.userId},#{com.receptionName},#{com.accordingState},#{com.replyState},#{com.ltemType},#{com.detailedContent},#{com.commentTime})
+  </foreach>
+  </insert>
+  <!--关闭评论-->
+  <update id="updateAccordingStateById" parameterType="java.lang.Integer">
+    UPDATE pms_commentaries pc SET pc.according_state=1 where pc.id=#{id}
+  </update>
+  <!--全查，连表查询-->
+  <select id="selectAllByConcatenon" parameterType="java.util.List" resultMap="java.util.HashMap">
+    SELECT <include refid="selectBaseSql"/> FROM pms_commentaries pc1,pms_householders ph1,pms_housing ph2,pms_storied_building psb,pms_community pc2
+    WHERE pc1.user_id=ph1.id AND ph1.housing_id=ph2.id AND ph2.storiedbuilding_id=psb.id and psb.community_id=pc2.id AND
+    pc1.id IN
+    <foreach collection="ids" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </select>
+  <sql id="selectBaseSql">
+    pc2.name as communityName,ph2.codes as housingCodes,ph1.mobile_number as householdersMobileNumber,
+    pc1.according_state as commentariesAccordingState,pc1.reply_state as commentariesReplyState,
+    pc1.ltem_type as commentariesLtemType,pc1.detailed_content as commentariesDetailedContent,pc1.comment_time as commentariesCommentTime
+  </sql>
+</mapper>

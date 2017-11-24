@@ -16,7 +16,7 @@ public interface PmsServiceManagementIntf{
      * @param map
      * @return
      */
-    List<PmsServiceManagement> selectByconditions(Map<String,Object> map);
+    List<PmsServiceManagement> selectPmsServiceManagementByCondition(Map<String,Object> map);
     /**
      * 查询所有报修信息
      * @return

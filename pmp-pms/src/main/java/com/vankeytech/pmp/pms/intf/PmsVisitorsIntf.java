@@ -16,7 +16,7 @@ public interface PmsVisitorsIntf{
      * @param map
      * @return
      */
-    List<PmsVisitors> selectByconditions(Map<String,Object> map);
+    List<PmsVisitors> selectPmsVisitorsByCondition(Map<String,Object> map);
     /**
      * 查询所有访客信息
      * @return

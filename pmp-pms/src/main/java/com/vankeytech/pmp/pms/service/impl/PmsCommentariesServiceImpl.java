@@ -25,8 +25,8 @@ public class PmsCommentariesServiceImpl extends BaseService<PmsCommentaries> imp
     private PmsCommentariesMapper pmsCommentariesMapper;
 
     @Override
-    public List<PmsCommentaries> selectByconditions(Map<String, Object> map) {
-        return pmsCommentariesMapper.selectByCondition(map);
+    public List<PmsCommentaries> selectPmsCommentariesByconditions(Map<String, Object> map) {
+        return pmsCommentariesMapper.selectPmsCommentariesByconditions(map);
     }
 
     @Override
@@ -34,8 +34,18 @@ public class PmsCommentariesServiceImpl extends BaseService<PmsCommentaries> imp
         return pmsCommentariesMapper.updateAccordingStateById(id);
     }
 
-//    @Override
-//    public List<Map<String, Object>> selectAllByConcatenon() {
-//        return pmsCommentariesMapper.selectAllByConcatenon();
-//    }
+    @Override
+    public List<Map<String, Object>> selectAllByConcatenon(List<Integer> ids) {
+        return pmsCommentariesMapper.selectAllByConcatenon(ids);
+    }
+
+    @Override
+    public void deleteSomeByIds(int[] idArray) {
+        pmsCommentariesMapper.deleteSomeByIds(idArray);
+    }
+
+    @Override
+    public void insertSome(List<PmsCommentaries> pmsList) {
+        pmsCommentariesMapper.insertSome(pmsList);
+    }
 }

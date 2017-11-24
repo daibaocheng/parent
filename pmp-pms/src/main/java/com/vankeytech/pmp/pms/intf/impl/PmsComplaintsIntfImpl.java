@@ -20,8 +20,8 @@ public class PmsComplaintsIntfImpl implements PmsComplaintsIntf {
     private PmsComplaintsService pmsComplaintsService;
 
     @Override
-    public List<PmsComplaints> selectByconditions(Map<String, Object> map) {
-        return pmsComplaintsService.selectByconditions(map);
+    public List<PmsComplaints> selectPmsComplaintsByCondition(Map<String, Object> map) {
+        return pmsComplaintsService.selectPmsComplaintsByconditions(map);
     }
 
     @Override

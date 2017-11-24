@@ -24,5 +24,5 @@ public interface PmsComplaintsMapper extends BasicMapper<PmsComplaints> {
      * @param map
      * @return
      */
-    List<PmsComplaints> selectPmsComplaintsCondition(@Param("map") Map<String,Object> map);
+    List<PmsComplaints> selectPmsComplaintsByCondition(@Param("map") Map<String,Object> map);
 }

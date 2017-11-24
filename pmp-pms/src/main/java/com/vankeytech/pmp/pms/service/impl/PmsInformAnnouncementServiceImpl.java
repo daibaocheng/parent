@@ -26,8 +26,7 @@ public class PmsInformAnnouncementServiceImpl  extends BaseService<PmsInformAnno
     private PmsInformAnnouncementMapper pmsInformAnnouncementMapper;
 
     @Override
-    public List<PmsInformAnnouncement> selectByconditions(Map<String,Object> map) {
-
-        return pmsInformAnnouncementMapper.selectPmsInformAnnouncementCondition(map);
+    public List<PmsInformAnnouncement> selectPmsInformAnnouncementByconditions(Map<String, Object> map) {
+        return pmsInformAnnouncementMapper.selectPmsInformAnnouncementByCondition(map);
     }
 }

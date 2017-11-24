@@ -3,6 +3,7 @@ package com.vankeytech.pmp.pms.service;
 import com.vankeytech.baseservice.intf.Service;
 import com.vankeytech.pmp.pms.entity.PmsComplaints;
 import com.vankeytech.pmp.pms.entity.PmsServiceManagement;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -16,5 +17,18 @@ public interface PmsServiceManagementService extends Service<PmsServiceManagemen
      * @param map
      * @return
      */
-    List<PmsServiceManagement> selectByconditions(Map<String,Object> map);
+    List<PmsServiceManagement> selectPmsServiceManagementByconditions(Map<String,Object> map);
+    /**
+     * 接单，派单(修改处理状态)
+     * @param id
+     * @return
+     */
+    Integer updateProcessingStateById(@Param("id") Integer id);
+
+    /**
+     * 关闭(修改处理状态为5)
+     * @param id
+     * @return
+     */
+    Integer updateUnwrapById(@Param("id") Integer id);
 }

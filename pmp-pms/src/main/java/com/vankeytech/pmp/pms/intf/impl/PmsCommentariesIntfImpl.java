@@ -17,14 +17,14 @@ import java.util.Map;
 public class PmsCommentariesIntfImpl implements PmsCommentariesIntf{
 
 //    @Resource
-//    private CommonIntf commonIntf;
+//    private co commonIntf;
 
     @Resource
     private PmsCommentariesService pmsCommentariesService;
 
     @Override
-    public List<PmsCommentaries> selectByconditions(Map<String, Object> map) {
-        return pmsCommentariesService.selectByconditions(map);
+    public List<PmsCommentaries> selectPmsCommentariesByconditions(Map<String, Object> map) {
+        return pmsCommentariesService.selectPmsCommentariesByconditions(map);
     }
 
     @Override
@@ -32,8 +32,8 @@ public class PmsCommentariesIntfImpl implements PmsCommentariesIntf{
         return pmsCommentariesService.updateAccordingStateById(id);
     }
 
-//    @Override
-//    public List<Map<String,Object>> selectAllByConcatenon() {
-//        return pmsCommentariesService.selectAllByConcatenon();
-//    }
+    @Override
+    public List<Map<String, Object>> selectAllByConcatenon(List<Integer> ids) {
+        return pmsCommentariesService.selectAllByConcatenon(ids);
+    }
 }

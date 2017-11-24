@@ -26,7 +26,7 @@ public class PmsVisitorsServiceImpl  extends BaseService<PmsVisitors> implements
     private PmsVisitorsService pmsVisitorsService;
 
     @Override
-    public List<PmsVisitors> selectByconditions(Map<String, Object> map) {
-        return pmsVisitorsService.selectByconditions(map);
+    public List<PmsVisitors> selectPmsVisitorsByconditions(Map<String, Object> map) {
+        return pmsVisitorsService.selectPmsVisitorsByconditions(map);
     }
 }

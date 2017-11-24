@@ -17,5 +17,5 @@ public interface PmsInformAnnouncementService extends Service<PmsInformAnnouncem
      * @param map
      * @return
      */
-    List<PmsInformAnnouncement> selectByconditions(Map<String,Object> map);
+    List<PmsInformAnnouncement> selectPmsInformAnnouncementByconditions(Map<String,Object> map);
 }

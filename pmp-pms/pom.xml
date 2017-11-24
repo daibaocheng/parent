@@ -16,11 +16,12 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
+	<!--定义常量参数 可以在当前项目的任何地方引用-->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<!--  MyBatis Generator  -->
+		<!--  MyBatis Generator ${basedir} 为maven的隐式变量 意为当前项目的根目录 -->
 		<!--  Java接口和实体类  -->
 		<targetJavaProject>${basedir}/src/main/java</targetJavaProject>
 		<targetMapperPackage>com.vankeytech.pmp.pms.mapper</targetMapperPackage>
@@ -33,10 +34,10 @@
 
 	<dependencies>
 		<!--  调用common接口  -->
-		<dependency>
-			<groupId>com.vankeytech.pmp</groupId>
-			<artifactId>common</artifactId>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.vankeytech.pmp</groupId>-->
+			<!--<artifactId>common</artifactId>-->
+		<!--</dependency>-->
 		<!--数据库 -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -131,6 +132,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 			</plugin>
+			<!--mybatis反向生成插件-->
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
